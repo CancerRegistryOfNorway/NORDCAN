@@ -1,5 +1,6 @@
 # NORDCAN
 
+# PREAMBLE -------------------------------------------------------------------
 # this script guides you through the process of aggregating statistics for
 # NORDCAN. the final result of the script is a bunch of tables that will be
 # sent to the maintainer of the web platform.
@@ -32,7 +33,13 @@ stopifnot(
   readLines("nordcan.R", n = 1L) == "# NORDCAN"
 )
 
-# INSTALLING R PACKAGES
+# throughout this script, any errors (programme terminations) naturally mean that
+# one cannot proceed and these should be reported. additionally, no warnings
+# are tolerated either because a warning can signify that a programme may finish,
+# but produce incorrect results, which is the worst possible outcome. so report
+# any warnings as well. messages need not be reported.
+
+# INSTALLING R PACKAGES -------------------------------------------------------
 
 # let's install those R packages. they have a numbered order to ensure correct
 # installation.
@@ -43,7 +50,7 @@ install.packages(pkg_paths, repos = NULL)
 
 # it's best to restart R after installing the packages.
 
-# NORDCAN CANCER RECORD DATASET
+# NORDCAN CANCER RECORD DATASET ------------------------------------------------
 
 # load your NORDCAN datasets prepared according to to the call for data
 # specifications into R somehow. for clarity, use the names
@@ -72,6 +79,8 @@ processed_cancer_record_dataset <- nordcanpreprocessing::nordcan_processed_cance
   iarccrgtools_exe_path = "C:/Program Files (x86)/IARCcrgTools/IARCcrgTools.EXE",
   iarccrgtools_work_dir = "iarccrgtools"
 )
+
+# STATISTICS -------------------------------------------------------------------
 
 # now you have the processed dataset. time to compute all the different
 # statistics! the output of the following will be a list, where each element
