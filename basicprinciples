@@ -1,4 +1,0 @@
-We follow Google style guide in R: http://web.stanford.edu/class/cs109l/unrestricted/resources/google-style.html
--- Exception: we write in snake_case, not snail.case or CamelCase
-
-We use as few thirt-party packages as possible. We try to limit to data.table.

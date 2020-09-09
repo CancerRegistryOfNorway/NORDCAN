@@ -1,0 +1,27 @@
+---
+title: "NORDCAN Call For Data"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r, echo = FALSE, results = "asis", warning = FALSE, message = FALSE}
+file_nms <- c(
+  dir("wiki", pattern = "^Call-for-data"),
+  dir("wiki", pattern = "^Specification-")
+)
+file_paths <- paste0("wiki/", file_nms)
+
+cat("Manual built on", as.character(Sys.Date()), "\n\n")
+cat("Manual version", git2r::commits("wiki", n = 1L)[[1L]][["sha"]], "\n\n")
+
+invisible(lapply(file_paths, function(file_path) {
+  cat("\n")
+  cat(readLines(file_path, warn = FALSE), sep = "\n")
+  cat("\n")
+}))
+```
+

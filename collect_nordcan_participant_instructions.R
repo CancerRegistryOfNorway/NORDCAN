@@ -61,6 +61,20 @@ invisible(lapply(1:nrow(pkg_df), function(file_no) {
   message("* done")
 }))
 
+if (dir.exists("wiki")) {
+  unlink(x = "wiki", recursive = TRUE, force = TRUE)
+}
+dir.create("wiki")
+system(
+  "git clone git@github.com:CancerRegistryOfNorway/NORDCAN.wiki.git --depth 1 wiki"
+)
+rmarkdown::render(
+  input = "nordcan_call_for_data_manual.rmd",
+  output_dir = "nordcan_participant_instructions",
+  clean = TRUE,
+  quiet = TRUE
+)
+
 utils::zip(
   zipfile = "nordcan_participant_instructions.zip",
   files = dir("nordcan_participant_instructions", full.names = TRUE, recursive = TRUE)
