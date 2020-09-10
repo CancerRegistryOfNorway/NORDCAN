@@ -1,4 +1,4 @@
-Entity;Level;Grouping;Display_order;Sex;Incidence/prevalence;Mortality;Survival
+entity;level;grouping;display_order;sex;incidence/prevalence;mortality;survival
 10;level_30;sub group;5;0;true;true;true
 20;level_30;sub group;6;0;true;true;true
 30;level_30;sub group;7;0;true;true;true
