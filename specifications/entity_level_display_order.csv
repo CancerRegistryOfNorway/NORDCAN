@@ -1,0 +1,90 @@
+Entity;Level;Grouping;Display_order;Sex;Incidence/prevalence;Mortality;Survival
+10;level_30;sub group;5;0;true;true;true
+20;level_30;sub group;6;0;true;true;true
+30;level_30;sub group;7;0;true;true;true
+40;level_30;sub group;8;0;true;true;true
+41;level_30;sub group;9;0;true;true;true
+50;level_30;sub group;10;0;true;true;true
+51;level_30;sub group;11;0;true;true;true
+60;level_30;both main group and sub group;12;0;true;true;true
+70;level_30;both main group and sub group;13;0;true;true;true
+80;level_30;both main group and sub group;14;0;true;true;true
+90;level_30;sub group;16;0;true;true;true
+100;level_30;sub group;17;0;true;true;true
+110;level_30;both main group and sub group;18;0;true;true;true
+120;level_30;both main group and sub group;19;0;true;true;true
+130;level_30;both main group and sub group;20;0;true;true;true
+140;level_30;both main group and sub group;21;0;true;true;true
+150;level_30;both main group and sub group;22;0;true;true;true
+160;level_30;both main group and sub group;23;0;true;true;true
+170;level_30;both main group and sub group;24;0;true;true;true
+180;level_30;both main group and sub group;25;0;true;true;true
+190;level_30;both main group and sub group;26;2;true;true;true
+200;level_30;both main group and sub group;27;2;true;true;true
+210;level_30;both main group and sub group;28;2;true;true;true
+220;level_30;both main group and sub group;29;2;true;true;true
+227;level_30;sub group;31;2;true;true;false
+228;level_30;sub group;32;2;true;true;false
+229;level_30;sub group;33;2;true;true;false
+230;level_20;main group;30;2;true;true;true
+240;level_30;both main group and sub group;34;1;true;true;true
+250;level_30;both main group and sub group;35;1;true;true;true
+260;level_30;both main group and sub group;36;1;true;true;true
+270;level_30;both main group and sub group;37;0;true;true;true
+280;level_30;both main group and sub group;38;0;true;true;true
+290;level_30;both main group and sub group;39;0;true;true;true
+300;level_30;both main group and sub group;40;0;true;true;true
+310;level_30;both main group and sub group;41;0;true;true;true
+316;level_30;sub group;43;0;true;false;false
+317;level_30;sub group;44;0;true;false;false
+318;level_30;sub group;45;0;true;false;false
+319;level_30;sub group;46;0;true;false;false
+320;level_20;main group;42;0;true;true;true
+330;level_30;both main group and sub group;47;0;true;true;true
+340;level_30;both main group and sub group;48;0;true;true;true
+350;level_30;both main group and sub group;49;0;true;true;true
+360;level_20;main group;50;0;true;true;true
+370;level_20;main group;51;0;true;true;true
+380;level_20;main group;52;0;true;true;true
+390;level_20;main group;53;0;true;true;true
+392;level_20;main group;64;0;true;true;true
+394;level_20;main group;65;0;true;true;true
+401;level_20;main group;66;0;true;true;true
+402;level_20;main group;67;0;true;true;true
+403;level_20;main group;68;0;true;true;true
+404;level_20;main group;69;0;true;true;true
+405;level_20;main group;70;0;true;true;true
+406;level_20;main group;71;0;true;true;true
+407;level_20;main group;72;0;true;true;true
+410;level_30;both main group and sub group;86;0;true;true;true
+420;level_30;both main group and sub group;87;0;true;true;true
+431;level_30;sub group;54;0;true;true;false
+434;level_30;sub group;55;0;true;true;false
+435;level_30;sub group;73;0;true;true;false
+436;level_30;sub group;74;0;true;true;false
+437;level_30;sub group;56;0;true;true;false
+438;level_30;sub group;57;0;true;true;false
+439;level_30;sub group;58;0;true;true;false
+440;level_30;sub group;59;0;true;true;false
+441;level_30;sub group;60;0;true;true;false
+442;level_30;sub group;61;0;true;true;false
+443;level_30;sub group;62;0;true;true;false
+444;level_30;sub group;75;0;true;true;false
+445;level_30;sub group;63;0;true;true;false
+446;level_30;sub group;76;0;true;true;false
+448;level_30;sub group;77;0;true;true;false
+449;level_30;sub group;78;0;true;true;false
+450;level_30;sub group;79;0;true;true;false
+451;level_30;sub group;80;0;true;true;false
+452;level_30;sub group;81;0;true;true;false
+453;level_30;sub group;82;0;true;true;false
+454;level_30;sub group;83;0;true;true;false
+455;level_30;sub group;84;0;true;true;false
+456;level_30;sub group;85;0;true;true;false
+510;level_20;main group;4;0;true;true;true
+520;level_20;main group;15;0;true;true;true
+888;level_30;;;0;false;false;false
+970;level_12;all sites;3;0;true;true;true
+980;level_10;all sites;1;0;true;true;true
+990;level_11;all sites;2;0;true;true;true
+999;level_30;;;0;false;false;false
