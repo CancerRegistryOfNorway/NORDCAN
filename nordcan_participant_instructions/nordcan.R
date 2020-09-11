@@ -55,7 +55,7 @@ install.packages(pkg_paths, repos = NULL)
 # load your NORDCAN datasets prepared according to to the call for data
 # specifications into R somehow. for clarity, use the names
 # unprocessed_cancer_record_dataset, general_population_size_dataset, and
-# general_population_survival_dataset (+general_population_death_count_dataset,
+# national_population_life_table (+general_population_death_count_dataset,
 # if applicable; at the time of writing this, Finland computes death counts
 # using their cancer record dataset and does not have this dataset in advance)
 # as the names of the objects in R.
@@ -96,7 +96,7 @@ statistics <- nordcanepistats::nordcan_statistics(
   datasets = list(
     processed_cancer_record_dataset = processed_cancer_record_dataset,
     general_population_size_dataset = general_population_size_dataset,
-    general_population_survival_dataset = general_population_survival_dataset,
+    national_population_life_table = national_population_life_table,
     general_population_death_count_dataset = general_population_death_count_dataset
   ),
   stata_exe_path = "C:/Program Files/Stata/stata.exe",
