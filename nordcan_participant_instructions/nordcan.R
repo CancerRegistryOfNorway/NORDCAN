@@ -28,6 +28,7 @@ stopifnot(
 )
 nordcancore::nordcan_settings(
   work_dir = ".",
+  country_name = "finland",
   stat_cancer_record_count_year_first = 1952L,
   stat_cancer_record_count_year_last = 2018L,
   stat_prevalent_subject_count_year_first = 1952L,
