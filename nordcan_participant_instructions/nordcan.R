@@ -85,6 +85,15 @@ processed_cancer_record_dataset <- nordcanpreprocessing::nordcan_processed_cance
   iarccrgtools_exe_path = "C:/Program Files (x86)/IARCcrgTools/IARCcrgTools.EXE"
 )
 
+# it's best to save this on disk so if you come back to it later you don't need
+# to re-run everything. but this is an optional step!
+saveRDS(
+  processed_cancer_record_dataset, 
+  "processed_cancer_record_dataset.rds"
+)
+# you can read this back into R using
+# processed_cancer_record_dataset <- readRDS("processed_cancer_record_dataset.rds")
+
 # STATISTICS -------------------------------------------------------------------
 
 # now you have the processed dataset. time to compute all the different
