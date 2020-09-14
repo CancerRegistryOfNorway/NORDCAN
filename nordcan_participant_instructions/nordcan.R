@@ -22,15 +22,20 @@
 # follow, and you can make sure nothing sensitive is written anywhere you
 # don't know about.
 
-# in what follows, this script assumes that you have some separate folder for
-# NORDCAN work with the sub-directories "iarccrgtools" and "stata_survival", that your
-# NORDCAN folder is the current working directory, and that this script and all
-# other files that came with it is in your NORDCAN folder.
 stopifnot(
   "nordcan.R" %in% dir(),
-  dir.exists("iarccrgtools"),
-  dir.exists("stata_survival"),
   readLines("nordcan.R", n = 1L) == "# NORDCAN"
+)
+nordcancore::nordcan_settings(
+  work_dir = ".",
+  stat_cancer_record_count_year_first = 1952L,
+  stat_cancer_record_count_year_last = 2018L,
+  stat_prevalent_subject_count_year_first = 1952L,
+  stat_prevalent_subject_count_year_last = 2018L,
+  stat_cancer_death_count_year_first = 1952L,
+  stat_cancer_death_count_year_last = 2018L,
+  stat_survival_follow_up_year_first = 1952L,
+  stat_survival_follow_up_year_last = 2018L
 )
 
 # throughout this script, any errors (programme terminations) naturally mean that
@@ -76,8 +81,7 @@ install.packages(pkg_paths, repos = NULL)
 # and then run the command again.
 processed_cancer_record_dataset <- nordcanpreprocessing::nordcan_processed_cancer_record_dataset(
   x = unprocessed_cancer_record_dataset,
-  iarccrgtools_exe_path = "C:/Program Files (x86)/IARCcrgTools/IARCcrgTools.EXE",
-  iarccrgtools_work_dir = "iarccrgtools"
+  iarccrgtools_exe_path = "C:/Program Files (x86)/IARCcrgTools/IARCcrgTools.EXE"
 )
 
 # STATISTICS -------------------------------------------------------------------
@@ -99,8 +103,7 @@ statistics <- nordcanepistats::nordcan_statistics(
     national_population_life_table = national_population_life_table,
     general_population_death_count_dataset = general_population_death_count_dataset
   ),
-  stata_exe_path = "C:/Program Files/Stata/stata.exe",
-  stata_work_dir = "stata_survival"
+  stata_exe_path = "C:/Program Files/Stata/stata.exe"
 )
 
 # you may inspect the results as you wish. e.g. here's the table containing
