@@ -1,9 +1,11 @@
 # NORDCAN
 
-# PREAMBLE -------------------------------------------------------------------
+# PREAMBLE - YES WE NORDCAN ---------------------------------------------------
 # this script guides you through the process of aggregating statistics for
-# NORDCAN. the final result of the script is a bunch of tables that will be
-# sent to the maintainer of the web platform.
+# NORDCAN. the final result of the script is a bunch of tables that can be
+# sent to the maintainer of the web platform. in the current beta test
+# nothing will be sent anywhere. instead we only want to ensure that everything
+# works as intended.
 
 # before using the NORDCAN R framework, you should make sure you have the latest
 # version of R installed and that you can install packages from .tar.gz files
@@ -13,30 +15,15 @@
 # below.
 
 # we recommend that you have a separate folder somewhere on a hard drive for
-# NORDCAN work, e.g. "C:/some/where/nordcan/". you should create
-# a sub-folder "iarccrgtools" to be used by IARC CRG Tools (e.g.
-# "C:/some/where/nordcan/iarccrgtools/"), and "stata_survival" to be used to store
-# data for computing survival using Stata (e.g.
-# "C:/some/where/nordcan/stata_survival/"). you could use any folder, including
-# Windows temporary directories, but this is the way that is the easiest to
-# follow, and you can make sure nothing sensitive is written anywhere you
-# don't know about.
-
+# NORDCAN work, e.g. "C:/some/where/nordcan/". for clarity, you should set it as 
+# the the working directory using setwd() if necessary, so that anything and
+# everything that is written to disk is written into the current working 
+# directory. you must also move all the contents of the instructions you were
+# sent, including this script, to the same folder. the following checks that
+# you have followed these instructions:
 stopifnot(
   "nordcan.R" %in% dir(),
   readLines("nordcan.R", n = 1L) == "# NORDCAN"
-)
-nordcancore::nordcan_settings(
-  work_dir = ".",
-  country_name = "finland",
-  stat_cancer_record_count_year_first = 1952L,
-  stat_cancer_record_count_year_last = 2018L,
-  stat_prevalent_subject_count_year_first = 1952L,
-  stat_prevalent_subject_count_year_last = 2018L,
-  stat_cancer_death_count_year_first = 1952L,
-  stat_cancer_death_count_year_last = 2018L,
-  stat_survival_follow_up_year_first = 1952L,
-  stat_survival_follow_up_year_last = 2018L
 )
 
 # throughout this script, any errors (programme terminations) naturally mean that
@@ -54,19 +41,39 @@ pkg_paths <- dir(
 )
 install.packages(pkg_paths, repos = NULL)
 
-# it's best to restart R after installing the packages.
+# it's best to restart R after installing the packages. you only need to install
+# them once, unless patched versions of the packages are sent to you.
 
 # NORDCAN CANCER RECORD DATASET ------------------------------------------------
 
 # load your NORDCAN datasets prepared according to to the call for data
 # specifications into R somehow. for clarity, use the names
 # unprocessed_cancer_record_dataset, general_population_size_dataset, and
-# national_population_life_table (+general_population_death_count_dataset,
+# national_population_life_table (+unprocessed_cancer_death_count_dataset,
 # if applicable; at the time of writing this, Finland computes death counts
 # using their cancer record dataset and does not have this dataset in advance)
 # as the names of the objects in R.
 
-# now we assume you have the datasets in R as objects by the names given above.
+# next you need to set global settings for the NORDCAN software so that e.g.
+# statistics are only produced for the range of years that you know
+# is possible or reasonable. the values in the function call below
+# are examples and you should replace them with values that apply to
+# your case. the exception is the work_dir: this is recommended to remain
+# ".". this causes NORDCAN software to create directories under the
+# work_dir to be used for storing files (temporarily) on-disk.
+# for more information about the settings, enter this into console:
+# ?nordcancore::nordcan_settings
+nordcancore::nordcan_settings(
+  work_dir = getwd(),
+  country_name = "Finland",
+  stat_cancer_record_count_first_year = 1953L,
+  stat_prevalent_subject_count_first_year = 1967L,
+  stat_cancer_death_count_first_year = 1953L,
+  stat_survival_follow_up_first_year = 1967L,
+)
+
+# now we assume that you have the correct settings and 
+# you have the datasets in R as objects by the names given above.
 # the command below checks and and adds new columns into your NORDCAN dataset.
 # it uses results from IARC CRG Tools. the programme will write files for
 # IARC CRG Tools into the folder "iarccrgtools", and you will use IARC CRG Tools
@@ -75,7 +82,7 @@ install.packages(pkg_paths, repos = NULL)
 # into R by the programme after you give it permission. you need to know
 # where the executable for IARC CRG Tools is; here we use an example location.
 # the process can take a few minutes.
-#
+
 # if there are problems in your dataset, the original dataset will be returned
 # with problematic rows marked clearly in the column named "problem". please
 # fix the problems by modifying or dropping rows depending on the problem
@@ -97,21 +104,50 @@ saveRDS(
 # STATISTICS -------------------------------------------------------------------
 
 # now you have the processed dataset. time to compute all the different
-# statistics! the output of the following will be a list, where each element
+# statistics! first the counts of cancer deaths.
+
+# You need to form `cancer_death_count_dataset` yourself using the raw data
+# you have using one of two methods.
+# If you have a dataset of cancer death counts as described in the call for
+# data, do
+
+cdcd <- nordcanpreprocessing::nordcan_processed_cancer_death_count_dataset(
+  my_raw_cdcd
+)
+
+# where `my_raw_cdcd` is your dataset of cancer death counts as per the call
+# for data.
+
+# If you want to compute the counts using your cancer record dataset, do
+
+cdcd <- nordcanepistats::nordcanstat_count(
+  processed_cancer_record_dataset,
+  by = c("sex", "entity", "yoi", "region", "agegroup"),
+  subset = died_from_cancer == TRUE
+)
+data.table::setnames(cdcd,
+                     c("N", "yoi"), c("death_count", "year"))
+
+# where `processed_cancer_record_dataset` is your cancer record dataset after
+# processing
+# (see [nordcanpreprocessing::nordcan_processed_cancer_record_dataset]),
+# and in this example the information on who died of which cancer is identified
+# in the logical vector `died_from_cancer`, which you need to define. It should
+# be of length `nrow(processed_cancer_record_dataset)`. One person can
+# naturally only die once, so there can be at most one `TRUE` value per person.
+
+# now to produce the rest of the statistics.
+# the output of the following will be a list, where each element
 # of the list is a data.table for one type of statistic, e.g. one table
 # for all cancer case counts, one for prevalent patients, etc.
 # computing survival uses Stata, so you need to supply the path to your Stata
-# executable. the one below is only an example.
-# we also supply a working directory for (temporarily) storing data for Stata
-# as well as its output. notice that if you don't have a pre-aggregated
-# general_population_death_count_dataset, then simply omit it from the list
-# of datasets.
-statistics <- nordcanepistats::nordcan_statistics(
+# executable. the one below is only an example. 
+statistics <- nordcanepistats::nordcan_statistics_tables(
   datasets = list(
-    processed_cancer_record_dataset = processed_cancer_record_dataset,
+    cancer_record_dataset = processed_cancer_record_dataset,
     general_population_size_dataset = general_population_size_dataset,
     national_population_life_table = national_population_life_table,
-    general_population_death_count_dataset = general_population_death_count_dataset
+    cancer_death_count_dataset = cancer_death_count_dataset
   ),
   stata_exe_path = "C:/Program Files/Stata/stata.exe"
 )
@@ -122,7 +158,7 @@ print(statistics[["cancer_case_count_dataset"]])
 
 # the final step is to create a .zip file containing all the statistics and
 # some basic information about your system, R, and R packages (and
-# no sensitive information whatsoever, not even hard drive paths)
+# no sensitive information whatsoever, not even file or directory paths)
 nordcanepistats::write_nordcan_statistics(
   statistics = statistics,
   file_path = "nordcan_statistics_finland_2020.zip"
