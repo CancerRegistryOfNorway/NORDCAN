@@ -15,9 +15,9 @@
 # below.
 
 # we recommend that you have a separate folder somewhere on a hard drive for
-# NORDCAN work, e.g. "C:/some/where/nordcan/". for clarity, you should set it as 
+# NORDCAN work, e.g. "C:/some/where/nordcan/". for clarity, you should set it as
 # the the working directory using setwd() if necessary, so that anything and
-# everything that is written to disk is written into the current working 
+# everything that is written to disk is written into the current working
 # directory. you must also move all the contents of the instructions you were
 # sent, including this script, to the same folder. the following checks that
 # you have followed these instructions:
@@ -37,9 +37,14 @@ stopifnot(
 # let's install those R packages. they have a numbered order to ensure correct
 # installation.
 pkg_paths <- dir(
-  path = "pkgs", pattern = "^pkg_[0-9]+_.+\\.tar\\.gz$", full.names = TRUE
+  path = "pkgs", pattern = "^pkg_[0-9]+_.+\\.zip$", full.names = TRUE
 )
-install.packages(pkg_paths, repos = NULL)
+invisible(lapply(pkg_paths, function(pkg_path) {
+  clean_pkg_path <- sub("pkg_[0-9]+_", "", pkg_path)
+  file.rename(pkg_path, clean_pkg_path)
+  install.packages(clean_pkg_path, repos = NULL, type = "win.binary")
+  file.rename(clean_pkg_path, pkg_path)
+}))
 
 # it's best to restart R after installing the packages. you only need to install
 # them once, unless patched versions of the packages are sent to you.
@@ -72,7 +77,7 @@ nordcancore::nordcan_settings(
   stat_survival_follow_up_first_year = 1967L,
 )
 
-# now we assume that you have the correct settings and 
+# now we assume that you have the correct settings and
 # you have the datasets in R as objects by the names given above.
 # the command below checks and and adds new columns into your NORDCAN dataset.
 # it uses results from IARC CRG Tools. the programme will write files for
@@ -95,7 +100,7 @@ processed_cancer_record_dataset <- nordcanpreprocessing::nordcan_processed_cance
 # it's best to save this on disk so if you come back to it later you don't need
 # to re-run everything. but this is an optional step!
 saveRDS(
-  processed_cancer_record_dataset, 
+  processed_cancer_record_dataset,
   "processed_cancer_record_dataset.rds"
 )
 # you can read this back into R using
@@ -141,7 +146,7 @@ data.table::setnames(cdcd,
 # of the list is a data.table for one type of statistic, e.g. one table
 # for all cancer case counts, one for prevalent patients, etc.
 # computing survival uses Stata, so you need to supply the path to your Stata
-# executable. the one below is only an example. 
+# executable. the one below is only an example.
 statistics <- nordcanepistats::nordcan_statistics_tables(
   datasets = list(
     cancer_record_dataset = processed_cancer_record_dataset,
