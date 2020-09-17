@@ -118,6 +118,7 @@ invisible(lapply(1:nrow(pkg_df), function(file_no) {
   clean_zip_path <- sub("pkg_[0-9]+_", "", zip_path)
   file.copy(zip_path, clean_zip_path)
   install.packages(pkgs = clean_zip_path, repos = NULL, type = "win.binary")
+  file.remove(clean_zip_path)
   message("* done")
 }))
 
