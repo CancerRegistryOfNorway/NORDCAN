@@ -137,7 +137,8 @@ rmarkdown::render(
 
 utils::zip(
   zipfile = "nordcan_participant_instructions.zip",
-  files = dir("nordcan_participant_instructions", full.names = TRUE, recursive = TRUE)
+  files = dir("nordcan_participant_instructions",
+              full.names = TRUE, recursive = TRUE)
 )
 
 
