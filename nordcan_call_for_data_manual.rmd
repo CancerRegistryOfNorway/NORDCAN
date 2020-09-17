@@ -3,6 +3,10 @@ title: "NORDCAN Call For Data"
 output: html_document
 ---
 
+- document build date: `r as.character(Sys.Date())`
+- build code version: `r git2r::commits(n = 1L)[[1L]][["sha"]]`
+- wiki version: `r git2r::commits("wiki", n = 1L)[[1L]][["sha"]]`
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -15,8 +19,6 @@ file_nms <- c(
 )
 file_paths <- paste0("wiki/", file_nms)
 
-cat("Manual built on", as.character(Sys.Date()), "\n\n")
-cat("Manual version", git2r::commits("wiki", n = 1L)[[1L]][["sha"]], "\n\n")
 
 invisible(lapply(file_paths, function(file_path) {
   cat("\n")
