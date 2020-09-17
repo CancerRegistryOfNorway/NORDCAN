@@ -107,6 +107,10 @@ saveRDS(
 # you can read this back into R using
 # processed_cancer_record_dataset <- readRDS("processed_cancer_record_dataset.rds")
 
+# at this point you may, if you wish, save some RAM by removing the
+# unprocessed cancer dataset from memory. you do not need it anymore.
+rm(list = "unprocessed_cancer_record_dataset")
+
 # STATISTICS -------------------------------------------------------------------
 
 # now you have the processed dataset. time to compute all the different
@@ -166,16 +170,9 @@ statistics <- nordcanepistats::nordcan_statistics_tables(
 # cancer case counts:
 print(statistics[["cancer_case_count_dataset"]])
 
-# the final step is to create a .zip file containing all the statistics and
-# some basic information about your system, R, and R packages (and
-# no sensitive information whatsoever, not even file or directory paths)
-nordcanepistats::write_nordcan_statistics(
-  statistics = statistics,
-  file_path = "nordcan_statistics_finland_2020.zip"
-)
 
 # and that's all for now. thanks for participating! in the official
-# release the resulting .zip file will also be sent to the maintainer of the
+# release the a .zuo file will also be created and sent to the maintainer of the
 # NORDCAN website. instructions on how to do that will be given at that
 # point.
 
