@@ -1,6 +1,17 @@
 
 ## Beta instructions
 
+### To beta participants
+
+Thank you for participating in the NORDCAN beta! Yes we NORDCAN!
+
+The participation starts with the NORDCAN dev team sending an (this) e-mail letting
+you know that the beta has started. The software and other information is sent
+in a second e-mail right after the first one. If you did not receive a second e-mail
+with a zip file within an hour of receiving the first one, check your spam folders.
+If you still cannot locate the e-mail with the zip file, contact
+Joonas.miettinen@cancer.fi.
+
 ### Beta contact info
 
 We are available on the NORDCAN slack if you encounter a problem with our

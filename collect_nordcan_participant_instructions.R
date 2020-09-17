@@ -126,7 +126,8 @@ if (dir.exists("wiki")) {
 dir.create("wiki")
 git2r::clone(
   "https://github.com/CancerRegistryOfNorway/NORDCAN.wiki.git",
-  local_path = "wiki"
+  local_path = "wiki",
+  progress = FALSE
 )
 rmarkdown::render(
   input = "nordcan_call_for_data_manual.rmd",
@@ -135,10 +136,11 @@ rmarkdown::render(
   quiet = TRUE
 )
 
+setwd("nordcan_participant_instructions/")
 utils::zip(
   zipfile = "nordcan_participant_instructions.zip",
-  files = dir("nordcan_participant_instructions",
-              full.names = TRUE, recursive = TRUE)
+  files = dir(".", full.names = TRUE, recursive = TRUE)
 )
+setwd("..")
 
 
