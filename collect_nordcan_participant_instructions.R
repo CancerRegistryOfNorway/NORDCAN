@@ -56,13 +56,20 @@ pkg_df[["file_path"]] <- paste0(
 )
 
 ssh_folder <- readline("ssh_folder = ")
+public_ssh_key <- paste0(ssh_folder, "id_rsa.pub")
+private_ssh_key <- paste0(ssh_folder, "id_rsa")
+stopifnot(
+  dir.exists(ssh_folder),
+  file.exists(public_ssh_key),
+  file.exists(private_ssh_key)
+)
 
 invisible(lapply(1:nrow(pkg_df), function(file_no) {
   file_path <- pkg_df[["file_path"]][file_no]
   url <- pkg_df[["url"]][file_no]
   url_ext <- sub(".+\\.(?=[a-z]{3}$)", "", url, perl = TRUE)
   if (url_ext == "git") {
-    repo_dir <- sub("\\..+$", "", file_path)
+    repo_dir <- tempdir()
     if (dir.exists(repo_dir)) {
       unlink(repo_dir, recursive = TRUE, force = TRUE)
     }
@@ -71,8 +78,8 @@ invisible(lapply(1:nrow(pkg_df), function(file_no) {
       url = url,
       local_path = repo_dir,
       credentials = git2r::cred_ssh_key(
-        publickey = paste0(ssh_folder, "id_rsa.pub"),
-        privatekey = paste0(ssh_folder, "id_rsa")
+        publickey = public_ssh_key,
+        privatekey = private_ssh_key
       ),
       progress = FALSE
     )

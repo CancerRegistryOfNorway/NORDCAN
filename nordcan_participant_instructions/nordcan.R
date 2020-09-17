@@ -42,6 +42,7 @@ pkg_paths <- dir(
 invisible(lapply(pkg_paths, function(pkg_path) {
   clean_pkg_path <- sub("pkg_[0-9]+_", "", pkg_path)
   file.rename(pkg_path, clean_pkg_path)
+  pkg_nm <- gsub("(\\.zip)|(pkgs[\\/])", "", clean_pkg_path)
   install.packages(clean_pkg_path, repos = NULL, type = "win.binary")
   file.rename(clean_pkg_path, pkg_path)
 }))
@@ -68,13 +69,13 @@ invisible(lapply(pkg_paths, function(pkg_path) {
 # work_dir to be used for storing files (temporarily) on-disk.
 # for more information about the settings, enter this into console:
 # ?nordcancore::nordcan_settings
-nordcancore::nordcan_settings(
+nordcancore::set_global_nordcan_settings(
   work_dir = getwd(),
-  country_name = "Finland",
+  participant_name = "Finland",
   stat_cancer_record_count_first_year = 1953L,
   stat_prevalent_subject_count_first_year = 1967L,
   stat_cancer_death_count_first_year = 1953L,
-  stat_survival_follow_up_first_year = 1967L,
+  stat_survival_follow_up_first_year = 1967L
 )
 
 # now we assume that you have the correct settings and
@@ -128,10 +129,11 @@ cdcd <- nordcanpreprocessing::nordcan_processed_cancer_death_count_dataset(
 cdcd <- nordcanepistats::nordcanstat_count(
   processed_cancer_record_dataset,
   by = c("sex", "entity", "yoi", "region", "agegroup"),
-  subset = died_from_cancer == TRUE
+  subset = processed_cancer_record_dataset$died_from_cancer == TRUE
 )
-data.table::setnames(cdcd,
-                     c("N", "yoi"), c("death_count", "year"))
+data.table::setnames(
+  cdcd, c("N", "yoi"), c("death_count", "year")
+)
 
 # where `processed_cancer_record_dataset` is your cancer record dataset after
 # processing
@@ -147,14 +149,17 @@ data.table::setnames(cdcd,
 # for all cancer case counts, one for prevalent patients, etc.
 # computing survival uses Stata, so you need to supply the path to your Stata
 # executable. the one below is only an example.
+
+# computing survival requires saving a few files into the directory "survival".
+# this includes some log files. if you have problems computing survival,
+# you will be asked to look at the files and logs there.
+
 statistics <- nordcanepistats::nordcan_statistics_tables(
-  datasets = list(
-    cancer_record_dataset = processed_cancer_record_dataset,
-    general_population_size_dataset = general_population_size_dataset,
-    national_population_life_table = national_population_life_table,
-    cancer_death_count_dataset = cancer_death_count_dataset
-  ),
-  stata_exe_path = "C:/Program Files/Stata/stata.exe"
+  cancer_record_dataset = processed_cancer_record_dataset,
+  general_population_size_dataset = general_population_size_dataset,
+  national_population_life_table = national_population_life_table,
+  cancer_death_count_dataset = cancer_death_count_dataset,
+  stata_exe_path = "C:/Program Files (x86)/Stata14/StataMP-64.exe"
 )
 
 # you may inspect the results as you wish. e.g. here's the table containing
