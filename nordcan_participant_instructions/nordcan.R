@@ -8,9 +8,8 @@
 # works as intended.
 
 # before using the NORDCAN R framework, you should make sure you have the latest
-# version of R installed and that you can install packages from .tar.gz files
-# (so-called "tarballs").
-# accompanying this script is a number of .tar.gz files which contain R packages
+# version of R installed and that you can install packages from .zip files.
+# accompanying this script is a number of .zip files which contain R packages
 # necessary to go through the process. the code to install them all can be found
 # below.
 
@@ -50,22 +49,26 @@ invisible(lapply(pkg_paths, function(pkg_path) {
 # it's best to restart R after installing the packages. you only need to install
 # them once, unless patched versions of the packages are sent to you.
 
+# if you have trouble installing any of the packages, the tried and true method
+# is to restart R all R sessions you have and try again.
+
 # NORDCAN CANCER RECORD DATASET ------------------------------------------------
 
-# load your NORDCAN datasets prepared according to to the call for data
-# specifications into R somehow. for clarity, use the names
+# load your NORDCAN datasets prepared according to the call for data
+# specifications into R somehow. if you have .csv files, we recommend
+# data.table::fread.  for clarity, use the names
 # unprocessed_cancer_record_dataset, general_population_size_dataset, and
-# national_population_life_table (+unprocessed_cancer_death_count_dataset,
+# national_population_life_table  as the names of the objects in R.
+# (+unprocessed_cancer_death_count_dataset,
 # if applicable; at the time of writing this, Finland computes death counts
 # using their cancer record dataset and does not have this dataset in advance)
-# as the names of the objects in R.
 
 # next you need to set global settings for the NORDCAN software so that e.g.
 # statistics are only produced for the range of years that you know
 # is possible or reasonable. the values in the function call below
 # are examples and you should replace them with values that apply to
 # your case. the exception is the work_dir: this is recommended to remain
-# ".". this causes NORDCAN software to create directories under the
+# as it is. this causes NORDCAN software to create directories under the
 # work_dir to be used for storing files (temporarily) on-disk.
 # for more information about the settings, enter this into console:
 # ?nordcancore::nordcan_settings
@@ -121,23 +124,18 @@ rm(list = "unprocessed_cancer_record_dataset")
 # If you have a dataset of cancer death counts as described in the call for
 # data, do
 
-cdcd <- nordcanpreprocessing::nordcan_processed_cancer_death_count_dataset(
-  my_raw_cdcd
+cancer_death_count_dataset <- nordcanpreprocessing::nordcan_processed_cancer_death_count_dataset(
+  unprocessed_cancer_death_count_dataset
 )
-
-# where `my_raw_cdcd` is your dataset of cancer death counts as per the call
-# for data.
 
 # If you want to compute the counts using your cancer record dataset, do
 
-cdcd <- nordcanepistats::nordcanstat_count(
+cancer_death_count_dataset <- nordcanepistats::nordcanstat_count(
   processed_cancer_record_dataset,
   by = c("sex", "entity", "yoi", "region", "agegroup"),
   subset = processed_cancer_record_dataset$died_from_cancer == TRUE
 )
-data.table::setnames(
-  cdcd, c("N", "yoi"), c("death_count", "year")
-)
+data.table::setnames(cancer_death_count_dataset, c("N", "yoi"), c("death_count", "year"))
 
 # where `processed_cancer_record_dataset` is your cancer record dataset after
 # processing
@@ -168,11 +166,11 @@ statistics <- nordcanepistats::nordcan_statistics_tables(
 
 # you may inspect the results as you wish. e.g. here's the table containing
 # cancer case counts:
-print(statistics[["cancer_case_count_dataset"]])
+print(statistics[["survival_quality_dataset"]])
 
 
 # and that's all for now. thanks for participating! in the official
-# release the a .zuo file will also be created and sent to the maintainer of the
+# release the a .zip file will also be created and sent to the maintainer of the
 # NORDCAN website. instructions on how to do that will be given at that
 # point.
 
