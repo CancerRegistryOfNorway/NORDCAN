@@ -48,6 +48,12 @@ any column that you don't have at all in your data, you should mark missing for
 all records (e.g. grade may not be available for all participants). For other
 datasets you should collect all columns as requested.
 
+### What is tested
+
+We test everything except estimating survival this time. You should prepare
+the life table dataset anyway, because inspecting the different datasets
+is part of our software and worth testing in itself.
+
 ### What to expect
 
 In this beta test we mainly want to see how far we can get with the current
