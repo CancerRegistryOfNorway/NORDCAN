@@ -3,7 +3,7 @@
 library("devtools")
 library("git2r")
 
-cran_pkg_nms <- "data.table"
+cran_pkg_nms <- c("digest", "data.table")
 
 github_support_pkg_nms <- c(
   "dbc",
@@ -21,14 +21,16 @@ github_nordcan_pkg_nms <- c(
 pkg_df <- rbind(
   data.frame(
     pkg_nm = cran_pkg_nms,
-    url = "https://cran.r-project.org/bin/windows/contrib/4.0/data.table_1.13.0.zip"
-    # url = "https://cran.r-project.org/src/contrib/data.table_1.13.0.tar.gz"
+    url = c(
+      "https://cran.r-project.org/bin/windows/contrib/4.0/digest_0.6.25.zip",
+      "https://cran.r-project.org/bin/windows/contrib/4.0/data.table_1.13.0.zip"
+    )
   ),
   data.frame(
     pkg_nm = github_support_pkg_nms,
     url = paste0(
       "git@github.com:WetRobot/", github_support_pkg_nms, ".git"
-      )
+    )
   ),
   data.frame(
     pkg_nm = github_nordcan_pkg_nms,
@@ -42,7 +44,7 @@ pkg_df <- rbind(
 
 pkg_df[["file_nm"]] <- paste0(
   "pkg_", 1:nrow(pkg_df), "_", pkg_df[["pkg_nm"]],
-  rep(c(".zip", ".tar.gz"), times = c(1L, nrow(pkg_df) - 1L))
+  rep(c(".zip", ".tar.gz"), times = c(2L, nrow(pkg_df) - 2L))
 )
 
 if (!dir.exists("nordcan_participant_instructions")) {
@@ -66,6 +68,7 @@ stopifnot(
 
 invisible(lapply(1:nrow(pkg_df), function(file_no) {
   file_path <- pkg_df[["file_path"]][file_no]
+  zip_path <- sub("\\Q.tar.gz\\E$", ".zip", file_path)
   url <- pkg_df[["url"]][file_no]
   url_ext <- sub(".+\\.(?=[a-z]{3}$)", "", url, perl = TRUE)
   if (url_ext == "git") {
@@ -83,9 +86,8 @@ invisible(lapply(1:nrow(pkg_df), function(file_no) {
       ),
       progress = FALSE
     )
-    devtools::install_git(repo_dir, upgrade = "never")
-    zip_path <- sub("\\Q.tar.gz\\E$", ".zip", file_path)
-    devtools::build(repo_dir, path = zip_path, binary = TRUE)
+    # devtools::install_git(repo_dir, upgrade = "never", quiet = TRUE)
+    devtools::build(repo_dir, path = zip_path, binary = TRUE, quiet = TRUE)
     message(
       "* building windows binary of ", repo_dir, " to ", zip_path, "..."
     )
@@ -99,8 +101,7 @@ invisible(lapply(1:nrow(pkg_df), function(file_no) {
     )
 
     if (grepl("\\Q.tar.gz\\E", file_path)) {
-      install.packages(file_path, repos = NULL, type = "source")
-      zip_path <- sub("\\Q.tar.gz\\E$", ".zip", file_path)
+      # install.packages(file_path, repos = NULL, type = "source")
       message(
         "* building windows binary of ", file_path, " to ", zip_path, "..."
       )
@@ -111,12 +112,12 @@ invisible(lapply(1:nrow(pkg_df), function(file_no) {
         quiet = TRUE
       )
       file.remove(file_path)
-    } else {
-      # install.packages(file_path, repos = NULL, type = "win.binary")
     }
-
   }
 
+  clean_zip_path <- sub("pkg_[0-9]+_", "", zip_path)
+  file.copy(zip_path, clean_zip_path)
+  install.packages(pkgs = clean_zip_path, repos = NULL, type = "win.binary")
   message("* done")
 }))
 
