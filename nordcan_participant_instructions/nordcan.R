@@ -50,18 +50,33 @@ invisible(lapply(pkg_paths, function(pkg_path) {
 # them once, unless patched versions of the packages are sent to you.
 
 # if you have trouble installing any of the packages, the tried and true method
-# is to restart R all R sessions you have and try again.
+# is to restart all R sessions you have and try again.
 
 # NORDCAN CANCER RECORD DATASET ------------------------------------------------
 
 # load your NORDCAN datasets prepared according to the call for data
 # specifications into R somehow. if you have .csv files, we recommend
-# data.table::fread.  for clarity, use the names
+# data.table::fread. for clarity, use the names
 # unprocessed_cancer_record_dataset, general_population_size_dataset, and
 # national_population_life_table  as the names of the objects in R.
 # (+unprocessed_cancer_death_count_dataset,
 # if applicable; at the time of writing this, Finland computes death counts
 # using their cancer record dataset and does not have this dataset in advance)
+
+# so if you are reading in .csv files, the reading in of your datasets into R
+# might look like this:
+# unprocessed_cancer_record_dataset <- data.table::fread(
+#   "path/to/unprocessed_cancer_record_dataset.csv"
+# )
+# general_population_size_dataset <- data.table::fread(
+#   "path/to/general_population_size_dataset.csv"
+# )
+# national_population_life_table <- data.table::fread(
+#   "path/to/national_population_life_table.csv"
+# )
+# unprocessed_cancer_death_count_dataset <- data.table::fread(
+#   "path/to/unprocessed_cancer_death_count_dataset.csv"
+# )
 
 # next you need to set global settings for the NORDCAN software so that e.g.
 # statistics are only produced for the range of years that you know
@@ -71,7 +86,7 @@ invisible(lapply(pkg_paths, function(pkg_path) {
 # as it is. this causes NORDCAN software to create directories under the
 # work_dir to be used for storing files (temporarily) on-disk.
 # for more information about the settings, enter this into console:
-# ?nordcancore::nordcan_settings
+# ?nordcancore::set_global_nordcan_settings
 nordcancore::set_global_nordcan_settings(
   work_dir = getwd(),
   participant_name = "Finland",
@@ -128,7 +143,7 @@ cancer_death_count_dataset <- nordcanpreprocessing::nordcan_processed_cancer_dea
   unprocessed_cancer_death_count_dataset
 )
 
-# If you want to compute the counts using your cancer record dataset, do
+# If you need to compute the counts using your cancer record dataset, do
 
 cancer_death_count_dataset <- nordcanepistats::nordcanstat_count(
   processed_cancer_record_dataset,
@@ -164,9 +179,30 @@ statistics <- nordcanepistats::nordcan_statistics_tables(
   stata_exe_path = "C:/Program Files (x86)/Stata14/StataMP-64.exe"
 )
 
-# you may inspect the results as you wish. e.g. here's the table containing
-# cancer case counts:
-print(statistics[["survival_quality_dataset"]])
+# if any individual table of statistics was not possible to compute, the
+# corresponding result will be the error that was encountered. the following
+# code will alert you if any statistics table was not produced.
+
+invisible(lapply(names(statistics), function(elem_nm) {
+  elem <- statistics[[elem_nm]]
+  if (inherits(elem, "error")) {
+    message("ERROR: could not produce result ", deparse(elem_nm), "; please ",
+            "report the error printed below to the NORDCAN R framework ",
+            "maintainers (unless you can see that you have made some mistake)")
+    str(elem)
+    NULL
+  }
+}))
+
+# beyond reading what (if anything) the above code prints out,
+# you are not expected to verify that the results are actually correct at this
+# point. but, feel free to look at anything you want. actually the ambition is
+# to automate the verification of results as much as possible and all but
+# eliminate "eye-ball" verification of the statistics. this will hopefulyl come
+# in a future release.
+
+# e.g. here's the table containing cancer case counts:
+print(statistics[["cancer_case_count_dataset"]])
 
 
 # and that's all for now. thanks for participating! in the official
