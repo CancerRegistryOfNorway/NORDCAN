@@ -12,6 +12,12 @@ with a zip file within an hour of receiving the first one, check your spam folde
 If you still cannot locate the e-mail with the zip file, contact
 Joonas.miettinen@cancer.fi.
 
+### Second beta release info
+
+In the first release of our R package we had not quite finished survival and
+therefore it was not included. This time around also survival is computed.
+We also fixed all other issues that had been discovered since the first release.
+
 ### Beta contact info
 
 We are available on the NORDCAN slack if you encounter a problem with our
@@ -48,12 +54,6 @@ any column that you don't have at all in your data, you should mark missing for
 all records (e.g. grade may not be available for all participants). For other
 datasets you should collect all columns as requested.
 
-### What is tested
-
-We test everything except estimating survival this time. You should prepare
-the life table dataset anyway, because inspecting the different datasets
-is part of our software and worth testing in itself.
-
 ### What to expect
 
 In this beta test we mainly want to see how far we can get with the current
@@ -63,7 +63,7 @@ Let us also know if the results make very little sense to you. We will look
 at the actual resulting statistics more carefully in the next release. We have
 also _not_ prioritised performance in this release, so you can expect e.g.
 the run on processing the cancer record dataset to take 5-20 minutes and
-the statistics run to take up to an hour. However, the intentions is that
+the statistics run to take over an hour. However, the intention is that
 you should not run out of memory during any computation. If you do, please
 contact the dev team on Slack.
 
