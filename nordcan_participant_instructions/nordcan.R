@@ -64,7 +64,7 @@ invisible(lapply(pkg_paths, function(pkg_path) {
 # using their cancer record dataset and does not have this dataset in advance)
 
 # so if you are reading in .csv files, the reading in of your datasets into R
-# might look like this (and to be clear, they are NOT required to and 
+# might look like this (and to be clear, .csv files are NOT required and 
 # you can read your datasets into R any way you want; just please use the 
 # same names for objects):
 # unprocessed_cancer_record_dataset <- data.table::fread(
