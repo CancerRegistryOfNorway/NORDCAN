@@ -1,914 +1,908 @@
-icd10;icd7;icd8;icd9
-c00;140;140;140
-c000;1400;1400;1400
-c001;1401;1401;1401
-c002;;;
-c003;;;1403
-c004;;;1404
-c005;;;1405
-c006;;;1406
-c008;;;
-c009;1409;1409;1409
-c01;1410;1410;1410
-c02;141;141;141
-c020;;1411;1411
-c021;;1412;1412
-c022;;1413;1413
-c023;;;1414
-c024;;;1416
-c028;1418;;
-c029;1419;1419;1419
-c03;;143;143
-c030;;1430;1430
-c031;143;1431;1431
-c039;;1439;1439
-c04;143;144;144
-c040;;;1440
-c041;;;1441
-c048;;;
-c049;;;1449
-c05;;;
-c050;;1451;1452
-c051;;;1453
-c052;;;1454
-c058;;;
-c059;;1459;1455
-c06;144;145;145
-c060;;;1450
-c061;;;1451
-c062;;;1456
-c068;;;
-c069;;1459;1459
-c07;1420;1420;1420
-c08;142;142;142
-c080;1427;;1421
-c081;1427;;1422
-c088;1428;;
-c089;1429;1429;1429
-c09;145;1460;1460
-c090;1450;;1461
-c091;;;1462
-c098;;;
-c099;1450;;1460
-c10;145;146;146
-c100;;;1463
-c101;;;1464
-c102;;;1466
-c103;;;1467
-c104;;;
-c108;1458;;
-c109;1459;1469;1469
-c11;146;147;147
-c110;;;1470
-c111;;;1471
-c112;;;1472
-c113;;;1473
-c118;;;
-c119;;;1479
-c12;;1481;1481
-c13;147;148;148
-c130;;1480;1480
-c131;;;1482
-c132;;;1483
-c138;;;
-c139;;1489;1489
-c14;148;149;149
-c140;;;1490
-c142;;;1491
-c148;;;1499
-c15;150;150;150
-c150;;;1500
-c151;;;1501
-c152;;;1502
-c153;;;1503
-c154;;;1504
-c155;;;1505
-c158;;;
-c159;;;1509
-c16;151;151;151
-c160;1510;1510;1510
-c161;;;1513
-c162;;;1514
-c163;;;1512
-c164;;1511;1511
-c165;;;1515
-c166;;;1516
-c168;;;
-c169;;1519;1519
-c17;152;152;152
-c170;;;
-c171;1527;1521;1521
-c172;1527;1522;1522
-c173;1527;;1523
-c178;1528;;
-c179;1529;1529;1529
-c18;153;153;153
-c180;1520;1520;1534
-c181;1520;1520;1535
-c182;1520;1520;1536
-c183;1531;1531;1520
-c184;1531;1531;1531
-c185;1531;1531;1537
-c186;1532;1532;1532
-c187;1533;1533;1533
-c188;1537;;
-c189;1538;1538;1539
-c19;154;1540;1540
-c20;154;1541;1541
-c21;;1542;154
-c210;;;1543
-c211;;1542;1542
-c212;;;
-c218;;;1548
-c22;;155;155
-c220;;1550;1550
-c221;;1551;1551
-c222;;;
-c223;;;
-c224;;;
-c227;;;
-c229;156;1978;1552
-c23;1551;1560;1560
-c24;155;156;156
-c240;1551;1561;1561
-c241;1551;1562;1562
-c248;;;
-c249;;1569;1569
-c25;157;157;157
-c250;;1570;1570
-c251;;;1571
-c252;;;1572
-c253;;;1573
-c254;;;1574
-c257;;;
-c258;;;
-c259;;1579;1579
-c26;159;159;159
-c260;1539;1539;1590
-c261;;;1591
-c268;;;
-c269;159;159;1599
-c30;160;160;160
-c300;1600;1600;1600
-c301;1601;1601;1601
-c31;160;160;160
-c310;1602;1602;1602
-c311;1607;1608;1603
-c312;1607;1608;1604
-c313;1607;1608;1605
-c318;1608;;
-c319;1609;1609;1609
-c32;161;161;161
-c320;;1610;1610
-c321;;;1611
-c322;;;1612
-c323;;;1613
-c328;;;
-c329;;1619;1619
-c33;1620;1620;1620
-c34;1621;1621;162
-c340;;;1622
-c341;;;1623
-c342;;;1624
-c343;;;1625
-c348;;;
-c349;;;1629
-c37;1952;1942;1640
-c38;;;163
-c38;;;164
-c380;;;1641
-c381;;;1642
-c382;;;1643
-c383;164;1631;1649
-c384;1622;1630;1630
-c384;;;1631
-c384;;;1639
-c388;;;
-c39;;163;165
-c390;;;1650
-c398;1628;;
-c399;;1639;1659
-c40;196;170;170
-c400;1964;1704;1704
-c401;1965;1705;1705
-c402;1967;1707;1707
-c403;1968;1708;1708
-c408;1969;;
-c409;1969;1709;1709
-c41;196;170;170
-c410;1960;1700;1700
-c411;1961;1701;1701
-c412;1962;1702;1702
-c413;1963;1703;1703
-c414;1966;1706;1706
-c418;1969;;
-c419;1969;1709;1709
-c43;190;172;172
-c430;1900;1720;1720
-c431;1901;1721;1721
-c432;1902;1722;1722
-c433;1903;1723;1723
-c434;1904;1724;1724
-c435;1905;1726;1725
-c436;1906;1727;1726
-c437;1907;1728;1727
-c438;1908;;
-c439;1909;1729;1729
-c44;191;173;173
-c440;1910;1730;1730
-c441;1911;1731;1731
-c442;1912;1732;1732
-c443;1913;1733;1733
-c444;1914;1734;1734
-c445;1915;1736;1735
-c446;1916;1737;1736
-c447;1917;1738;1737
-c448;1918;;
-c449;1919;1739;1739
-c45;;;
-c450;;;
-c451;;;
-c452;;;
-c457;;;
-c459;;;
-c46;;;176
-c460;;;1760
-c461;;;1761
-c462;;;1762
-c463;;;1765
-c467;;;1763
-c467;;;1764
-c467;;;1768
-c468;;;
-c469;;;1769
-c47;;;
-c470;;;
-c471;;;
-c472;;;
-c473;;;
-c474;;;
-c475;;;
-c476;;;
-c478;;;
-c479;1933;;
-c479;;1924;
-c479;1934;1925;
-c48;158;158;158
-c480;;1580;1580
-c481;;;1588
-c482;;;1589
-c488;;;
-c49;197;171;171
-c490;1970;1710;1710
-c491;1972;1712;1712
-c492;1973;1713;1713
-c493;1971;;1714
-c494;1971;;1715
-c495;1971;;1716
-c496;1971;1711;1717
-c498;1978;;
-c499;1979;1719;1719
-c50;;;174
-c50;170;174;175
-c500;;;1740
-c500;;;1750
-c501;;;1741
-c502;;;1742
-c503;;;1743
-c504;;;1744
-c505;;;1745
-c506;;;1746
-c508;;;
-c509;;;1749
-c509;;;1759
-c51;1760;;
-c510;;;1841
-c511;;;1842
-c512;;;1843
-c518;;;
-c519;;;
-c52;1761;1840;1840
-c53;171;180;180
-c530;;;1800
-c531;;;1801
-c538;;;
-c539;;;1809
-c54;172;1820;182
-c540;;;1821
-c541;;;1820
-c542;;;1820
-c543;;;1820
-c548;;;
-c549;;;1820
-c55;174;182;179
-c56;1750;1830;1830
-c57;175;183;183
-c57;176;184;184
-c570;1751;1831;1832
-c571;1751;1831;1833
-c572;;;1835
-c573;1767;;1834
-c574;;;1839
-c577;;;1848
-c578;1758;;
-c578;1768;;
-c579;1759;1839;
-c579;1769;1849;1849
-c58;173;181;181
-c60;1790;1870;187
-c600;;;1871
-c601;;;1872
-c602;;;1873
-c608;;;
-c609;;;1874
-c61;177;185;185
-c62;178;186;186
-c620;;;1860
-c621;;;1869
-c629;;;1869
-c63;179;187;187
-c630;1797;;1875
-c631;1797;;1876
-c632;1791;1725;1877
-c632;1791;1735;1877
-c637;;;1878
-c638;1797;;
-c639;1799;1879;1879
-c64;180;1890;1890
-c65;;1891;1891
-c66;1817;1892;1892
-c67;1810;188;188
-c670;;;1880
-c671;;;1881
-c672;;;1882
-c673;;;1883
-c674;;;1884
-c675;;;1885
-c676;;;1886
-c677;1817;;1887
-c678;;;
-c679;;;1889
-c68;1817;189;189
-c680;;;1893
-c681;;;1894
-c688;;;
-c689;;1899;1899
-c69;192;190;190
-c690;;;1903
-c691;;;1904
-c692;;;1905
-c693;;;1906
-c694;;;1900
-c695;;;1902
-c695;;;1907
-c696;;;1901
-c698;;;
-c699;;;1909
-c70;193;192;192
-c700;1932;1921;1921
-c701;1932;1923;1923
-c709;1932;1929;1921
-c71;1930;191;191
-c710;;;1910
-c711;;;1911
-c712;;;1912
-c713;;;1913
-c714;;;1914
-c715;;;1915
-c716;;;1916
-c717;;;1917
-c718;;;
-c719;;1929;1919
-c72;193;192;192
-c720;1931;1922;1922
-c721;1931;;1922
-c722;1930;;1920
-c723;;;1920
-c724;1930;;1920
-c725;1930;;1920
-c728;1938;;
-c729;1930;1929;1929
-c73;194;193;193
-c74;1950;1940;1940
-c740;;;
-c741;;;
-c749;;;
-c75;195;194;194
-c750;1951;1941;1941
-c751;1953;1943;1943
-c752;1953;1943;1943
-c753;1954;1944;1944
-c754;;;1945
-c755;;;1946
-c758;1958;;
-c759;;1949;1949
-c76;;195;195
-c760;;;1950
-c761;;;1951
-c762;;1950;1952
-c763;;1951;1953
-c764;;;1954
-c765;;;1955
-c767;;;
-c768;;1959;1959
-c77;198;196;196
-c770;1980;1960;1960
-c771;1981;1961;1961
-c772;1982;1962;1962
-c773;1983;1963;1963
-c774;1984;1964;1965
-c775;1987;1967;1966
-c778;1988;1968;1968
-c779;1989;1969;1969
-c78;165;197;197
-c780;163;1970;1970
-c781;;1971;1971
-c782;;1972;1972
-c783;;1973;1973
-c784;;1974;1974
-c785;;1975;1975
-c786;;1976;1976
-c787;;1977;1977
-c788;;1979;1978
-c79;;198;198
-c790;;;1990
-c791;;1990;1981
-c791;;1981;
-c792;;1982;1982
-c793;;1983;1983
-c794;;1984;1984
-c795;;1985;1985
-c796;;;1986
-c797;;;1987
-c798;;1989;1988
-c799;;1989;1989
-c80;199;199;199
-c800;199;199;199
-c809;199;199;199
-c81;201;201;201
-c810;;;2014
-c811;;;2015
-c812;;;2016
-c813;;;2017
-c814;;;2014
-c817;;;2010
-c817;;;2011
-c817;;;2012
-c819;;;2019
-c82;;;
-c82;;;
-c820;;2020;
-c821;;;
-c822;;;
-c823;;;
-c824;;;
-c825;;;
-c826;;;
-c827;;;
-c829;;;
-c83;;;
-c83;;;
-c830;;;
-c831;;;
-c832;;;
-c833;2000;2000;2000
-c834;;;
-c835;;;2001
-c836;;;
-c837;;;2002
-c838;;;2008
-c839;;;
-c84;;;
-c84;;;
-c840;205;2021;2021
-c841;;;2022
-c844;;;2027
-c845;;;
-c846;;;
-c847;;;
-c848;;;
-c849;;;
-c85;;;
-c85;;;
-c850;;;
-c851;;;
-c852;;;
-c857;;;
-c859;;;
-c86;;;
-c86;;;
-c860;;;
-c861;;;
-c862;;;
-c863;;;
-c864;;;
-c865;;;
-c866;;;
-c88;;;
-c88;;;
-c880;;;
-c881;;;
-c882;;;
-c883;;;
-c884;;;
-c887;;;
-c889;;;
-c90;203;203;203
-c900;;;2030
-c901;;;2031
-c902;;;2038
-c903;;;2038
-c91;2040;204;204
-c910;;2040;2040
-c911;;2041;2041
-c912;;;
-c913;;;
-c914;;;2024
-c915;;;
-c916;;;
-c917;;;
-c918;;;
-c919;;2049;2049
-c92;2041;205;205
-c920;;2050;2050
-c921;;;2051
-c922;;;2052
-c923;;;2053
-c924;;;2050
-c925;;;2050
-c926;;;
-c927;;2051;
-c928;;;
-c929;;2059;2059
-c93;;206;206
-c930;;2060;2060
-c931;;2061;2061
-c932;;2069;2062
-c933;;;
-c937;;2069;2068
-c939;;2069;2069
-c94;2043;207;207
-c940;;2072;2070
-c941;;;
-c942;;;2072
-c943;;;2078
-c944;;;
-c946;;;
-c947;;2070;
-c95;2044;207;208
-c950;;2079;2080
-c951;;2071;2081
-c957;;2079;
-c959;;2079;2089
-c96;200;200;200
-c96;202;202;202
-c960;;;2025
-c961;;;
-c962;;;2026
-c963;;;
-c964;;;
-c965;;;
-c966;;;
-c967;;;
-c968;;;
-c969;;;
-c97;;;
-d00;;;
-d000;;;
-d001;;;
-d002;;;
-d01;;;
-d010;;;
-d011;;;
-d012;;;
-d013;;;
-d014;;;
-d015;;;
-d017;;;
-d019;;;
-d02;;;
-d020;;;
-d021;;;
-d022;;;
-d023;;;
-d024;;;
-d03;;;
-d030;;;
-d031;;;
-d032;;;
-d033;;;
-d034;;;
-d035;;;
-d036;;;
-d037;;;
-d038;;;
-d039;;;
-d04;;;
-d040;;;
-d041;;;
-d042;;;
-d043;;;
-d044;;;
-d045;;;
-d046;;;
-d047;;;
-d048;;;
-d049;;;
-d05;;;
-d050;;;
-d051;;;
-d057;;;
-d059;;;
-d06;;;
-d060;;;
-d061;;;
-d067;;;
-d069;;;
-d07;;;
-d070;;;
-d071;;;
-d072;;;
-d073;;;
-d074;;;
-d075;;;
-d076;;;
-d09;;;
-d090;;;
-d091;;;
-d092;;;
-d093;;;
-d097;;;
-d099;;;
-d10;;;
-d100;;;
-d101;;;
-d102;;;
-d103;;;
-d104;;;
-d105;;;
-d106;;;
-d107;;;
-d109;;;
-d11;;;
-d110;;;
-d117;;;
-d119;;;
-d12;;;
-d120;;;
-d121;;;
-d122;;;
-d123;;;
-d124;;;
-d125;;;
-d126;;;
-d127;;;
-d128;;;
-d129;;;
-d13;;;
-d130;;;
-d131;;;
-d132;;;
-d133;;;
-d134;;;
-d135;;;
-d136;;;
-d137;;;
-d139;;;
-d14;;;
-d140;;;
-d141;;;
-d142;;;
-d143;;;
-d144;;;
-d15;;;
-d150;;;
-d151;;;
-d152;;;
-d157;;;
-d159;;;
-d16;;;
-d160;;;
-d161;;;
-d162;;;
-d163;;;
-d164;;;
-d165;;;
-d166;;;
-d167;;;
-d168;;;
-d169;;;
-d17;;;
-d170;;;
-d171;;;
-d172;;;
-d173;;;
-d174;;;
-d175;;;
-d176;;;
-d177;;;
-d179;;;
-d18;;;
-d180;;;
-d181;;;
-d19;;;
-d190;;;
-d191;;;
-d197;;;
-d199;;;
-d20;;;
-d200;;;
-d201;;;
-d21;;;
-d210;;;
-d211;;;
-d212;;;
-d213;;;
-d214;;;
-d215;;;
-d216;;;
-d219;;;
-d22;;;
-d220;;;
-d221;;;
-d222;;;
-d223;;;
-d224;;;
-d225;;;
-d226;;;
-d227;;;
-d229;;;
-d23;;;
-d230;;;
-d231;;;
-d232;;;
-d233;;;
-d234;;;
-d235;;;
-d236;;;
-d237;;;
-d239;;;
-d24;;;
-d25;;;
-d250;;;
-d251;;;
-d252;;;
-d259;;;
-d26;;;
-d260;;;
-d261;;;
-d267;;;
-d269;;;
-d27;;;
-d28;;;
-d280;;;
-d281;;;
-d282;;;
-d287;;;
-d289;;;
-d29;;;
-d290;;;
-d291;;;
-d292;;;
-d293;;;
-d294;;;
-d297;;;
-d299;;;
-d30;;;
-d300;;;
-d301;;;
-d302;;;
-d303;;;
-d304;;;
-d307;;;
-d309;;;
-d31;;;
-d310;;;
-d311;;;
-d312;;;
-d313;;;
-d314;;;
-d315;;;
-d316;;;
-d319;;;
-d32;;;
-d320;;;
-d321;;;
-d329;;;
-d33;;;
-d330;;;
-d331;;;
-d332;;;
-d333;;;
-d334;;;
-d337;;;
-d339;;;
-d34;;;
-d35;;;
-d350;;;
-d351;;;
-d352;;;
-d353;;;
-d354;;;
-d355;;;
-d356;;;
-d357;;;
-d358;;;
-d359;;;
-d36;;;
-d360;;;
-d361;;;
-d367;;;
-d369;;;
-d37;;;
-d370;;;
-d371;;;
-d372;;;
-d373;;;
-d374;;;
-d375;;;
-d376;;;
-d377;;;
-d379;;;
-d38;;;
-d380;;;
-d381;;;
-d382;;;
-d383;;;
-d384;;;
-d385;;;
-d386;;;
-d39;;;
-d390;;;
-d391;;;
-d392;;;
-d397;;;
-d399;;;
-d40;;;
-d400;;;
-d401;;;
-d407;;;
-d409;;;
-d41;;;
-d410;;;
-d411;;;
-d412;;;
-d413;;;
-d414;;;
-d417;;;
-d419;;;
-d42;;;
-d420;;;
-d421;;;
-d429;;;
-d43;;;
-d430;;;
-d431;;;
-d432;;;
-d433;;;
-d434;;;
-d437;;;
-d439;;;
-d44;;;
-d440;;;
-d441;;;
-d442;;;
-d443;;;
-d444;;;
-d445;;;
-d446;;;
-d447;;;
-d448;;;
-d449;;;
-d45;;;
-d46;;;
-d460;;;
-d461;;;
-d462;;;
-d463;;;
-d464;;;
-d465;;;
-d466;;;
-d467;;;
-d469;;;
-d47;;;
-d470;;;
-d471;;;
-d472;;;
-d473;;;
-d474;;;
-d475;;;
-d477;;;
-d479;;;
-d48;;;
-d480;;;
-d481;;;
-d482;;;
-d483;;;
-d484;;;
-d485;;;
-d486;;;
-d487;;;
-d489;;;
-o011;;;
-o010;;;
-o019;;;
+icd10;icd10_label;icd67;icd8;icd9
+c00;malignant neoplasm of lip;140;140;140
+c00.0;malignant neoplasm of external upper lip;1400;1400;1400
+c00.1;malignant neoplasm of external lower lip;1401;1401;1401
+c00.2;malignant neoplasm of external lip, unspecified;;;
+c00.3;malignant neoplasm of upper lip, inner aspect;;;1403
+c00.4;malignant neoplasm of lower lip, inner aspect;;;1404
+c00.5;malignant neoplasm of lip, unspecified, inner aspect;;;1405
+c00.6;malignant neoplasm of commissure of lip;;;1406
+c00.8;malignant neoplasm of overlapping sites of lip;;;
+c00.9;malignant neoplasm of lip, unspecified;1409;1409;1409
+c01;malignant neoplasm of base of tongue;1410;1410;1410
+c02;malignant neoplasm of other and unspecified parts of tongue;141;141;141
+c02.0;malignant neoplasm of dorsal surface of tongue;;1411;1411
+c02.1;malignant neoplasm of border of tongue;;1412;1412
+c02.2;malignant neoplasm of ventral surface of tongue;;1413;1413
+c02.3;malignant neoplasm of anterior two-thirds of tongue, part unspecified;;;1414
+c02.4;malignant neoplasm of lingual tonsil;;;1416
+c02.8;malignant neoplasm of overlapping sites of tongue;1418;;
+c02.9;malignant neoplasm of tongue, unspecified;1419;1419;1419
+c03;malignant neoplasm of gum;;143;143
+c03.0;malignant neoplasm of upper gum;;1430;1430
+c03.1;malignant neoplasm of lower gum;;1431;1431
+c03.9;malignant neoplasm of gum, unspecified;;1439;1439
+c04;malignant neoplasm of floor of mouth;143;144;144
+c04.0;malignant neoplasm of anterior floor of mouth;;;1440
+c04.1;malignant neoplasm of lateral floor of mouth;;;1441
+c04.8;malignant neoplasm of overlapping sites of floor of mouth;;;
+c04.9;malignant neoplasm of floor of mouth, unspecified;;;1449
+c05;malignant neoplasm of palate;;;
+c05.0;malignant neoplasm of hard palate;;1451;1452
+c05.1;malignant neoplasm of soft palate;;;1453
+c05.2;malignant neoplasm of uvula;;;1454
+c05.8;malignant neoplasm of overlapping sites of palate;;;
+c05.9;malignant neoplasm of palate, unspecified;;;1455
+c06;malignant neoplasm of other and unspecified parts of mouth;144;145;145
+c06.0;malignant neoplasm of cheek mucosa;;;1450
+c06.1;malignant neoplasm of vestibule of mouth;;;1451
+c06.2;malignant neoplasm of retromolar area;;;1456
+c06.8;malignant neoplasm of overlapping sites of other and unspecified parts of mouth;;;
+c06.9;malignant neoplasm of mouth, unspecified;;1459;1459
+c07;malignant neoplasm of parotid gland;1420;1420;1420
+c08;malignant neoplasm of other and unspecified major salivary glands;142;142;142
+c08.0;malignant neoplasm of submandibular gland;1427;;1421
+c08.1;malignant neoplasm of sublingual gland;;;1422
+c08.8;overlapping lesion of major salivary glands;1428;;
+c08.9;malignant neoplasm of major salivary gland, unspecified;1421;;
+c08.9;malignant neoplasm of major salivary gland, unspecified;1429;1429;1429
+c09;malignant neoplasm of tonsil;;1460;1460
+c09.0;malignant neoplasm of tonsillar fossa;;;1461
+c09.1;malignant neoplasm of tonsillar pillar (anterior) (posterior);;;1462
+c09.8;malignant neoplasm of overlapping sites of tonsil;;;
+c09.9;malignant neoplasm of tonsil, unspecified;1450;;
+c10;malignant neoplasm of oropharynx;145;146;146
+c10.0;malignant neoplasm of vallecula;;;1463
+c10.1;malignant neoplasm of anterior surface of epiglottis;;;1464
+c10.2;malignant neoplasm of lateral wall of oropharynx;;;1466
+c10.3;malignant neoplasm of posterior wall of oropharynx;;;1467
+c10.4;malignant neoplasm of branchial cleft;;;
+c10.8;malignant neoplasm of overlapping sites of oropharynx;1458;;
+c10.9;malignant neoplasm of oropharynx, unspecified;1459;1469;1469
+c11;malignant neoplasm of nasopharynx;146;147;147
+c11.0;malignant neoplasm of superior wall of nasopharynx;;;1470
+c11.1;malignant neoplasm of posterior wall of nasopharynx;;;1471
+c11.2;malignant neoplasm of lateral wall of nasopharynx;;;1472
+c11.3;malignant neoplasm of anterior wall of nasopharynx;;;1473
+c11.8;malignant neoplasm of overlapping sites of nasopharynx;;;
+c11.9;malignant neoplasm of nasopharynx, unspecified;;;1479
+c12;malignant neoplasm of pyriform sinus;;1481;1481
+c13;malignant neoplasm of hypopharynx;147;148;148
+c13.0;malignant neoplasm of postcricoid region;;1480;1480
+c13.1;malignant neoplasm aryepiglottic fold, hypopharyngeal aspect;;;1482
+c13.2;malignant neoplasm of posterior wall of hypopharynx;;;1483
+c13.8;malignant neoplasm of overlapping sites of hypopharynx;;;
+c13.9;malignant neoplasm of hypopharynx, unspecified;;1489;1489
+c14;malignant neoplasm of other and ill-defined sites in the lip, oral cavity and pharynx;148;149;149
+c14.0;malignant neoplasm of pharynx, unspecified;;;1490
+c14.2;malignant neoplasm of waldeyer's ring;;;1491
+c14.8;malignant neoplasm of overlapping sites of lip, oral cavity and pharynx;;;1499
+c15;malignant neoplasm of esophagus;150;150;150
+c15.0;cervical part of esophagus;;;1500
+c15.1;thoracic part of esophagus;;;1501
+c15.2;abdominal part of esophagus;;;1502
+c15.3;malignant neoplasm of upper third of esophagus;;;1503
+c15.4;malignant neoplasm of middle third of esophagus;;;1504
+c15.5;malignant neoplasm of lower third of esophagus;;;1505
+c15.8;malignant neoplasm of overlapping sites esophagus;;;
+c15.9;malignant neoplasm of esophagus, unspecified;;;1509
+c16;malignant neoplasm of stomach;151;151;151
+c16.0;malignant neoplasm of cardia;;1510;1510
+c16.1;malignant neoplasm of fundus of stomach;;;1513
+c16.2;malignant neoplasm of body of stomach;;;1514
+c16.3;malignant neoplasm of pyloric antrum;;;1512
+c16.4;malignant neoplasm of pylorus;;1511;1511
+c16.5;malignant neoplasm of lesser curvature of stomach, unspecified;;;1515
+c16.6;malignant neoplasm of greater  curvature of stomach, unspecified;;;1516
+c16.8;malignant neoplasm of overlapping sites of stomach;;;
+c16.9;malignant neoplasm of stomach, unspecified;;1519;1519
+c17;malignant neoplasm of small intestine;152;152;152
+c17.0;malignant neoplasm of duodenum;1520;1520;1520
+c17.1;malignant neoplasm of jejunum;;1521;1521
+c17.2;malignant neoplasm of ileum;1527;1522;1522
+c17.3;meckel's diverticulum;;;1523
+c17.8;malignant neoplasm of overlapping sites of small intestine;1528;;
+c17.9;malignant neoplasm of small intestine, unspecified;1529;1529;1529
+c18;malignant neoplasm of colon;153;153;153
+c18.0;malignant neoplasm of cecum;;;1534
+c18.1;malignant neoplasm of appendix;;;1535
+c18.2;malignant neoplasm of ascending colon;1530;1530;1536
+c18.3;malignant neoplasm of hepatic flexure;;;1530
+c18.4;malignant neoplasm of transverse colon;1531;1531;1531
+c18.5;malignant neoplasm of splenic flexure;;;1537
+c18.6;malignant neoplasm of descending colon;1532;1532;1532
+c18.7;malignant neoplasm of sigmoid colon;1533;1533;1533
+c18.8;malignant neoplasm of overlapping sites of colon;1537;;
+c18.9;malignant neoplasm of colon, unspecified;1538;1538;1539
+c19;malignant neoplasm of rectosigmoid junction;;1540;1540
+c20;malignant neoplasm of rectum;154;1541;1541
+c21;malignant neoplasm of anus and anal canal;;1542;154
+c21.0;malignant neoplasm of anus, unspecified;;;1543
+c21.1;malignant neoplasm of anal canal;;;1542
+c21.2;malignant neoplasm of cloacogenic zone;;;
+c21.8;malignant neoplasm of overlapping sites of rectum, anus and anal canal;;;1548
+c22;malignant neoplasm of liver and intrahepatic bile ducts;;155;155
+c22.0;liver cell carcinoma;;1550;1550
+c22.1;intrahepatic bile duct carcinoma;;1551;1551
+c22.2;hepatoblastoma;;;
+c22.3;angiosarcoma of liver;;;
+c22.4;other sarcomas of liver;;;
+c22.7;other specified carcinomas of liver;;;
+c22.9;malignant neoplasm of liver, unspecified;156;1978;1552
+c23;malignant neoplasm of gallbladder;1551;1560;1560
+c24;malignant neoplasm of other and unspecified parts of biliary tract;155;156;156
+c24.0;malignant neoplasm of extrahepatic bile duct;;1561;1561
+c24.1;malignant neoplasm of ampulla of vater;;1562;1562
+c24.8;malignant neoplasm of overlapping lesion of biliary tract;;;
+c24.9;malignant neoplasm of biliary tract, unspecified;;1569;1569
+c25;malignant neoplasm of pancreas;157;157;157
+c25.0;malignant neoplasm of head of pancreas;;1570;1570
+c25.1;malignant neoplasm of body of pancreas;;;1571
+c25.2;malignant neoplasm of tail of pancreas;;;1572
+c25.3;malignant neoplasm of pancreatic duct;;;1573
+c25.4;malignant neoplasm of endocrine pancreas;;;1574
+c25.7;malignant neoplasm of other parts of pancreas;;;
+c25.8;malignant neoplasm of overlapping sites of pancreas;;;
+c25.9;malignant neoplasm of pancreas, unspecified;;1579;1579
+c26;malignant neoplasm of other and ill-defined digestive organs;159;159;159
+c26.0;malignant neoplasm of intestinal tract, part unspecified;1539;1539;1590
+c26.1;malignant neoplasm of spleen;;;1591
+c26.8;overlapping lesion of digestive system;;;
+c26.9;malignant neoplasm of ill-defined sites within the digestive system;;;1599
+c30;malignant neoplasm of nasal cavity and middle ear;160;160;160
+c30.0;malignant neoplasm of nasal cavity;1600;1600;1600
+c30.1;malignant neoplasm of middle ear;1601;1601;1601
+c31;malignant neoplasm of accessory sinusesÿ;;;
+c31.0;malignant neoplasm of maxillary sinus;1602;1602;1602
+c31.1;malignant neoplasm of ethmoidal sinus;;;1603
+c31.2;malignant neoplasm of frontal sinus;1607;1608;1604
+c31.3;malignant neoplasm of sphenoid sinus;;;1605
+c31.8;malignant neoplasm of overlapping sites of accessory sinuses;1608;;
+c31.9;malignant neoplasm of accessory sinus, unspecified;1609;1609;1609
+c32;malignant neoplasm of larynx;161;161;161
+c32.0;malignant neoplasm of glottis;;1610;1610
+c32.1;malignant neoplasm of supraglottis;;;1611
+c32.2;malignant neoplasm of subglottis;;;1612
+c32.3;malignant neoplasm of laryngeal cartilage;;;1613
+c32.8;malignant neoplasm of overlapping sites of larynx;;;
+c32.9;malignant neoplasm of larynx, unspecified;;1619;1619
+c33;malignant neoplasm of trachea;1620;1620;1620
+c34;malignant neoplasm of bronchus and lungÿ;1621;1621;162
+c34.0;malignant neoplasm of main bronchus;;;1622
+c34.1;malignant neoplasm of upper lobe, bronchus or lung;;;1623
+c34.2;malignant neoplasm of middle lobe, bronchus or lung;;;1624
+c34.3;malignant neoplasm of lower lobe, bronchus or lung;;;1625
+c34.8;malignant neoplasm of overlapping sites of bronchus and lung;;;
+c34.9;malignant neoplasm of bronchus or lung, unspecified;;;1629
+c37;malignant neoplasm of thymus;1952;1942;1640
+c38;malignant neoplasm of heart, mediastinum and pleura;;;163
+c38;malignant neoplasm of heart, mediastinum and pleura;;;164
+c38.0;malignant neoplasm of heart;;;1641
+c38.1;malignant neoplasm of anterior mediastinum;;;1642
+c38.2;malignant neoplasm of posterior mediastinum;;;1643
+c38.3;malignant neoplasm of mediastinum, part unspecified;164;1631;1649
+c38.4;malignant neoplasm of pleura;1622;1630;1630
+c38.4;malignant neoplasm of pleura;;;1631
+c38.4;malignant neoplasm of pleura;;;1639
+c38.8;malignant neoplasm of overlapping sites of heart, mediastinum and pleura;;;
+c39;malignant neoplasm of other and ill-defined sites in the respiratory system and intrathoracic organs;;163;165
+c39.0;malignant neoplasm of upper respiratory tract, part unspecified;;;1650
+c39.8;overlapping lesion of respiratory tract;1628;;
+c39.9;malignant neoplasm of lower respiratory tract, part unspecified;;1639;1659
+c40;malignant neoplasm of bone and articular cartilage of limbs;;;
+c40.0;malignant neoplasm of scapula and long bones of upper limb;1964;1704;1704
+c40.1;malignant neoplasm of short bones of upper limb;1965;1705;1705
+c40.2;malignant neoplasm of long bones of lower limb;1967;1707;1707
+c40.3;malignant neoplasm of short bones of lower limb;1968;1708;1708
+c40.8;malignant neoplasm of overlapping sites of bone and articular cartilage of limb;;;
+c40.9;malignant neoplasm of bones and articular cartilage of limb, unspecified;;;
+c41;malignant neoplasm of bone and articular cartilage of other and unspecified sites;196;170;170
+c41.0;malignant neoplasm of bones of skull and face;1960;1700;1700
+c41.1;malignant neoplasm of mandible;1961;1701;1701
+c41.2;malignant neoplasm of vertebral column;1962;1702;1702
+c41.3;malignant of ribs, sternum and clavicle;1963;1703;1703
+c41.4;malignant neoplasm of pelvic bones, sacrum and coccyx;1966;1706;1706
+c41.8;overlapping lesion of bone and articular cartilage;;;
+c41.9;malignant neoplasm of bone and articular cartilage, unspecified;1969;1709;1709
+c43;malignant melanoma of skin;190;172;172
+c43.0;malignant melanoma of lip;1900;1720;1720
+c43.1;malignant melanoma of eyelid, including canthus;1901;1721;1721
+c43.2;malignant melanoma of ear and external auricular canal;1902;1722;1722
+c43.3;malignant melanoma of other and unspecified parts of face;1903;1723;1723
+c43.4;malignant melanoma of scalp and neck;1904;1724;1724
+c43.5;malignant melanoma of trunk;1905;1726;1725
+c43.6;malignant melanoma of upper limb, including shoulder;1906;1727;1726
+c43.7;malignant melanoma of lower limb, including hip;1907;1728;1727
+c43.8;overlapping malignant melanoma of skin;1908;;
+c43.9;malignant melanoma of skin, unspecified;1909;1729;1729
+c44;other malignant neoplasms of skin;191;173;173
+c44.0;malignant neoplasm of skin of lip;1910;1730;1730
+c44.1;malignant neoplasm of skin of eyelid, including canthus;1911;1731;1731
+c44.2;malignant neoplasm of skin of ear and external auricular canal;1912;1732;1732
+c44.3;malignant neoplasm of skin of other and unspecified parts of face;1913;1733;1733
+c44.4;malignant neoplasm of skin of scalp and neck;1914;1734;1734
+c44.5;malignant neoplasm of skin of trunk;1915;1736;1735
+c44.6;malignant neoplasm of skin of upper limb, including shoulder;1916;1737;1736
+c44.7;malignant neoplasm of skin of lower limb, including hip;1917;1738;1737
+c44.8;malignant neoplasm of overlapping sites of skin;1918;;
+c44.9;malignant neoplasm of skin, unspecified;1919;1739;1739
+c45;mesothelioma;;;
+c45.0;mesothelioma of pleura;;;
+c45.1;mesothelioma of peritoneum;;;
+c45.2;mesothelioma of pericardium;;;
+c45.7;mesothelioma of other sites;;;
+c45.9;mesothelioma, unspecified;;;
+c46;kaposi's sarcoma;;;176
+c46.0;kaposi's sarcoma of skin;;;1760
+c46.1;kaposi's sarcoma of soft tissue;;;1761
+c46.2;kaposi's sarcoma of palate;;;1762
+c46.3;kaposi's sarcoma of lymph nodes;;;1765
+c46.7;kaposi's sarcoma of other sites;;;1763
+c46.7;kaposi's sarcoma of other sites;;;1764
+c46.7;kaposi's sarcoma of other sites;;;1768
+c46.8;kaposi's sarcoma of multiple organs;;;
+c46.9;kaposi's sarcoma, unspecified;;;1769
+c47;malignant neoplasm of peripheral nerves and autonomic nervous system;;;
+c47.0;malignant neoplasm of peripheral nerves of head, face and neck;;;
+c47.1;malignant neoplasm of peripheral nerves of upper limb, including shoulder;;;
+c47.2;malignant neoplasm of peripheral nerves of lower limb, including hip;;;
+c47.3;malignant neoplasm of peripheral nerves of thorax;;;
+c47.4;malignant neoplasm of peripheral nerves of abdomen;;;
+c47.5;malignant neoplasm of peripheral nerves of pelvis;;;
+c47.6;malignant neoplasm of peripheral nerves of trunk, unspecified;;;
+c47.8;malignant neoplasm of overlapping sites of peripheral nerves and autonomic nervous system;;;
+c47.9;malignant neoplasm of peripheral nerves and autonomic nervous system, unspecified;1933;;
+c47.9;malignant neoplasm of peripheral nerves and autonomic nervous system, unspecified;;1924;
+c47.9;malignant neoplasm of peripheral nerves and autonomic nervous system, unspecified;1934;1925;
+c48;malignant neoplasm of retroperitoneum and peritoneum;158;158;158
+c48.0;malignant neoplasm of retroperitoneum;;1580;1580
+c48.1;malignant neoplasm of specified parts of peritoneum;;;1588
+c48.2;malignant neoplasm of peritoneum, unspecified;;;1589
+c48.8;malignant neoplasm of overlapping sites of retroperitoneum and peritoneum;;;
+c49;malignant neoplasm of other connective and soft tissue;197;171;171
+c49.0;malignant neoplasm of connective and soft tissue of head, face and neck;1970;1710;1710
+c49.1;malignant neoplasm of connective and soft tissue of upper limb, including shoulder;1972;1712;1712
+c49.2;malignant neoplasm of connective and soft tissue of lower limb, including hip;1973;1713;1713
+c49.3;malignant neoplasm of connective and soft tissue of thorax;;;1714
+c49.4;malignant neoplasm of connective and soft tissue of abdomen;;;1715
+c49.5;malignant neoplasm of connective and soft tissue of pelvis;;;1716
+c49.6;malignant neoplasm of connective and soft tissue of trunk, unspecified;1971;1711;1717
+c49.8;malignant neoplasm of overlapping sites of connective and soft tissue;1978;;
+c49.9;malignant neoplasm of connective and soft tissue, unspecified;1979;1719;1719
+c50;malignant neoplasm of breast;;;174
+c50;malignant neoplasm of breast;170;174;175
+c50.0;malignant neoplasm of nipple and areola;;;1740
+c50.0;malignant neoplasm of nipple and areola;;;1750
+c50.1;malignant neoplasm of central portion of breast;;;1741
+c50.2;malignant neoplasm of upper-inner quadrant of breast;;;1742
+c50.3;malignant neoplasm of lower-inner quadrant of breast;;;1743
+c50.4;malignant neoplasm of upper-outer quadrant of breast;;;1744
+c50.5;malignant neoplasm of lower-outer quadrant of breast;;;1745
+c50.6;malignant neoplasm of axillary tail of breast;;;1746
+c50.8;malignant neoplasm of overlapping sites of breast;;;
+c50.9;malignant neoplasm of breast of unspecified site;;;1749
+c50.9;malignant neoplasm of breast of unspecified site;;;1759
+c51;malignant neoplasm of vulva;1760;;
+c51.0;malignant neoplasm of labium majus;;;1841
+c51.1;malignant neoplasm of labium minus;;;1842
+c51.2;malignant neoplasm of clitoris;;;1843
+c51.8;malignant neoplasm of overlapping sites of vulva;;;
+c51.9;malignant neoplasm of vulva, unspecified;;;
+c52;malignant neoplasm of vagina;1761;1840;1840
+c53;malignant neoplasm of cervix uteri;171;180;180
+c53.0;malignant neoplasm of endocervix;;;1800
+c53.1;malignant neoplasm of exocervix;;;1801
+c53.8;malignant neoplasm of overlapping sites of cervix uteri;;;
+c53.9;malignant neoplasm of cervix uteri, unspecified;;;1809
+c54;malignant neoplasm of corpus uteri;172;1820;182
+c54.0;malignant neoplasm of isthmus uteri;;;1821
+c54.1;malignant neoplasm of endometrium;;;
+c54.2;malignant neoplasm of myometrium;;;
+c54.3;malignant neoplasm of fundus uteri;;;
+c54.8;malignant neoplasm of overlapping sites of corpus uteri;;;
+c54.9;malignant neoplasm of corpus uteri, unspecified;;;1820
+c55;malignant neoplasm of uterus, part unspecified;174;182;179
+c55;malignant neoplasm of uterus, part unspecified;;1829;
+c56;malignant neoplasm of ovary;1750;1830;1830
+c57;malignant neoplasm of other and unspecified female genital organs;175;183;183
+c57;malignant neoplasm of other and unspecified female genital organs;176;184;184
+c57.0;malignant neoplasm of fallopian tube;1751;1831;1832
+c57.1;malignant neoplasm of broad ligament;;;1833
+c57.2;malignant neoplasm of round ligament;;;1835
+c57.3;malignant neoplasm of parametrium;1767;;1834
+c57.4;malignant neoplasm of uterine adnexa, unspecified;;;1839
+c57.7;malignant neoplasm of other specified female genital organs;;;1848
+c57.8;malignant neoplasm of overlapping sites of female genital organs;1758;;
+c57.8;malignant neoplasm of overlapping sites of female genital organs;1768;;
+c57.9;malignant neoplasm of female genital organ, unspecified;1759;1839;
+c57.9;malignant neoplasm of female genital organ, unspecified;1769;1849;1849
+c58;malignant neoplasm of placenta;173;181;181
+c60;malignant neoplasm of penis;1790;1870;
+c60.0;malignant neoplasm of prepuce;;;1871
+c60.1;malignant neoplasm of glans penis;;;1872
+c60.2;malignant neoplasm of body of penis;;;1873
+c60.8;malignant neoplasm of overlapping sites of penis;;;
+c60.9;malignant neoplasm of penis, unspecified;;;1874
+c61;malignant neoplasm of prostate;177;185;185
+c62;malignant neoplasm of testis;178;186;186
+c62.0;malignant neoplasm of undescended testis;;;1860
+c62.1;malignant neoplasm of descended testis;;;
+c62.9;malignant neoplasm of testis, unspecified;;;1869
+c63;malignant neoplasm of other and unspecified male genital organs;179;187;187
+c63.0;malignant neoplasm of epididymis;;;1875
+c63.1;malignant neoplasm of spermatic cord;;;1876
+c63.2;malignant neoplasm of scrotum;;1725;
+c63.2;malignant neoplasm of scrotum;1791;1735;1877
+c63.7;malignant neoplasm of other specified male genital organs;;;1878
+c63.8;malignant neoplasm of overlapping sites of male genital organs;1797;;
+c63.9;malignant neoplasm of male genital organ, unspecified;1799;1879;1879
+c64;malignant neoplasm of kidney, except renal pelvis;180;1890;1890
+c65;malignant neoplasm of renal pelvis;;1891;1891
+c66;malignant neoplasm of ureter;;1892;1892
+c67;malignant neoplasm of bladder;1810;188;188
+c67.0;malignant neoplasm of trigone of bladder;;;1880
+c67.1;malignant neoplasm of dome of bladder;;;1881
+c67.2;malignant neoplasm of lateral wall of bladder;;;1882
+c67.3;malignant neoplasm of anterior wall of bladder;;;1883
+c67.4;malignant neoplasm of posterior wall of bladder;;;1884
+c67.5;malignant neoplasm of bladder neck;;;1885
+c67.6;malignant neoplasm of ureteric orifice;;;1886
+c67.7;malignant neoplasm of urachus;;;1887
+c67.8;malignant neoplasm of overlapping sites of bladder;;;
+c67.9;malignant neoplasm of bladder, unspecified;;;1889
+c68;malignant neoplasm of other and unspecified urinary organs;1817;189;189
+c68.0;malignant neoplasm of urethra;;;1893
+c68.1;malignant neoplasm of paraurethral glands;;;1894
+c68.8;malignant neoplasm of overlapping sites of urinary organs;;;
+c68.9;malignant neoplasm of urinary organ, unspecified;;1899;1899
+c69;malignant neoplasm of eye and adnexa;192;190;190
+c69.0;malignant neoplasm of conjunctiva;;;1903
+c69.1;malignant neoplasm of cornea;;;1904
+c69.2;malignant neoplasm of retina;;;1905
+c69.3;malignant neoplasm of choroid;;;1906
+c69.4;malignant neoplasm of ciliary body;;;1900
+c69.5;malignant neoplasm of lacrimal gland and duct;;;1902
+c69.5;malignant neoplasm of lacrimal gland and duct;;;1907
+c69.6;malignant neoplasm of orbit;;;1901
+c69.8;malignant neoplasm of overlapping sites of eye and adnexa;;;
+c69.9;malignant neoplasm of eye, unspecified;;;1909
+c70;malignant neoplasm of meninges;;;
+c70.0;malignant neoplasm of cerebral meninges;;1921;1921
+c70.1;malignant neoplasm of spinal meninges;;1923;1923
+c70.9;malignant neoplasm of meninges, unspecified;1932;;
+c71;malignant neoplasm of brain;1930;191;191
+c71.0;malignant neoplasm of cerebrum, except lobes and ventricles;;;1910
+c71.1;malignant neoplasm of frontal lobe;;;1911
+c71.2;malignant neoplasm of temporal lobe;;;1912
+c71.3;malignant neoplasm of parietal lobe;;;1913
+c71.4;malignant neoplasm of occipital lobe;;;1914
+c71.5;malignant neoplasm of cerebral ventricle;;;1915
+c71.6;malignant neoplasm of cerebellum;;;1916
+c71.7;malignant neoplasm of brain stem;;;1917
+c71.8;malignant neoplasm of overlapping sites of brain;;;
+c71.9;malignant neoplasm of  brain, unspecified;;;1919
+c72;malignant neoplasm of spinal cord, cranial nerves and other parts of central nervous system;193;192;192
+c72.0;malignant neoplasm of spinal cord;1931;1922;1922
+c72.1;malignant neoplasm of cauda equina;;;
+c72.2;malignant neoplasm of olfactory nerve;;;
+c72.3;malignant neoplasm of optic nerve;;;
+c72.4;malignant neoplasm of acoustic nerve;;;
+c72.5;malignant neoplasm of other and unspecified cranial nerves;;;1920
+c72.8;overlapping lesion of brain and other parts;1938;;
+c72.9;malignant neoplasm of central nervous system, unspecified;;1929;1929
+c73;malignant neoplasm of thyroid gland;194;193;193
+c74;malignant neoplasm of adrenal gland;1950;1940;1940
+c74.0;malignant neoplasm of cortex of adrenal gland;;;
+c74.1;malignant neoplasm of medulla of adrenal gland;;;
+c74.9;malignant neoplasm of adrenal gland, unspecified;;;
+c75;malignant neoplasm of other endocrine and related structures;195;194;194
+c75.0;malignant neoplasm of parathyroid gland;1951;1941;1941
+c75.1;malignant neoplasm of pituitary gland;1953;1943;1943
+c75.2;malignant neoplasm of craniopharyngeal duct;;;
+c75.3;malignant neoplasm of pineal gland;1954;1944;1944
+c75.4;malignant neoplasm of carotid body;;;1945
+c75.5;malignant neoplasm of aortic body and other paraganglia;;;1946
+c75.8;malignant neoplasm with pluriglanduar involvement, unspecified;1958;;
+c75.9;malignant neoplasm of endocrine gland, unspecified;;1949;1949
+c76;malignant neoplasm of other and ill-defined sites;;195;195
+c76.0;malignant neoplasm of head, face and neck;;;1950
+c76.1;malignant neoplasm of thorax;;;1951
+c76.2;malignant neoplasm of abdomen;;1950;1952
+c76.3;malignant neoplasm pelvis;;1951;1953
+c76.4;malignant neoplasm of upper limb;;;1954
+c76.5;malignant neoplasm of lower limb;;;1955
+c76.7;malignant neoplasm of other ill-defined sites;;;
+c76.8;malignant neoplasm of overlapping sites of other and ill-defined sites;;1959;1959
+c77;secondary and unspecified malignant neoplasm of lymph nodes;198;196;196
+c77.0;secondary and unspecified malignant neoplasm of lymph nodes of head, face and neck;1980;1960;1960
+c77.1;secondary and unspecified malignant neoplasm of intrathoracic lymph nodes;1981;1961;1961
+c77.2;secondary and unspecified malignant neoplasm of intra-abdominal lymph nodes;1982;1962;1962
+c77.3;secondary and unspecified malignant neoplasm of axilla and upper limb lymph nodes;1983;1963;1963
+c77.4;secondary and unspecified malignant neoplasm of inguinal and lower limb lymph nodes;1984;1964;1965
+c77.5;secondary and unspecified malignant neoplasm of intrapelvic lymph nodes;1987;1967;1966
+c77.8;secondary and unspecified malignant neoplasm of lymph nodes of multiple regions;1988;1968;1968
+c77.9;secondary and unspecified malignant neoplasm of lymph node, unspecified;1989;1969;1969
+c78;secondary malignant neoplasm of respiratory and digestive organs;165;197;197
+c78.0;secondary malignant neoplasm of lung;163;1970;1970
+c78.1;secondary malignant neoplasm of mediastinum;;1971;1971
+c78.2;secondary malignant neoplasm of pleura;;1972;1972
+c78.3;secondary malignant neoplasm of other and unspecified respiratory organs;;1973;1973
+c78.4;secondary malignant neoplasm of small intestine;;1974;1974
+c78.5;secondary malignant neoplasm of large intestine and rectum;;1975;1975
+c78.6;secondary malignant neoplasm of retroperitoneum and peritoneum;;1976;1976
+c78.7;secondary malignant neoplasm of liver;;1977;1977
+c78.8;secondary malignant neoplasm of other and unspecified digestive organs;;1979;1978
+c79;secondary malignant neoplasm of other  and unspecified sites;;198;198
+c79.0;secondary malignant neoplasm of kidney and renal pelvis;;;1980
+c79.1;secondary malignant neoplasm of bladder and other and unspecified urinary organs;;1990;1981
+c79.1;secondary malignant neoplasm of bladder and other and unspecified urinary organs;;1981;
+c79.2;secondary malignant neoplasm of skin;;1982;1982
+c79.3;secondary malignant neoplasm of brain and cerebral meninges;;1983;1983
+c79.4;secondary malignant neoplasm of other and unspecified parts of nervous system;;1984;1984
+c79.5;secondary malignant neoplasm of bone and bone marrow;;1985;1985
+c79.6;secondary malignant neoplasm of ovary;;;1986
+c79.7;secondary malignant neoplasm of adrenal gland;;;1987
+c79.8;secondary malignant neoplasm of other specified sites;;;1988
+c79.9;secondary malignant neoplasm of unspecified site;;1989;1989
+c80;malignant neoplasm without specification of site;199;199;199
+c80.0;malignant neoplasm with site specified as unknown;;;
+c80.9;malignant neoplasm without specification of site;;;
+c81;hodgkin's diseaseÿ;201;201;201
+c81.0;hodgkin's lymphocytic predominance;;;
+c81.1;hodgkin's nodular sclerosis;;;2015
+c81.2;hodgkin's mixed cellularity;;;2016
+c81.3;hodgkin lymphoma, lymphocyte-depleted;;;2017
+c81.4;lymphocyte-rich (classical) hodgkin lymphoma;;;2014
+c81.7;other hodgkin's disease;;;2010
+c81.7;other hodgkin's disease;;;2011
+c81.7;other hodgkin's disease;;;2012
+c81.9;hodgkin's disease, unspecified;;;2019
+c82;follicular  [nodular] non-hodgkin's lymphoma;;;
+c82.0;follicular lymphoma;;2020;
+c82.1;non-hodgkin's lymphoma mixed small cleaved and large cell, follicular;;;
+c82.2;non-hodgkin's lymphoma large cell, follicular;;;
+c82.3;follicular lymphoma grade iiia;;;
+c82.4;follicular lymphoma grade iiib;;;
+c82.5;diffuse follicle centre lymphoma;;;
+c82.6;cutaneous follicle centre lymphoma;;;
+c82.7;other types of follicular non-hodgkin's lymphoma;;;
+c82.9;follicular non-hodgkin's lymphoma, unspecified;;;
+c83;diffuse non hodgkin's lymphoma;;;
+c83.0;small cell b-cell lymphoma;;;
+c83.1;non-hodgkin's lymphoma small cleaved cell (diffuse);;;
+c83.2;non-hodgkin's lymphoma mixed small and large cell (diffuse);;;
+c83.3;diffuse large b-cell lymphoma;2000;2000;2000
+c83.4;non-hodgkin's lymphoma immunoblastic (diffuse);;;
+c83.5;lymphoblastic (diffuse) lymphoma;;;2001
+c83.6;non-hodgkin's lymphoma undifferentiated (diffuse);;;
+c83.7;burkitt's tumor;;;2002
+c83.8;other types of diffuse non-hodgkin's lymphoma;;;2008
+c83.9;non-follicular (diffuse) lymphoma, unspecified;;;
+c84;mature t/nk-cell lymphomas;;;
+c84.0;mycosis fungoides;205;2021;2021
+c84.1;sezary's disease;;;2022
+c84.4;peripheral t-cell lymphoma, not classified;;;2027
+c84.5;other and unspecified t-cell lymphomas;;;
+c84.6;anaplastic large cell lymphoma, alk-positive;;;
+c84.7;anaplastic large cell lymphoma, alk-negative;;;
+c84.8;cutaneous t-cell lymphoma, unspecified;;;
+c84.9;mature t/nk-cell lymphoma, unspecified;;;
+c85;other and unspecified types of non-hodgkin lymphomas;;;
+c85.0;lymphosarcoma;;;
+c85.1;b-cell lymphoma, unspecified;;;
+c85.2;mediastinal (thymic) large b-cell lymphoma;;;
+c85.7;other specified types of non-hodgkin's lymphoma;;;
+c85.9;non-hodgkin's lymphoma, unspecified type;;;
+c86;other specified types of t/nk-cell lymphoma;;;
+c86.0;extranodal nk/t-cell lymphoma, nasal type;;;
+c86.1;hepatosplenic t-cell lymphoma;;;
+c86.2;enteropathy-type (intestinal) t-cell lymphoma;;;
+c86.3;subcutaneous panniculitis-like t-cell lymphoma;;;
+c86.4;blastic nk-cell lymphoma;;;
+c86.5;angioimmunoblastic t-cell lymphoma;;;
+c86.6;primary cutaneous cd30-positive t-cell proliferations;;;
+c88;malignant immunoproliferative diseases;;;
+c88.0;lymphoplasmacytic/lymphoma with igm-production;;;
+c88.1;alpha heavy chain disease;;;
+c88.2;gamma heavy chain disease;;;
+c88.3;immunoproliferative small intestinal disease;;;
+c88.4;extranodal marginal zone b-cell lymphoma of mucosa-associated lymphoid tissue [malt-lyphoma];;;
+c88.7;other malignant immunoproliferative diseases;;;
+c88.9;malignant immunoproliferative disease, unspecified;;;
+c90;multiple myeloma and malignant plasma cell neoplasms;203;203;203
+c90.0;multiple myeloma;;;2030
+c90.1;plasma cell leukemia;;;2031
+c90.2;plasmacytoma, extramedullary;;;
+c90.3;solitary plasmacytoma;;;2038
+c91;lymphoid leukemia;2040;204;204
+c91.0;acute lymphoblastic leukemia;;2040;2040
+c91.1;chronic lymphocytic leukemia of b-cell type;;2041;2041
+c91.2;subacute lymphocytic leukemia;;;
+c91.3;prolymphocytic leukemia;;;
+c91.4;hairy-cell leukemia;;;2042
+c91.5;adult t-cell lymphoma/leukemia (htlv-1-associated);;;
+c91.6;prolymphocytic leukaemia of t-cell type;;;
+c91.7;other lymphoid leukemia;;;
+c91.8;burkitt leukaemia (mature b-cell all);;;
+c91.9;lymphoid leukemia, unspecified;;2049;2049
+c92;myeloid leukemia;2041;205;205
+c92.0;acute myeloid leukemia;;2050;2050
+c92.1;chronic myeloid leukemia;;;2051
+c92.2;subacute myeloid leukemia;;;2052
+c92.3;myeloid sarcoma;;;2053
+c92.4;acute promyelocytic leukemia;;;
+c92.5;acute myelomonocytic leukemia;;;
+c92.6;acute myeloid leukaemia with 11q23-abnormality;;;
+c92.7;other myeloid leukemia;;2051;
+c92.8;acute myeloid leukaemia with multilineage dysplasia;;;
+c92.9;myeloid leukemia, unspecified;;2059;2059
+c93;monocytic leukemia;;206;206
+c93.0;acute monocytic leukemia;;2060;2060
+c93.1;chronic myelomonocytic leukemia;;2061;2061
+c93.2;subacute monocytic leukemia;;;2062
+c93.3;juvenile myelomonocytic leukaemia;;;
+c93.7;other monocytic leukemia;;;2068
+c93.9;monocytic leukemia, unspecified;;2069;2069
+c94;other leukemias of specified cell type;2043;;207
+c94.0;acute erythremia and erythroleukemia;;2072;2070
+c94.1;chronic erythremia;;;
+c94.2;acute megakaryoblastic leukemia;;;2072
+c94.3;mast cell leukemia;;;2078
+c94.4;acute panmyelosis;;;
+c94.6;myelodysplastic and myeloproliferative disease, not elsewehere classified;;;
+c94.7;other specified leukemias;;2070;
+c95;leukemia of unspecified cell type;2044;207;208
+c95.0;acute leukemia of unspecified cell type;;;2080
+c95.1;chronic leukemia of unspecified cell type;;2071;2081
+c95.7;other leukemia of unspecified cell type;;;
+c95.9;leukemia, unspecified;;2079;2089
+c96;other and unspecified malignant neoplasms of lymphoid, hematopoietic and related tissue;200;200;200
+c96;other and unspecified malignant neoplasms of lymphoid, hematopoietic and related tissue;202;202;202
+c96.0;letterer-siwe disease;;;2025
+c96.1;malignant histiocytosis;;;
+c96.2;malignant mast cell tumor;;;2026
+c96.3;true histiocytic lymphoma;;;
+c96.4;sarcoma of dendritic cells (accessory cells);;;
+c96.5;multifocal and unisystemic langerhans-cell histiocytosis;;;
+c96.6;unifocal langerhans-cell histiocytosis;;;
+c96.7;other specified malignant neoplasms of lymphoma, hematopoietic and related tissue;;;
+c96.8;histiocytic sarcoma;;;
+c96.9;malignant neoplasm of lymphoid, hematopoietic and related tissue, unspecified;;;
+c97;malignant neoplasms of independent (primary multiple sites);;;
+d00;carcinoma in situ of oral cavity, esophagus and stomach;;;
+d00.0;carcinoma in situ of lip, oral cavity and pharynx;;;
+d00.1;carcinoma in situ of esophagus;;;
+d00.2;carcinoma in situ of stomach;;;
+d01;carcinoma in situ of other and unspecified digestive organs;;;
+d01.0;carcinoma in situ of colon;;;
+d01.1;carcinoma in situ of rectosigmoid junction;;;
+d01.2;carcinoma in situ of rectum;;;
+d01.3;carcinoma in situ of anus and anal canal;;;
+d01.4;carcinoma in situ of other and unspecified parts of intestine;;;
+d01.5;carcinoma in situ of liver, gallbladder and bile ducts;;;
+d01.7;carcinoma in situ of other specified digestive organs;;;
+d01.9;carcinoma in situ of digestive organ, unspecified;;;
+d02;carcinoma in situ of middle ear and respiratory system;;;
+d02.0;carcinoma in situ of larynx;;;
+d02.1;carcinoma in situ of trachea;;;
+d02.2;carcinoma in situ of bronchus and lung;;;
+d02.3;carcinoma in situ of other parts of respiratory system;;;
+d02.4;carcinoma in situ of respiratory system, unspecified;;;
+d03;melanoma in situ;;;
+;note: includes icd-o-3 histology codes 8720-8790;;;
+d03.0;melanoma in situ of lip;;;
+d03.1;melanoma in situ of eyelid, including canthus;;;
+d03.2;melanoma in situ of skin of ear and external auricular canal;;;
+d03.3;melanoma in situ of skin of other and unspecified parts of face;;;
+d03.4;melanoma in situ of scalp and neck;;;
+d03.5;melanoma in situ of trunk;;;
+d03.6;melanoma in situ of upper limb, including shoulder;;;
+d03.7;melanoma in situ of lower limb, including hip;;;
+d03.8;melanoma in situ of other sites;;;
+d03.9;melanoma in situ, unspecified;;;
+d04;carcinoma in situ of skin;;;
+d04.0;carcinoma in situ of skin of lip;;;
+d04.1;carcinoma in situ of skin of eyelid, including canthus;;;
+d04.2;carcinoma in situ of skin of ear and external auricular canal;;;
+d04.3;carcinoma in situ of skin of other and unspecified parts of face;;;
+d04.4;carcinoma in situ of skin of scalp and neck;;;
+d04.5;carcinoma in situ of skin of trunk;;;
+d04.6;carcinoma in situ of skin of upper limb, including shoulder;;;
+d04.7;carcinoma in situ of ski of lower limb, including hip;;;
+d04.8;carcinoma in situ of other sites;;;
+d04.9;carcinoma in situ of skin, unspecified;;;
+d05;carcinoma in situ of breast;;;
+d05.0;lobular carcinoma in situ of breast;;;
+d05.1;intraductal carcinoma in situ;;;
+d05.7;other carcinoma in situ of breast;;;
+d05.9;unspecified carcinoma in situ of breast;;;
+d06;carcinoma in situ of cervix uteri;;;
+d06.0;carcinoma in situ of endocervix;;;
+d06.1;carcinoma in situ of exocervix;;;
+d06.7;carcinoma in situ of other parts of cervix;;;
+d06.9;carcinoma in situ of cervix, unspecified;;;
+d07;carcinoma in situ of other and unspecified genital organs;;;
+d07.0;carcinoma in situ of endometrium;;;
+d07.1;carcinoma in situ of vulva;;;
+d07.2;carcinoma in situ of vagina;;;
+d07.3;carcinoma in situ of other and unspecified female genital organs;;;
+d07.4;carcinoma in situ of penis;;;
+d07.5;carcinoma in situ of prostate;;;
+d07.6;carcinoma in situ of other and unspecified male genital organs;;;
+d09;carcinoma in situ of other and unspecified sites;;;
+d09.0;carcinoma in situ of bladder;;;
+d09.1;carcinoma in situ of other and unspecified urinary organs;;;
+d09.2;carcinoma in situ of eye;;;
+d09.3;carcinoma in situ of thyroid and other endocrine glands;;;
+d09.7;carcinoma in situ of other specified sites;;;
+d09.9;carcinoma in situ, unspecified;;;
+d10;benign neoplasm of mouth and pharynx;;;
+d10.0;lip;;;
+d10.1;tongue;;;
+d10.2;floor of mouth;;;
+d10.3;other and unspecified parts of mouth;;;
+d10.4;tonsil;;;
+d10.5;other parts of oropharynx;;;
+d10.6;nasopharynx;;;
+d10.7;hypopharynx;;;
+d10.9;pharynx, unspecified;;;
+d11;benign neoplasm of major salivary glands;;;
+d11.0;parotid gland;;;
+d11.7;other major salivary glands;;;
+d11.9;major salivary gland, unspecified;;;
+d12;benign neoplasm of colon, rectum, anus and anal canal;;;
+d12.0;coecum;;;
+d12.1;appendix;;;
+d12.2;ascending colon;;;
+d12.3;transverse colon;;;
+d12.4;descending colon;;;
+d12.5;sigmoid colon;;;
+d12.6;colon, unspecified;;;
+d12.7;rectosigmoid junction;;;
+d12.8;rectum;;;
+d12.9;anus and anal canal;;;
+d13;benign neoplasm of other and ill-defined parts of digestive system;;;
+d13.0;oesophagus;;;
+d13.1;stomach;;;
+d13.2;duodenum;;;
+d13.3;other and unspecified parts of small intestine;;;
+d13.4;liver;;;
+d13.5;extrahepatic bile ducts;;;
+d13.6;pancreas;;;
+d13.7;endocrine pancreas;;;
+d13.9;ill-defined sites within the digestive system;;;
+d14;benign neoplasm of middle ear and respiratory system;;;
+d14.0;middle ear, nasal cavity and accessory sinuses;;;
+d14.1;larynx;;;
+d14.2;trachea;;;
+d14.3;bronchus and lung;;;
+d14.4;respiratory system, unspecified;;;
+d15;benign neoplasm of other and unspecified intrathoracic organs;;;
+d15.0;thymus;;;
+d15.1;heart;;;
+d15.2;mediastinum;;;
+d15.7;other specified intrathoracic organs;;;
+d15.9;intrathoracic organ, unspecified;;;
+d16;benign neoplasm of bone and articular cartilage;;;
+d16.0;scapula and long bones of upper limb;;;
+d16.1;short bones of upper limb;;;
+d16.2;long bones of lower limb;;;
+d16.3;short bones of lower limb;;;
+d16.4;bones of skull and face;;;
+d16.5;lower jaw bone;;;
+d16.6;vertebral column;;;
+d16.7;ribs, sternum and clavicle;;;
+d16.8;pelvic bones, sacrum and coccyx;;;
+d16.9;bone and articular cartilage, unspecified;;;
+d17;benign lipomatous neoplasm;;;
+d17.0;benign lipomatous neoplasm of skin and subcutaneous tissue of head, face and neck;;;
+d17.1;benign lipomatous neoplasm of skin and subcutaneous tissue of trunk;;;
+d17.2;benign lipomatous neoplasm of skin and subcutaneous tissue of limbs;;;
+d17.3;benign lipomatous neoplasm of skin and subcutaneous tissue of other and unspecified sites;;;
+d17.4;benign lipomatous neoplasm of intrathoracic organs;;;
+d17.5;benign lipomatous neoplasm of intra-abdominal organs;;;
+d17.6;benign lipomatous neoplasm of spermatic cord;;;
+d17.7;benign lipomatous neoplasm of other sites;;;
+d17.9;benign lipomatous neoplasm, unspecified;;;
+d18;hemangioma and lymphangioma, any site;;;
+d18.0;hemangioma, any site;;;
+d18.1;lymphangioma, any site;;;
+d19;benign neoplasm of mesothelial tissue;;;
+d19.0;mesothelial tissue of pleura;;;
+d19.1;mesothelial tissue of peritoneum;;;
+d19.7;mesothelial tissue of other sites;;;
+d19.9;mesothelial tissue, unspecified;;;
+d20;benign neoplasm of soft tissue of retroperitoneum and retroperitoneum;;;
+d20.0;retroperitoneum;;;
+d20.1;peritoneum;;;
+d21;other benign neoplasms of connective and other soft tissues;;;
+d21.0;connective and other soft tissue of head, face and neck;;;
+d21.1;connective and other soft tissue of upper limb, including shoulder;;;
+d21.2;connective and other soft tissue of lower limb, including hip;;;
+d21.3;connective and other soft tissue of thorax;;;
+d21.4;connective and other soft tissue of abdomen;;;
+d21.5;connective and other soft tissue of pelvis;;;
+d21.6;connective and other soft tissue of trunk, unspecified;;;
+d21.9;connective and other soft tissue, unspecified;;;
+d22;melanocytic naevi;;;
+d22.0;melanocytic naevi of lip;;;
+d22.1;melanocytic naevi of eyelid, including canthus;;;
+d22.2;melanocytic naevi of ear and external auricular canal;;;
+d22.3;melanocytic naevi of other and unspecified parts of face;;;
+d22.4;melanocytic naevi of scalp and neck;;;
+d22.5;melanocytic naevi of trunk;;;
+d22.6;melanocytic naevi of upper limb, including shoulder;;;
+d22.7;melanocytic naevi of lower limb, including hip;;;
+d22.9;melanocytic naevi, unspecified;;;
+d23;other benign neoplasms of skin;;;
+d23.0;skin of lip;;;
+d23.1;skin of eyelid, including canthus;;;
+d23.2;skin of ear and external auricular canal;;;
+d23.3;skin of other and unspecified parts of face;;;
+d23.4;skin of scalp and neck;;;
+d23.5;skin of trunk;;;
+d23.6;skin of upper limb, including shoulder;;;
+d23.7;skin of lower limb, including hip;;;
+d23.9;skin, unspecified;;;
+d24;other benign neoplasm of breast;;;
+d25;leiomyoma of uterus;;;
+d25.0;submucous leiomyoma of uterus;;;
+d25.1;intramural leiomyoma of uterus;;;
+d25.2;subserosal leiomyoma of uterus;;;
+d25.9;leiomyoma of uterus, unspecified;;;
+d26;other benign neoplasms of uterus;;;
+d26.0;cervix uteri;;;
+d26.1;corpus uteri;;;
+d26.7;other parts of uterus;;;
+d26.9;uterus, unspecified;;;
+d27;benign neoplasm of ovary;;;
+d28;benign neoplasm of other and unspecified female genital organs;;;
+d28.0;vulva;;;
+d28.1;vagina;;;
+d28.2;uterine tubes and ligaments;;;
+d28.7;other specified female genital organs;;;
+d28.9;female genital organ, unspecified;;;
+d29;benign neoplasm of male genital organs;;;
+d29.0;penis;;;
+d29.1;prostate;;;
+d29.2;testis;;;
+d29.3;epididymis;;;
+d29.4;scrotum;;;
+d29.7;other male genital organs;;;
+d29.9;male genital organ, unspecified;;;
+d30;benign neoplasm of urinary organs;;;
+d30.0;benign neoplasm of kidney;;;
+d30.1;benign neoplasm of renal pelvis;;;
+d30.2;benign neoplasm of ureter;;;
+d30.3;benign neoplasm of bladder;;;
+d30.4;benign neoplasm of urethra;;;
+d30.7;benign neoplasm of other urinary organs;;;
+d30.9;benign neoplasm of urinary organ, unspecified;;;
+d31;benign neoplasm of eye and adnexa;;;
+d31.0;conjunctiva;;;
+d31.1;cornea;;;
+d31.2;retina;;;
+d31.3;choroid;;;
+d31.4;ciliary body;;;
+d31.5;lacrimal gland and duct;;;
+d31.6;orbit, unspecified;;;
+d31.9;eye, unspecified;;;
+d32;benign neoplasm of meninges;;;
+d32.0;benign neoplasm of cerebral meninges;;;
+d32.1;benign neoplasm of spinal meninges;;;
+d32.9;benign neoplasm of meninges, unspecified;;;
+d33;benign neoplasm of brain and other parts of central nervous system;;;
+d33.0;benign neoplasm of brain, supratentorial;;;
+d33.1;benign neoplasm of brain, infratentorial;;;
+d33.2;benign neoplasm of brain, unspecified;;;
+d33.3;benign neoplasm of cranial nerves;;;
+d33.4;benign neoplasm of spinal cord;;;
+d33.7;benign neoplasm of other specified parts of central nervous system;;;
+d33.9;benign neoplasm of central nervous system, unspecified;;;
+d34;benign neoplasm of thyroid gland;;;
+d35;benign neoplasm of other and unspecified endocrine glands;;;
+d35.0;benign neoplasm of adrenal gland;;;
+d35.1;benign neoplasm of parathyroid gland;;;
+d35.2;benign neoplasm of pituitary gland;;;
+d35.3;benign neoplasm of craniopharyngeal duct;;;
+d35.4;benign neoplasm of pineal gland;;;
+d35.5;benign neoplasm of carotid body;;;
+d35.6;benign neoplasm of aortic body and other paraganglia;;;
+d35.7;benign neoplasm of other specified endocrine glands;;;
+d35.8;benign neoplasm of pluriglandular involvement;;;
+d35.9;benign neoplasm of endocrine gland, unspecified;;;
+d36;benign neoplasm of other and unspecified sites;;;
+d36.0;lymph nodes;;;
+d36.1;peripheral nerves and autonomic nervous system;;;
+d36.7;other specified sites;;;
+d36.9;benign neoplasm of unspecified site;;;
+d37;neoplasm of uncertain or unknown behavior of oral cavity and digestive organs;;;
+d37.0;lip, oral cavity and pharynx;;;
+d37.1;stomach;;;
+d37.2;small intestine;;;
+d37.3;appendic;;;
+d37.4;colon;;;
+d37.5;rectum;;;
+d37.6;liver, gallbladder and bile ducts;;;
+d37.7;other digestive organs;;;
+d37.9;digestive organ, unspecified;;;
+d38;neoplasm of uncertain or unknown behavior of middle ear and respiratory and intrathoracic organs;;;
+d38.0;larynx;;;
+d38.1;trachea, bronchus and lung;;;
+d38.2;pleura;;;
+d38.3;mediastinum;;;
+d38.4;thymus;;;
+d38.5;other respiratory organs;;;
+d38.6;respiratory organ, unspecified;;;
+d39;neoplasm of uncertain or unknown behavior of female genital organs;;;
+d39.0;uterus;;;
+d39.1;ovary;;;
+d39.2;placenta;;;
+d39.7;other female genital organs;;;
+d39.9;female genital organ, unspecified;;;
+d40;neoplasm of uncertain or unknown behavior of male genital organs;;;
+d40.0;prostate;;;
+d40.1;testis;;;
+d40.7;other male genital organs;;;
+d40.9;male genital organ, unspecified;;;
+d41;neoplasm of uncertain or unknown behavior of urinary organs;;;
+d41.0;kidney;;;
+d41.1;renal pelvis;;;
+d41.2;ureter;;;
+d41.3;urethra;;;
+d41.4;bladder;;;
+d41.7;other urinary organs;;;
+d41.9;urinary organ, unspecified;;;
+d42;neoplasm of uncertain behavior of meninges;;;
+d42.0;neoplasm of uncertain behavior of cerebral meninges;;;
+d42.1;neoplasm of uncertain behavior of spinal meninges;;;
+d42.9;neoplasm of uncertain behavior of meninges, unspecified;;;
+d43;neoplasm of uncertain behavior of brain and central nervous system;;;
+d43.0;neoplasm of uncertain behavior of brain, supratentorial;;;
+d43.1;neoplasm of uncertain behavior of brain, infratentorial;;;
+d43.2;neoplasm of uncertain behavior of brain, unspecified;;;
+d43.3;neoplasm of uncertain behavior of  cranial nerves;;;
+d43.4;neoplasm of uncertain behavior of spinal cord;;;
+d43.7;neoplasm of uncertain behavior of  other parts of central nervous system;;;
+d43.9;neoplasm of uncertain behavior of  central nervous system, unspecified;;;
+d44;neoplasm of uncertain behavior of endocrine glands;;;
+d44.0;neoplasm of uncertain behavior of thyroid gland;;;
+d44.1;neoplasm of uncertain behavior of adrenal gland;;;
+d44.2;neoplasm of uncertain behavior of parathyroid gland;;;
+d44.3;neoplasm of uncertain behavior of pituitary gland;;;
+d44.4;neoplasm of uncertain behavior of craniopharyngeal duct;;;
+d44.5;neoplasm of uncertain behavior of pineal gland;;;
+d44.6;neoplasm of uncertain behavior of carotid body;;;
+d44.7;neoplasm of uncertain behavior of aortic body and other paraganglia;;;
+d44.8;neoplasm of uncertain behavior of pluriglandular involvement;;;
+d44.9;neoplasm of uncertain behavior of endocrine gland, unspecified;;;
+d45;polycythemia vera;;;
+d46;myelodysplastic syndromes;;;
+d46.0;refractory anemia without sideroblasts, so stated;;;
+d46.1;refractory anemia with (ringed) sideroblasts;;;
+d46.2;refractory anemia with excess blasts;;;
+d46.3;refractory anemia with excess blasts in transformation;;;
+d46.4;refractory anemia, unspecified;;;
+d46.5;refractory anaemia with multi-lineage dysplasia;;;
+d46.6;myelodysplastic syndrome with isolated del(5q) chromosomal abnormality;;;
+d46.7;other myelodysplastic syndromes;;;
+d46.9;myelodysplastic syndrome, unspecified;;;
+d47;other neoplasms of uncertain behavior of lymphoid, hematopoietic and related tissueÿ;;;
+d47.0;histiocytic and mast cell tumours of uncertain and unknown behaviour;;;
+d47.1;chronic myeloproliferative disease;;;
+d47.2;monoclonal gammopathy of undetermined significanse (mgus);;;
+d47.3;essential (hemorrhagic) thrombocythemia;;;
+d47.4;osteomyelofibrosis;;;
+d47.5;chronic eosinophilic leukaemia (hypereosinophilic syndrome);;;
+d47.7;other specified neoplasm of uncertain behavior of lymphoid, hematopoietic and related tissue;;;
+d47.9;neoplasm of uncertain behavior of lymphoid, hematopoietic and related tissue, unspecified;;;
+d48;neoplasms of uncertain or unknown behavior of other and unspecified sites;;;
+d48.0;bone and articular cartilage;;;
+d48.1;connective and other soft tissue;;;
+d48.2;peripheral nerves and autonomic nervous system;;;
+d48.3;retroperitoneum;;;
+d48.4;peritoneum;;;
+d48.5;skin;;;
+d48.6;breast;;;
+d48.7;other specified sites;;;
+d48.9;neoplasm of uncertain or unknown behaviour, unspecified;;;
