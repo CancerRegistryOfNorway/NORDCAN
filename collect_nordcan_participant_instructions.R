@@ -3,11 +3,6 @@
 library("devtools")
 library("git2r")
 
-if (dir.exists("pkgs")) {
-  unlink("pkgs", recursive = TRUE)
-}
-dir.create("pkgs")
-
 cran_pkg_nms <- c("digest", "skellam", "data.table")
 
 github_support_pkg_nms <- c(
@@ -56,7 +51,8 @@ pkg_df[["file_nm"]] <- paste0(
 if (!dir.exists("nordcan_participant_instructions")) {
   dir.create("nordcan_participant_instructions")
 }
-if (!dir.exists("nordcan_participant_instructions/pkgs/")) {
+if (dir.exists("nordcan_participant_instructions/pkgs/")) {
+  unlink("nordcan_participant_instructions/pkgs", recursive = TRUE)
   dir.create("nordcan_participant_instructions/pkgs")
 }
 pkg_df[["file_path"]] <- paste0(
