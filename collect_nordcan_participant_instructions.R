@@ -3,6 +3,11 @@
 library("devtools")
 library("git2r")
 
+if (dir.exists("pkgs")) {
+  unlink("pkgs", recursive = TRUE)
+}
+dir.create("pkgs")
+
 cran_pkg_nms <- c("digest", "skellam", "data.table")
 
 github_support_pkg_nms <- c(
