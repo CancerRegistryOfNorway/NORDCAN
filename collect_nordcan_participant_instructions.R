@@ -3,7 +3,7 @@
 library("devtools")
 library("git2r")
 
-cran_pkg_nms <- c("digest", "data.table")
+cran_pkg_nms <- c("digest", "skellam", "data.table")
 
 github_support_pkg_nms <- c(
   "dbc",
@@ -23,6 +23,7 @@ pkg_df <- rbind(
     pkg_nm = cran_pkg_nms,
     url = c(
       "https://cran.r-project.org/bin/windows/contrib/4.0/digest_0.6.25.zip",
+      "https://cran.r-project.org/bin/windows/contrib/4.0/skellam_0.2.0.zip",
       "https://cran.r-project.org/bin/windows/contrib/4.0/data.table_1.13.0.zip"
     )
   ),
@@ -41,12 +42,10 @@ pkg_df <- rbind(
     )
   )
 )
-pkg_df[["branch"]] <- vector("list", nrow(pkg_df))
-pkg_df[["branch"]][[which(pkg_df$pkg_nm == "dbc")]] <- "633e4117c4e307125e515c47f10cd9f2c59f6c57"
 
 pkg_df[["file_nm"]] <- paste0(
   "pkg_", 1:nrow(pkg_df), "_", pkg_df[["pkg_nm"]],
-  rep(c(".zip", ".tar.gz"), times = c(2L, nrow(pkg_df) - 2L))
+  rep(c(".zip", ".tar.gz"), times = c(3L, nrow(pkg_df) - 3L))
 )
 
 if (!dir.exists("nordcan_participant_instructions")) {
@@ -86,8 +85,7 @@ invisible(lapply(1:nrow(pkg_df), function(file_no) {
         publickey = public_ssh_key,
         privatekey = private_ssh_key
       ),
-      progress = FALSE,
-      branch = pkg_df[["branch"]][[file_no]]
+      progress = FALSE
     )
     # devtools::install_git(repo_dir, upgrade = "never", quiet = TRUE)
     devtools::build(repo_dir, path = zip_path, binary = TRUE, quiet = TRUE)
