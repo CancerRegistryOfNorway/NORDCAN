@@ -52,7 +52,7 @@ invisible(lapply(pkg_paths, function(pkg_path) {
 # if you have trouble installing any of the packages, the tried and true method
 # is to restart all R sessions you have and try again.
 
-# NORDCAN CANCER RECORD DATASET ------------------------------------------------
+# DATASETS ---------------------------------------------------------------------
 
 # load your NORDCAN datasets prepared according to the call for data
 # specifications into R somehow. if you have .csv files, we recommend
@@ -64,8 +64,8 @@ invisible(lapply(pkg_paths, function(pkg_path) {
 # using their cancer record dataset and does not have this dataset in advance)
 
 # so if you are reading in .csv files, the reading in of your datasets into R
-# might look like this (and to be clear, .csv files are NOT required and 
-# you can read your datasets into R any way you want; just please use the 
+# might look like this (and to be clear, .csv files are NOT required and
+# you can read your datasets into R any way you want; just please use the
 # same names for objects):
 # unprocessed_cancer_record_dataset <- data.table::fread(
 #   "path/to/unprocessed_cancer_record_dataset.csv"
@@ -79,6 +79,8 @@ invisible(lapply(pkg_paths, function(pkg_path) {
 # unprocessed_cancer_death_count_dataset <- data.table::fread(
 #   "path/to/unprocessed_cancer_death_count_dataset.csv"
 # )
+
+# SETTINGs ----------------------------------------------------------------
 
 # next you need to set global settings for the NORDCAN software so that e.g.
 # statistics are only produced for the range of years that you know
@@ -97,6 +99,8 @@ nordcancore::set_global_nordcan_settings(
   stat_cancer_death_count_first_year = 1953L,
   stat_survival_follow_up_first_year = 1967L
 )
+
+# PREPROCESSING -----------------------------------------------------------
 
 # now we assume that you have the correct settings and
 # you have the datasets in R as objects by the names given above.
@@ -125,13 +129,15 @@ saveRDS(
   "processed_cancer_record_dataset.rds"
 )
 # you can read this back into R using
-# processed_cancer_record_dataset <- readRDS("processed_cancer_record_dataset.rds")
+# processed_cancer_record_dataset <- data.table::setDT(readRDS(
+#   "processed_cancer_record_dataset.rds"
+# ))
 
 # at this point you may, if you wish, save some RAM by removing the
 # unprocessed cancer dataset from memory. you do not need it anymore.
 rm(list = "unprocessed_cancer_record_dataset")
 
-# STATISTICS -------------------------------------------------------------------
+# STATISTICS - CANCER DEATH COUNT DATASET --------------------------------------
 
 # now you have the processed dataset. time to compute all the different
 # statistics! first the counts of cancer deaths.
@@ -152,7 +158,7 @@ cancer_death_count_dataset <- nordcanepistats::nordcanstat_count(
   by = c("sex", "entity", "yoi", "region", "agegroup"),
   subset = processed_cancer_record_dataset$died_from_cancer == TRUE
 )
-data.table::setnames(cancer_death_count_dataset, c("N", "yoi"), c("death_count", "year"))
+data.table::setnames(cancer_death_count_dataset, c("N", "yoi"), c("cancer_death_count", "year"))
 
 # where `processed_cancer_record_dataset` is your cancer record dataset after
 # processing
@@ -161,6 +167,8 @@ data.table::setnames(cancer_death_count_dataset, c("N", "yoi"), c("death_count",
 # in the logical vector `died_from_cancer`, which you need to define. It should
 # be of length `nrow(processed_cancer_record_dataset)`. One person can
 # naturally only die once, so there can be at most one `TRUE` value per person.
+
+# STATISTICS --------------------------------------------------------------
 
 # now to produce the rest of the statistics.
 # the output of the following will be a list, where each element
@@ -206,11 +214,89 @@ invisible(lapply(names(statistics), function(elem_nm) {
 # e.g. here's the table containing cancer case counts:
 print(statistics[["cancer_case_count_dataset"]])
 
+# COMPARING STATISTICS TO PREVIOUS VERSION -------------------------------------
 
-# and that's all for now. thanks for participating! in the official
-# release the a .zip file will also be created and sent to the maintainer of the
-# NORDCAN website. instructions on how to do that will be given at that
-# point.
+# we want to automate inspecting the statistics as much as possible. in what
+# follows we compare the newly computed statistics in object "statistics" to
+# those from a previous version of NORDCAN.
+#
+# you will need to know the path to a .zip of a previous NORDCAN version of
+# the statistics, here we only have an example path.
+old_statistics <- nordcanepistats::read_nordcan_statistics_tables(
+  "archive/nordcan_statistics_tables_8.2.zip"
+)
+
+# then the comparison.
+comparison <- nordcanepistats::compare_nordcan_statistics_table_lists(
+  statistics,
+  old_statistics
+)
+# the comparison has limitations. if the "old_statistics" does not have
+# information for the newest year in "statistics", then that year will not have
+# been compared to anything. additionally, statistics produced by 5-year periods
+# will all be incomparable in such a situation (e.g. if the latest year is
+# 2018 vs. 2019 in the old and current versions, then all the periods are
+# different in the two).
+#
+# the approach taken to detect "substantial" differences is based on statistical
+# testing, i.e. the p-value (after adjusting for multiple testing using the
+# BH method; see ?p.adjust). this can also have its shortcomings. statistical
+# tests may also not even be defined for all the possible statistics
+# (at the time of writing this in 2020-10-02, there are no p-values for
+# comparing survivals). even if there are no p-values defined for some of
+# the comparisons, differences are still calculated and summarised.
+#
+# you can see an overall summary of all comparisons in
+comparison$summary
+
+# and you may look at any individual comparisons in comparison$comparisons, e.g.
+comparison$comparisons$cancer_record_count_dataset
+
+# SAVING RESULTS ----------------------------------------------------------
+
+# the object "statistics" must be saved so that in a future release you have
+# something to compare to (among other reasons). each NORDCAN participant
+# must therefore have an archive of previous NORDCAN results as computed
+# into the object "statistics". we recommend having a directory outside of the
+# current one, i.e. if your current working directory is "nordcan", we recommend
+# you have directory "nordcan_archive" for storing previous results in the
+# parent directory of "nordcan", e.g. if "nordcan" is at "C:/path/to/nordcan/"
+# then "nordcan_archive" would be at "C:/path/to/nordcan_archive/".
+#
+# you should write the current results into a .zip file using
+nordcanepistats::write_nordcan_statistics_tables_for_archive(
+  statistics
+)
+# which creates a .zip file into the current NORDCAN working directory. you
+# should move it into your archive directory and give it a suitable
+# version number. you can use this code to do that:
+archive_zip_src_file_path <- "nordcan_statistics_tables.zip"
+archive_zip_tgt_dir <- "../nordcan_archive/"
+if (!dir.exists(archive_zip_tgt_dir)) {
+  stop("you don't have the nordcan_archive dir this code assumed, so you ",
+       "need to copy the file yourself. just be sure to use the same file name",
+       "as created below.")
+}
+archive_zip_tgt_file_name <- paste0(
+  "nordcan_statistics_tables_",
+  nordcancore::nordcan_metadata_nordcan_version(),
+  ".zip"
+)
+archive_zip_tgt_file_path <- paste0(
+  archive_zip_tgt_dir, archive_zip_tgt_file_name
+)
+if (file.exists(archive_zip_tgt_file_path)) {
+  stop("file already exists: ", archive_zip_tgt_file_path)
+} else {
+  file.copy(from = archive_zip_src_file_path, to = archive_zip_tgt_file_path)
+}
+
+
+# EPILOGUE ----------------------------------------------------------------
+
+# that's all for now. thanks for participating! in the official
+# release a .zip file will also be sent to the maintainers of the NORDCAN
+# website. instructions on how to do that will be given at that point.
 
 
 

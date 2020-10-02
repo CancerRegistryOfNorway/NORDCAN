@@ -41,6 +41,8 @@ pkg_df <- rbind(
     )
   )
 )
+pkg_df[["branch"]] <- vector("list", nrow(pkg_df))
+pkg_df[["branch"]][[which(pkg_df$pkg_nm == "dbc")]] <- "633e4117c4e307125e515c47f10cd9f2c59f6c57"
 
 pkg_df[["file_nm"]] <- paste0(
   "pkg_", 1:nrow(pkg_df), "_", pkg_df[["pkg_nm"]],
@@ -84,7 +86,8 @@ invisible(lapply(1:nrow(pkg_df), function(file_no) {
         publickey = public_ssh_key,
         privatekey = private_ssh_key
       ),
-      progress = FALSE
+      progress = FALSE,
+      branch = pkg_df[["branch"]][[file_no]]
     )
     # devtools::install_git(repo_dir, upgrade = "never", quiet = TRUE)
     devtools::build(repo_dir, path = zip_path, binary = TRUE, quiet = TRUE)
