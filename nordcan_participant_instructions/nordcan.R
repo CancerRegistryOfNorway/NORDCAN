@@ -25,6 +25,16 @@ stopifnot(
   readLines("nordcan.R", n = 1L) == "# NORDCAN"
 )
 
+# in 9.0.beta2, you should have a separate directory for storing .zip files
+# containing statistics tables from previous releases. you should have received
+# one such zip file by e-mail or otherwise. we assume you create the directory
+# "nordcan_archive" in the same directory under which the current directory is.
+# i.e. if "nordcan" is at "C:/path/to/nordcan/"
+# then "nordcan_archive" would be at "C:/path/to/nordcan_archive/"
+stopifnot(
+  dir.exists("../nordcan_archive")
+)
+
 # throughout this script, any errors (programme terminations) naturally mean that
 # one cannot proceed and these should be reported. additionally, no warnings
 # are tolerated either because a warning can signify that a programme may finish,
@@ -204,15 +214,14 @@ invisible(lapply(names(statistics), function(elem_nm) {
   }
 }))
 
-# beyond reading what (if anything) the above code prints out,
-# you are not expected to verify that the results are actually correct at this
-# point. but, feel free to look at anything you want. actually the ambition is
-# to automate the verification of results as much as possible and all but
-# eliminate "eye-ball" verification of the statistics. this will hopefulyl come
-# in a future release.
+# report anything printed by the above command to the maintainers.
+
+# you can look at individual results at this point as you wish, but next up
+# is comparing the results to a previous version automatically, which should
+# reduce the amount of manual work considerably.
 
 # e.g. here's the table containing cancer case counts:
-print(statistics[["cancer_case_count_dataset"]])
+print(statistics[["cancer_record_count_dataset"]])
 
 # COMPARING STATISTICS TO PREVIOUS VERSION -------------------------------------
 
@@ -221,16 +230,53 @@ print(statistics[["cancer_case_count_dataset"]])
 # those from a previous version of NORDCAN.
 #
 # you will need to know the path to a .zip of a previous NORDCAN version of
-# the statistics, here we only have an example path.
+# the statistics. this path refers to the zip for version 8.2.
 old_statistics <- nordcanepistats::read_nordcan_statistics_tables(
-  "archive/nordcan_statistics_tables_8.2.zip"
+  "../nordcan_archive/nordcan_statistics_tables_8.2.zip"
 )
 
-# then the comparison.
+# need to massage the data a bit because of differences between the versions.
+statistics_comp <- lapply(statistics, function(dt) {
+  dt <- data.table::copy(dt)
+  dt_stratum_col_nms <- intersect(
+    names(dt),
+    nordcancore::nordcan_metadata_column_name_set(
+      "column_name_set_stratum_column_name_set"
+    )
+  )
+  if ("agegroup" %in% names(dt)) {
+    # drop 18 and 21 because in old version 18 is the last age group
+    dt <- dt[
+      agegroup %in% 1:17,
+    ]
+  }
+
+  return(dt[])
+})
+
+old_statistics_comp <- lapply(old_statistics, function(dt) {
+  dt <- data.table::copy(dt)
+  if ("agegroup18" %in% names(dt)) {
+    data.table::setnames(dt, "agegroup18", "agegroup")
+  }
+  if (is.integer(dt[["full_years_since_entry"]])) {
+    dt[, "full_years_since_entry" := factor(
+      dt$full_years_since_entry,
+      levels = c(0L, 1L, 3L, 5L, 10L),
+      labels = c("0", "0-2", "0-4", "0-9", "0-999")
+    )]
+  }
+  dt[]
+})
+
+
+ds_nms <- c("cancer_death_count_dataset", "cancer_record_count_dataset",
+            "prevalent_patient_count_dataset")
 comparison <- nordcanepistats::compare_nordcan_statistics_table_lists(
-  statistics,
-  old_statistics
+  statistics_comp[ds_nms],
+  old_statistics_comp[ds_nms]
 )
+
 # the comparison has limitations. if the "old_statistics" does not have
 # information for the newest year in "statistics", then that year will not have
 # been compared to anything. additionally, statistics produced by 5-year periods
@@ -248,11 +294,18 @@ comparison <- nordcanepistats::compare_nordcan_statistics_table_lists(
 #
 # you can see an overall summary of all comparisons in
 comparison$summary
-
-# and you may look at any individual comparisons in comparison$comparisons, e.g.
+# you should report this in its entirety to the maintainers even if everything
+# looks good. you must also look at the individual comparisons and report any
+# suspicious ones. e.g.
 comparison$comparisons$cancer_record_count_dataset
+# contains the individual cancer_record_count comparisons. you can find
+# suspicious instances by filtering by adjusted p-value or the difference
+# statistic:
+comparison$comparisons$cancer_record_count_dataset[
+  p_value_bh < 0.05 | abs(stat_value) > 20,
+  ]
 
-# SAVING RESULTS ----------------------------------------------------------
+# SAVING RESULTS ---------------------------------------------------------------
 
 # the object "statistics" must be saved so that in a future release you have
 # something to compare to (among other reasons). each NORDCAN participant
