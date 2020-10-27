@@ -263,7 +263,7 @@ old_statistics_comp <- lapply(old_statistics, function(dt) {
     dt[, "full_years_since_entry" := factor(
       dt$full_years_since_entry,
       levels = c(0L, 1L, 3L, 5L, 10L),
-      labels = c("0", "0-2", "0-4", "0-9", "0-999")
+      labels = c("0", "0 - 2", "0 - 4", "0 - 9", "0 - 999")
     )]
   }
   dt[]
