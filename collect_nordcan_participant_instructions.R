@@ -46,7 +46,7 @@ pkg_df <- rbind(
 
 pkg_df[["file_nm"]] <- paste0(
   "pkg_", 1:nrow(pkg_df), "_", pkg_df[["pkg_nm"]],
-  rep(c(".zip", ".tar.gz"), times = c(3L, nrow(pkg_df) - 3L))
+  rep(c(".zip", ".tar.gz"), times = c(4L, nrow(pkg_df) - 4L))
 )
 
 if (!dir.exists("nordcan_participant_instructions")) {
@@ -103,7 +103,6 @@ invisible(lapply(1:nrow(pkg_df), function(file_no) {
     )
 
     if (grepl("\\Q.tar.gz\\E", file_path)) {
-      # install.packages(file_path, repos = NULL, type = "source")
       message(
         "* building windows binary of ", file_path, " to ", zip_path, "..."
       )
@@ -117,10 +116,6 @@ invisible(lapply(1:nrow(pkg_df), function(file_no) {
     }
   }
 
-  clean_zip_path <- sub("pkg_[0-9]+_", "", zip_path)
-  file.copy(zip_path, clean_zip_path)
-  install.packages(pkgs = clean_zip_path, repos = NULL, type = "win.binary")
-  file.remove(clean_zip_path)
   message("* done")
 }))
 
@@ -146,5 +141,18 @@ utils::zip(
   files = dir(".", full.names = TRUE, recursive = TRUE)
 )
 setwd("..")
+
+file.copy(
+  from = "nordcan_participant_instructions/nordcan_participant_instructions.zip",
+  to = paste0(
+    "releases/nordcan_",
+    nordcancore::nordcan_metadata_nordcan_version(),
+    "_participant_instructions.zip"
+  )
+)
+file.remove(
+  "nordcan_participant_instructions/nordcan_participant_instructions.zip"
+  )
+
 
 
