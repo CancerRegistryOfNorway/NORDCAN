@@ -1,0 +1,28 @@
+
+0. clone this repo on your computer
+
+1. make sure the scripts / text files in nordcan_participant_instructions/
+   are up-to-date
+
+2. make sure the NORDCAN version is correct in
+   nordcancore/data-raw/nordcan_version.txt and as output by
+   nordcancore::nordcan_metadata_nordcan_version(); see
+   nordcancore/data-raw/sysdata.R to update
+
+3. ensure all NORDCAN R package have the same version
+
+4. ensure that the NORDCAN wiki is up-to-date:
+   https://github.com/CancerRegistryOfNorway/NORDCAN/wiki
+
+5. run collect_nordcan_participant_instructions.R
+
+6. git commit and push this repo
+
+7. give participants the link to the raw .zip file created by
+   collect_nordcan_participant_instructions.R, which will look something like
+   https://raw.githubusercontent.com/CancerRegistryOfNorway/NORDCAN/master/releases/nordcan_participant_instructions_9.0.zip
+
+8. after giving the participants the link, add git tags to each NORDCAN R
+   package with the version of the NORDCAN release, e.g. tag "9.0" for the
+   exact commit used in that release
+
