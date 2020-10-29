@@ -3,7 +3,7 @@
 library("devtools")
 library("git2r")
 
-cran_pkg_nms <- c("digest", "skellam", "data.table")
+cran_pkg_nms <- c("digest", "skellam", "data.table", "zip")
 
 github_support_pkg_nms <- c(
   "dbc",
@@ -22,9 +22,10 @@ pkg_df <- rbind(
   data.frame(
     pkg_nm = cran_pkg_nms,
     url = c(
-      "https://cran.r-project.org/bin/windows/contrib/4.0/digest_0.6.25.zip",
+      "https://cran.r-project.org/bin/windows/contrib/4.0/digest_0.6.27.zip",
       "https://cran.r-project.org/bin/windows/contrib/4.0/skellam_0.2.0.zip",
-      "https://cran.r-project.org/bin/windows/contrib/4.0/data.table_1.13.0.zip"
+      "https://cran.r-project.org/bin/windows/contrib/4.0/data.table_1.13.2.zip",
+      "https://cran.r-project.org/bin/windows/contrib/4.0/zip_2.1.1.zip"
     )
   ),
   data.frame(
@@ -88,7 +89,6 @@ invisible(lapply(1:nrow(pkg_df), function(file_no) {
       ),
       progress = FALSE
     )
-    # devtools::install_git(repo_dir, upgrade = "never", quiet = TRUE)
     devtools::build(repo_dir, path = zip_path, binary = TRUE, quiet = TRUE)
     message(
       "* building windows binary of ", repo_dir, " to ", zip_path, "..."
