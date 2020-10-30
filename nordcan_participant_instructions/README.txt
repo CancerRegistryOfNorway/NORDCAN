@@ -15,7 +15,7 @@ good chance to make changes if something is amiss.
 
 Due to fixes in prevalence computing the statistics will take longer than in the
 previous beta. Preprocessing may take 10-20 minutes, but computing all the
-statistics can take 3.5 hours of computation time in total.
+statistics can take 2 hours of computation time in total.
 
 We ask that you have completed the computations and report on any suspicious
 differences between the beta results and NORDCAN 8.2 statistics on Wednesday,
