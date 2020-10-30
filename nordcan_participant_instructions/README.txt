@@ -5,18 +5,37 @@
 
 Thank you for participating in the NORDCAN beta! Yes we NORDCAN!
 
-The participation starts with the NORDCAN dev team sending an (this) e-mail letting
-you know that the beta has started. The software and other information is sent
-in a second e-mail right after the first one. If you did not receive a second e-mail
-with a zip file within an hour of receiving the first one, check your spam folders.
-If you still cannot locate the e-mail with the zip file, contact
-Joonas.miettinen@cancer.fi.
+### Third beta release info
 
-### Second beta release info
+After additional bugfixes we are close to the first official release.
+This is the last planned beta before the official call for data mid-November.
+It is absolutely paramount that participants look at the results they get
+and the results of the comparison to NORDCAN 8.2 statistics. This is the last
+good chance to make changes if something is amiss.
 
-In the first release of our R package we had not quite finished survival and
-therefore it was not included. This time around also survival is computed.
-We also fixed all other issues that had been discovered since the first release.
+Due to fixes in prevalence computing the statistics will take longer than in the
+previous beta. Preprocessing may take 10-20 minutes, but computing all the
+statistics can take 3.5 hours of computation time in total.
+
+We ask that you have completed the computations and report on any suspicious
+differences between the beta results and NORDCAN 8.2 statistics on Wednesday,
+November 4th at the latest. At a minimum we ask that you inspect comparison
+results where p_value_bh < 0.01. Notes for comparisons:
+
+- it was not possible to programmatically compare the new survival to NORDCAN
+  8.2 survival, so this time comparisons must be done manually. you should at
+  a minimum compare to the results for your country available on
+  https://www-dep.iarc.fr/nordcan/english/Table23_sel.asp
+  (5-year survival). note that e.g. the latest period in 8.2 was 2012-2016 but
+  now 2014-2018. therefore the new estimates are likely slightly higher. pay
+  attention especially to sites whose 5-year survival trend has plateaued,
+  because there any differences are more likely due to issues in the new
+  survivals than in sites that have not plateaued.
+- entity 456 (Other and unspecified leukaemias) did not exist in 8.2 but an
+  entity was given that number by mistake in the 8.2 datasets sent to
+  participants. see the comparison section in nordcan.R.
+- there have been some changes in the entities. see section
+  Specification Entities in the manual.
 
 ### Beta contact info
 
@@ -29,43 +48,6 @@ Link to NORDCAN Slack: https://cancerregistr-hhd6843.slack.com
 Please discuss testing under the channel #testing.
 If you need to be invited to Slack (you cannot join our Slack despite logging
 into your account), contact siri.laronningen@kreftregisteret.no.
-
-### Beta timeline
-
-We ask that you complete the beta testing by Wednesday 2020-09-23. "Completing"
-means running through the R script and either ending up with the end results
-as intended, or encountering a problem which cannot be resolved without
-susbtantial changes on the R packages. However, you may be asked to re-install
-packages if the dev team can easily fix notable problems in then even during
-the beta. Please contact the R package authors on
-the NORDCAN slack if you encounter problems or unexpected results.
-
-Link to NORDCAN Slack: https://cancerregistr-hhd6843.slack.com
-Please discuss testing under the channel #testing.
-If you need to be invited to Slack (you cannot join our Slack despite logging
-into your account), contact siri.laronningen@kreftregisteret.no.
-
-### Datasets in beta
-
-For this beta, you only need to have the columns marked "NORDCAN" in the
-"Mandatory NORDCAN/JRC" column in the table under "Call for data - Incidence".
-The JRC-only columns are not used anywhere in our current system. If applicable,
-any column that you don't have at all in your data, you should mark missing for
-all records (e.g. grade may not be available for all participants). For other
-datasets you should collect all columns as requested.
-
-### What to expect
-
-In this beta test we mainly want to see how far we can get with the current
-versions of our R packages. It is expected that something will not work as
-intended. If R emits any errors or warnings, contact the package authors.
-Let us also know if the results make very little sense to you. We will look
-at the actual resulting statistics more carefully in the next release. We have
-also _not_ prioritised performance in this release, so you can expect e.g.
-the run on processing the cancer record dataset to take 5-20 minutes and
-the statistics run to take over an hour. However, the intention is that
-you should not run out of memory during any computation. If you do, please
-contact the dev team on Slack.
 
 ## Files and folders
 
