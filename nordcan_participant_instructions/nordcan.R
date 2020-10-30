@@ -253,7 +253,9 @@ old_statistics <- nordcanepistats::read_nordcan_statistics_tables(
 )
 
 # need to massage the data a bit because of differences between the versions.
-statistics_comp <- lapply(statistics, function(dt) {
+ds_nms <- c("cancer_death_count_dataset", "cancer_record_count_dataset",
+            "prevalent_patient_count_dataset")
+statistics_comp <- lapply(statistics[ds_nms], function(dt) {
   dt <- data.table::copy(dt)
   dt_stratum_col_nms <- intersect(
     names(dt),
@@ -262,16 +264,20 @@ statistics_comp <- lapply(statistics, function(dt) {
     )
   )
   if ("agegroup" %in% names(dt)) {
-    # drop 18 and 21 because in old version 18 is the last age group
+    count_col_nm <- names(dt)[grepl("count", names(dt))]
+    stratum_col_nms <- setdiff(names(dt), count_col_nm)
+    stopifnot(length(count_col_nm) == 1L)
     dt <- dt[
-      agegroup %in% 1:17,
+      j = lapply(.SD, sum),
+      .SDcols = count_col_nm,
+      keyby = setdiff(stratum_col_nms, "agegroup")
     ]
   }
 
   return(dt[])
 })
 
-old_statistics_comp <- lapply(old_statistics, function(dt) {
+old_statistics_comp <- lapply(old_statistics[ds_nms], function(dt) {
   dt <- data.table::copy(dt)
   if ("agegroup18" %in% names(dt)) {
     data.table::setnames(dt, "agegroup18", "agegroup")
@@ -279,21 +285,25 @@ old_statistics_comp <- lapply(old_statistics, function(dt) {
   if (is.integer(dt[["full_years_since_entry"]])) {
     dt[, "full_years_since_entry" := factor(
       dt$full_years_since_entry,
-      levels = c(0L, 1L, 3L, 5L, 10L),
+      levels = c(1L, 3L, 5L, 10L, 0L),
       labels = c("0", "0 - 2", "0 - 4", "0 - 9", "0 - 999")
     )]
   }
-  # entity 456 (Other and unspecified leukaemias) did not exist in 8.2 but an
-  # entity was given that number by mistake in the 8.2 datasets sent to
-  # participants. we drop it entirely to avoid using it. it is a small group
-  # anyway.
+  if ("agegroup" %in% names(dt)) {
+    count_col_nm <- names(dt)[grepl("count", names(dt))]
+    stratum_col_nms <- setdiff(names(dt), count_col_nm)
+    stopifnot(length(count_col_nm) == 1L)
+    dt <- dt[
+      j = lapply(.SD, sum),
+      .SDcols = count_col_nm,
+      keyby = setdiff(stratum_col_nms, "agegroup")
+    ]
+  }
+  # 456 incorrect in 8.2
   dt <- dt[entity != 456L, ]
   dt[]
 })
 
-
-ds_nms <- c("cancer_death_count_dataset", "cancer_record_count_dataset",
-            "prevalent_patient_count_dataset")
 comparison <- nordcanepistats::compare_nordcan_statistics_table_lists(
   statistics_comp[ds_nms],
   old_statistics_comp[ds_nms]
@@ -328,16 +338,18 @@ comparison$comparisons$cancer_record_count_dataset[
   ]
 
 # at a minimum you should inspect suspcious results as follows:
+top_region <- nordcancore::nordcan_metadata_participant_info()[["topregion_number"]]
 comparison$comparisons$cancer_record_count_dataset[
-  p_value_bh < 0.01,
+  region == top_region & (p_value_bh < 0.01 | (abs(stat_value) > 100L)),
 ]
 # and
 comparison$comparisons$cancer_death_count_dataset[
-  p_value_bh < 0.01,
+  region == top_region & (p_value_bh < 0.01 | (abs(stat_value) > 100L)),
 ]
 # and
 comparison$comparisons$prevalent_patient_count_dataset[
-  p_value_bh < 0.01,
+  region == top_region & (p_value_bh < 0.01 | (abs(stat_value) > 100L)) &
+    full_years_since_entry == "0 - 999",
 ]
 
 
