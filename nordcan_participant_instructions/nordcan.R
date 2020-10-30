@@ -367,9 +367,9 @@ if (!dir.exists(archive_zip_tgt_dir)) {
        "as created below.")
 }
 archive_zip_tgt_file_name <- paste0(
-  "nordcan_statistics_tables_",
+  "nordcan_",
   nordcancore::nordcan_metadata_nordcan_version(),
-  ".zip"
+  "_statistics_tables.zip"
 )
 archive_zip_tgt_file_path <- paste0(
   archive_zip_tgt_dir, archive_zip_tgt_file_name
