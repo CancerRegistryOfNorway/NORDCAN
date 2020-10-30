@@ -52,15 +52,15 @@ pkg_df[["file_nm"]] <- paste0(
 if (!dir.exists("nordcan_participant_instructions")) {
   dir.create("nordcan_participant_instructions")
 }
-if (dir.exists("nordcan_participant_instructions/pkgs/")) {
+if (dir.exists("nordcan_participant_instructions/pkgs")) {
   unlink("nordcan_participant_instructions/pkgs", recursive = TRUE)
-  dir.create("nordcan_participant_instructions/pkgs")
 }
+dir.create("nordcan_participant_instructions/pkgs")
 pkg_df[["file_path"]] <- paste0(
   "nordcan_participant_instructions/pkgs/", pkg_df[["file_nm"]]
 )
 
-ssh_folder <- readline("ssh_folder = ")
+ssh_folder <- "C:/Users/huti/.ssh/"; # change this folder to yours. 
 public_ssh_key <- paste0(ssh_folder, "id_rsa.pub")
 private_ssh_key <- paste0(ssh_folder, "id_rsa")
 stopifnot(
@@ -72,7 +72,7 @@ stopifnot(
 invisible(lapply(1:nrow(pkg_df), function(file_no) {
   file_path <- pkg_df[["file_path"]][file_no]
   zip_path <- sub("\\Q.tar.gz\\E$", ".zip", file_path)
-  url <- pkg_df[["url"]][file_no]
+  url <- as.character(pkg_df[["url"]][file_no])
   url_ext <- sub(".+\\.(?=[a-z]{3}$)", "", url, perl = TRUE)
   if (url_ext == "git") {
     repo_dir <- tempdir()
@@ -101,7 +101,7 @@ invisible(lapply(1:nrow(pkg_df), function(file_no) {
       destfile = file_path,
       quiet = TRUE
     )
-
+    
     if (grepl("\\Q.tar.gz\\E", file_path)) {
       message(
         "* building windows binary of ", file_path, " to ", zip_path, "..."
@@ -115,7 +115,7 @@ invisible(lapply(1:nrow(pkg_df), function(file_no) {
       file.remove(file_path)
     }
   }
-
+  
   message("* done")
 }))
 
@@ -128,31 +128,19 @@ git2r::clone(
   local_path = "wiki",
   progress = FALSE
 )
+
+## If the following block failed, open the rmd file, and run knit in Rstudio will do the same work. 
+# Rememeber to move the html file to correct folder.
 rmarkdown::render(
   input = "nordcan_call_for_data_manual.rmd",
   output_dir = "nordcan_participant_instructions",
   clean = TRUE,
-  quiet = TRUE
+  quiet = FALSE
 )
 
-setwd("nordcan_participant_instructions/")
-utils::zip(
-  zipfile = "nordcan_participant_instructions.zip",
-  files = dir(".", full.names = TRUE, recursive = TRUE)
+zip::zip(
+  zipfile = sprintf("releases/nordcan_%s_participant_instructions.zip", nordcancore::nordcan_metadata_nordcan_version()),
+  files = dir("nordcan_participant_instructions", full.names = TRUE, recursive = TRUE)
 )
-setwd("..")
-
-file.copy(
-  from = "nordcan_participant_instructions/nordcan_participant_instructions.zip",
-  to = paste0(
-    "releases/nordcan_",
-    nordcancore::nordcan_metadata_nordcan_version(),
-    "_participant_instructions.zip"
-  )
-)
-file.remove(
-  "nordcan_participant_instructions/nordcan_participant_instructions.zip"
-  )
-
 
 
