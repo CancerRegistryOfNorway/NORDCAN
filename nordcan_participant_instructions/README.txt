@@ -35,7 +35,7 @@ results where p_value_bh < 0.01. Notes for comparisons:
   entity was given that number by mistake in the 8.2 datasets sent to
   participants. see the comparison section in nordcan.R.
 - there have been some changes in the entities. see section
-  Specification Entities in the manual.
+  Entities in NORDCAN in the manual.
 
 ### Beta contact info
 
