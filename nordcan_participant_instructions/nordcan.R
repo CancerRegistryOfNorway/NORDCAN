@@ -105,9 +105,10 @@ nordcancore::set_global_nordcan_settings(
   work_dir = getwd(),
   participant_name = "Finland",
   stat_cancer_record_count_first_year = 1953L,
-  stat_prevalent_subject_count_first_year = 1967L,
+  stat_prevalent_subject_count_first_year = 1953L + 20L,
   stat_cancer_death_count_first_year = 1953L,
-  stat_survival_follow_up_first_year = 1967L
+  stat_survival_follow_up_first_year = 2018L - (30L - 1L),
+  regional_data_first_year = 1953L
 )
 
 # PREPROCESSING -----------------------------------------------------------
@@ -191,6 +192,8 @@ data.table::setnames(cancer_death_count_dataset, c("N", "yoi"), c("cancer_death_
 # this includes some log files. if you have problems computing survival,
 # you will be asked to look at the files and logs there.
 
+# you don't need to compute survival if you do not intend to send that in the
+# call for data. if you wish to compute everything do this:
 statistics <- nordcanepistats::nordcan_statistics_tables(
   cancer_record_dataset = processed_cancer_record_dataset,
   general_population_size_dataset = general_population_size_dataset,
@@ -198,6 +201,20 @@ statistics <- nordcanepistats::nordcan_statistics_tables(
   cancer_death_count_dataset = cancer_death_count_dataset,
   stata_exe_path = "C:/Program Files (x86)/Stata14/StataMP-64.exe"
 )
+
+# if you do not wish to compute survival, do this:
+statistics <- nordcanepistats::nordcan_statistics_tables(
+  cancer_record_dataset = processed_cancer_record_dataset,
+  general_population_size_dataset = general_population_size_dataset,
+  national_population_life_table = national_population_life_table,
+  cancer_death_count_dataset = cancer_death_count_dataset,
+  stata_exe_path =  "C:/Program Files (x86)/Stata14/StataMP-64.exe",
+  output_objects = setdiff(
+    nordcanepistats::nordcan_statistics_tables_output_object_space(),
+    c("stata_info", "survival_statistics_example", "survival_statistics_dataset")
+  )
+)
+
 
 # if any individual table of statistics was not possible to compute, the
 # corresponding result will be the error that was encountered. the following
@@ -266,6 +283,11 @@ old_statistics_comp <- lapply(old_statistics, function(dt) {
       labels = c("0", "0 - 2", "0 - 4", "0 - 9", "0 - 999")
     )]
   }
+  # entity 456 (Other and unspecified leukaemias) did not exist in 8.2 but an
+  # entity was given that number by mistake in the 8.2 datasets sent to
+  # participants. we drop it entirely to avoid using it. it is a small group
+  # anyway.
+  dt <- dt[entity != 456L, ]
   dt[]
 })
 
@@ -304,6 +326,20 @@ comparison$comparisons$cancer_record_count_dataset
 comparison$comparisons$cancer_record_count_dataset[
   p_value_bh < 0.05 | abs(stat_value) > 20,
   ]
+
+# at a minimum you should inspect suspcious results as follows:
+comparison$comparisons$cancer_record_count_dataset[
+  p_value_bh < 0.01,
+]
+# and
+comparison$comparisons$cancer_death_count_dataset[
+  p_value_bh < 0.01,
+]
+# and
+comparison$comparisons$prevalent_patient_count_dataset[
+  p_value_bh < 0.01,
+]
+
 
 # SAVING RESULTS ---------------------------------------------------------------
 
