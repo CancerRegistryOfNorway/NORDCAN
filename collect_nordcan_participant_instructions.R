@@ -60,7 +60,8 @@ pkg_df[["file_path"]] <- paste0(
   "nordcan_participant_instructions/pkgs/", pkg_df[["file_nm"]]
 )
 
-ssh_folder <- "C:/Users/huti/.ssh/"; # change this folder to yours. 
+# put your ssh dir in this text file. it is ignored by git.
+ssh_folder <- readLines("ssh_folder.txt", n = 1L)
 public_ssh_key <- paste0(ssh_folder, "id_rsa.pub")
 private_ssh_key <- paste0(ssh_folder, "id_rsa")
 stopifnot(
@@ -101,7 +102,7 @@ invisible(lapply(1:nrow(pkg_df), function(file_no) {
       destfile = file_path,
       quiet = TRUE
     )
-    
+
     if (grepl("\\Q.tar.gz\\E", file_path)) {
       message(
         "* building windows binary of ", file_path, " to ", zip_path, "..."
@@ -115,7 +116,7 @@ invisible(lapply(1:nrow(pkg_df), function(file_no) {
       file.remove(file_path)
     }
   }
-  
+
   message("* done")
 }))
 
@@ -129,7 +130,7 @@ git2r::clone(
   progress = FALSE
 )
 
-## If the following block failed, open the rmd file, and run knit in Rstudio will do the same work. 
+## If the following block failed, open the rmd file, and run knit in Rstudio will do the same work.
 # Rememeber to move the html file to correct folder.
 rmarkdown::render(
   input = "nordcan_call_for_data_manual.rmd",
