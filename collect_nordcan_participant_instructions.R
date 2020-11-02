@@ -3,6 +3,12 @@
 library("devtools")
 library("git2r")
 
+# this assertion because NORDCAN participants must have R 4.x.x,
+# and packages built with an older version R 3.x.x do not work in R 4.x.x
+stopifnot(
+  as.integer(R.Version()[["major"]]) == 4L
+)
+
 cran_pkg_nms <- c("digest", "skellam", "data.table", "zip")
 
 github_support_pkg_nms <- c(
