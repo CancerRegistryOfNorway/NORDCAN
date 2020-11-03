@@ -257,6 +257,19 @@ invisible(lapply(names(statistics), function(elem_nm) {
 # e.g. here's the table containing cancer case counts:
 print(statistics[["cancer_record_count_dataset"]])
 
+
+# you should save these results so you can come back to them if you need to
+# restart R for some reason. this saves the results:
+nordcan_version <-  nordcancore::nordcan_metadata_nordcan_version()
+saveRDS(
+  object = statistics,
+  file = paste0("nordcan_", nordcan_version, "_statistics.rds")
+)
+
+# uncomment the following to read the results back into R.
+# nordcan_version <-  nordcancore::nordcan_metadata_nordcan_version()
+# statistics <- readRDS(paste0("nordcan_", nordcan_version, "_statistics.rds"))
+
 # COMPARING STATISTICS TO PREVIOUS VERSION -------------------------------------
 
 # we want to automate inspecting the statistics as much as possible. in what
