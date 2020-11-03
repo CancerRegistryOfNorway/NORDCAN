@@ -62,6 +62,23 @@ invisible(lapply(pkg_paths, function(pkg_path) {
 # if you have trouble installing any of the packages, the tried and true method
 # is to restart all R sessions you have and try again.
 
+# at this point you should have all the packages installed. this checks
+# that the version is correct in each NORDCAN package.
+all_pkg_nms <- installed.packages()[, 1L]
+nordcan_pkg_nms <- all_pkg_nms[grepl("^nordcan", all_pkg_nms)]
+invisible(lapply(nordcan_pkg_nms, function(nordcan_pkg_nm) {
+  nordcan_pkg_version <- utils::packageVersion(nordcan_pkg_nm)
+  expected_pkg_version <- "0.5.1"
+  if (nordcan_pkg_version != expected_pkg_version) {
+    stop("Package ", deparse(nordcan_pkg_nm), " has version ", nordcan_pkg_version,
+         " but should have version ", expected_pkg_version, "; make sure ",
+         "you have used the correct .zip of instructions and that the R ",
+         "packages have been installed correctly in the code above. ",
+         "best way to try again is to restart R, reinstall, restart R, ",
+         "and then try to continue.")
+  }
+}))
+
 # DATASETS ---------------------------------------------------------------------
 
 # load your NORDCAN datasets prepared according to the call for data
