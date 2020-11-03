@@ -9,7 +9,9 @@
    nordcancore::nordcan_metadata_nordcan_version(); see
    nordcancore/data-raw/sysdata.R to update
 
-3. ensure all NORDCAN R package have the same version
+3. ensure all NORDCAN R packages have the same version; ensure
+   this version is tested for in 
+   nordcan_participant_instructions/nordcan.R
 
 4. ensure that the NORDCAN wiki is up-to-date:
    https://github.com/CancerRegistryOfNorway/NORDCAN/wiki
