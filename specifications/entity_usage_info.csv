@@ -36,7 +36,7 @@ entity;level;grouping;display_order;sex;incidence/prevalence;mortality;survival
 310;level_30;both main group and sub group;41;0;true;true;true
 316;level_30;sub group;43;0;true;false;false
 317;level_30;sub group;44;0;true;false;false
-318;level_30;sub group;45;0;true;false;false
+320;level_20;main group;42;0;true;true;true
 330;level_30;both main group and sub group;47;0;true;true;true
 340;level_30;both main group and sub group;48;0;true;true;true
 350;level_30;both main group and sub group;49;0;true;true;true
