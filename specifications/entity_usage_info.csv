@@ -5,7 +5,6 @@ entity;level;grouping;display_order;sex;incidence/prevalence;mortality;survival
 40;level_30;sub group;8;0;true;true;true
 41;level_30;sub group;9;0;true;true;true
 50;level_30;sub group;10;0;true;true;true
-51;level_30;sub group;11;0;true;true;true
 60;level_30;both main group and sub group;12;0;true;true;true
 70;level_30;both main group and sub group;13;0;true;true;true
 80;level_30;both main group and sub group;14;0;true;true;true
@@ -38,8 +37,6 @@ entity;level;grouping;display_order;sex;incidence/prevalence;mortality;survival
 316;level_30;sub group;43;0;true;false;false
 317;level_30;sub group;44;0;true;false;false
 318;level_30;sub group;45;0;true;false;false
-319;level_30;sub group;46;0;true;false;false
-320;level_20;main group;42;0;true;true;true
 330;level_30;both main group and sub group;47;0;true;true;true
 340;level_30;both main group and sub group;48;0;true;true;true
 350;level_30;both main group and sub group;49;0;true;true;true
