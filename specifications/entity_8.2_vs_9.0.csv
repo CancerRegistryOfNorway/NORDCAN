@@ -1,4 +1,4 @@
-entity,description_en,in_8.2,in_9.0,comment
+value_code,description_en,in_8.2,in_9.0,comment
 10,Lip,Yes,Yes,
 20,Oral Cavity,Yes,Yes,
 30,Salivary glands,Yes,Yes,
@@ -39,7 +39,7 @@ entity,description_en,in_8.2,in_9.0,comment
 317,Gliomas,No,Yes,
 318,Nerve sheet tumors,No,No,
 319,Other brain and CNS,No,Yes,
-320,Brain and CNS,Yes,Yes,
+320,Brain and CNS,Yes,Yes,D35.2 and D44.3 removed from here in 9.0
 330,Thyroid,Yes,Yes,
 340,Bone,Yes,Yes,
 350,Soft tissues,Yes,Yes,
@@ -56,7 +56,8 @@ entity,description_en,in_8.2,in_9.0,comment
 405,Chronic myeloid leukaemias,Yes,Yes,
 406,Other and unspecified myeloid leukaemia,Yes,Yes,
 407,"Leukaemia, cell unspecified",Yes,Yes,
-410,Other specified cancers,Partly,Yes,Anal cancer (C21) is put into this group in 9.0
+410,Other specified cancers,Partly,Yes,"Anal cancer (C21) is put into this group in 9.0
+D35.2 and D44.3 moved here in 9.0"
 420,Other and ill-defined cancers,Yes,Yes,
 430,Malignant haematopoietic diseases,Yes,Yes,
 431,Non Hodgkin lymphoma NOS,No,Yes,
