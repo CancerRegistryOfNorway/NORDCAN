@@ -121,7 +121,7 @@ c21.0;malignant neoplasm of anus, unspecified;;;1543
 c21.1;malignant neoplasm of anal canal;;;1542
 c21.2;malignant neoplasm of cloacogenic zone;;;
 c21.8;malignant neoplasm of overlapping sites of rectum, anus and anal canal;;;1548
-c22;malignant neoplasm of liver and intrahepatic bile ducts;;155;155
+c22;malignant neoplasm of liver and intrahepatic bile ducts;155;155;155
 c22.0;liver cell carcinoma;;1550;1550
 c22.1;intrahepatic bile duct carcinoma;;1551;1551
 c22.2;hepatoblastoma;;;
@@ -130,7 +130,7 @@ c22.4;other sarcomas of liver;;;
 c22.7;other specified carcinomas of liver;;;
 c22.9;malignant neoplasm of liver, unspecified;156;1978;1552
 c23;malignant neoplasm of gallbladder;1551;1560;1560
-c24;malignant neoplasm of other and unspecified parts of biliary tract;155;156;156
+c24;malignant neoplasm of other and unspecified parts of biliary tract;;156;156
 c24.0;malignant neoplasm of extrahepatic bile duct;;1561;1561
 c24.1;malignant neoplasm of ampulla of vater;;1562;1562
 c24.8;malignant neoplasm of overlapping lesion of biliary tract;;;
@@ -152,7 +152,7 @@ c26.9;malignant neoplasm of ill-defined sites within the digestive system;;;1599
 c30;malignant neoplasm of nasal cavity and middle ear;160;160;160
 c30.0;malignant neoplasm of nasal cavity;1600;1600;1600
 c30.1;malignant neoplasm of middle ear;1601;1601;1601
-c31;malignant neoplasm of accessory sinusesÿ;;;
+c31;malignant neoplasm of accessory sinusesÂ ;;;
 c31.0;malignant neoplasm of maxillary sinus;1602;1602;1602
 c31.1;malignant neoplasm of ethmoidal sinus;;;1603
 c31.2;malignant neoplasm of frontal sinus;1607;1608;1604
@@ -167,13 +167,13 @@ c32.3;malignant neoplasm of laryngeal cartilage;;;1613
 c32.8;malignant neoplasm of overlapping sites of larynx;;;
 c32.9;malignant neoplasm of larynx, unspecified;;1619;1619
 c33;malignant neoplasm of trachea;1620;1620;1620
-c34;malignant neoplasm of bronchus and lungÿ;1621;1621;162
+c34;malignant neoplasm of bronchus and lungÂ ;162;162;162
 c34.0;malignant neoplasm of main bronchus;;;1622
 c34.1;malignant neoplasm of upper lobe, bronchus or lung;;;1623
 c34.2;malignant neoplasm of middle lobe, bronchus or lung;;;1624
 c34.3;malignant neoplasm of lower lobe, bronchus or lung;;;1625
 c34.8;malignant neoplasm of overlapping sites of bronchus and lung;;;
-c34.9;malignant neoplasm of bronchus or lung, unspecified;;;1629
+c34.9;malignant neoplasm of bronchus or lung, unspecified;1621;1621;1629
 c37;malignant neoplasm of thymus;1952;1942;1640
 c38;malignant neoplasm of heart, mediastinum and pleura;;;163
 c38;malignant neoplasm of heart, mediastinum and pleura;;;164
@@ -447,7 +447,7 @@ c79.9;secondary malignant neoplasm of unspecified site;;1989;1989
 c80;malignant neoplasm without specification of site;199;199;199
 c80.0;malignant neoplasm with site specified as unknown;;;
 c80.9;malignant neoplasm without specification of site;;;
-c81;hodgkin's diseaseÿ;201;201;201
+c81;hodgkin's diseaseÂ ;201;201;201
 c81.0;hodgkin's lymphocytic predominance;;;
 c81.1;hodgkin's nodular sclerosis;;;2015
 c81.2;hodgkin's mixed cellularity;;;2016
@@ -536,7 +536,7 @@ c92.6;acute myeloid leukaemia with 11q23-abnormality;;;
 c92.7;other myeloid leukemia;;2051;
 c92.8;acute myeloid leukaemia with multilineage dysplasia;;;
 c92.9;myeloid leukemia, unspecified;;2059;2059
-c93;monocytic leukemia;;206;206
+c93;monocytic leukemia;2042;206;206
 c93.0;acute monocytic leukemia;;2060;2060
 c93.1;chronic myelomonocytic leukemia;;2061;2061
 c93.2;subacute monocytic leukemia;;;2062
@@ -630,8 +630,8 @@ d07.4;carcinoma in situ of penis;;;
 d07.5;carcinoma in situ of prostate;;;
 d07.6;carcinoma in situ of other and unspecified male genital organs;;;
 d09;carcinoma in situ of other and unspecified sites;;;
-d09.0;carcinoma in situ of bladder;;;
-d09.1;carcinoma in situ of other and unspecified urinary organs;;;
+d09.0;carcinoma in situ of bladder;;;2337
+d09.1;carcinoma in situ of other and unspecified urinary organs;;;2339
 d09.2;carcinoma in situ of eye;;;
 d09.3;carcinoma in situ of thyroid and other endocrine glands;;;
 d09.7;carcinoma in situ of other specified sites;;;
@@ -770,14 +770,14 @@ d29.3;epididymis;;;
 d29.4;scrotum;;;
 d29.7;other male genital organs;;;
 d29.9;male genital organ, unspecified;;;
-d30;benign neoplasm of urinary organs;;;
+d30;benign neoplasm of urinary organs;;223;223
 d30.0;benign neoplasm of kidney;;;
-d30.1;benign neoplasm of renal pelvis;;;
-d30.2;benign neoplasm of ureter;;;
-d30.3;benign neoplasm of bladder;;;
+d30.1;benign neoplasm of renal pelvis;;2231;2231
+d30.2;benign neoplasm of ureter;;2232;2232
+d30.3;benign neoplasm of bladder;;2233;2233
 d30.4;benign neoplasm of urethra;;;
-d30.7;benign neoplasm of other urinary organs;;;
-d30.9;benign neoplasm of urinary organ, unspecified;;;
+d30.7;benign neoplasm of other urinary organs;;2238;2238
+d30.9;benign neoplasm of urinary organ, unspecified;;2239;2239
 d31;benign neoplasm of eye and adnexa;;;
 d31.0;conjunctiva;;;
 d31.1;cornea;;;
@@ -788,24 +788,24 @@ d31.5;lacrimal gland and duct;;;
 d31.6;orbit, unspecified;;;
 d31.9;eye, unspecified;;;
 d32;benign neoplasm of meninges;;;
-d32.0;benign neoplasm of cerebral meninges;;;
-d32.1;benign neoplasm of spinal meninges;;;
+d32.0;benign neoplasm of cerebral meninges;;2252;2252
+d32.1;benign neoplasm of spinal meninges;;2254;2254
 d32.9;benign neoplasm of meninges, unspecified;;;
-d33;benign neoplasm of brain and other parts of central nervous system;;;
+d33;benign neoplasm of brain and other parts of central nervous system;223;225;225
 d33.0;benign neoplasm of brain, supratentorial;;;
 d33.1;benign neoplasm of brain, infratentorial;;;
-d33.2;benign neoplasm of brain, unspecified;;;
-d33.3;benign neoplasm of cranial nerves;;;
-d33.4;benign neoplasm of spinal cord;;;
-d33.7;benign neoplasm of other specified parts of central nervous system;;;
-d33.9;benign neoplasm of central nervous system, unspecified;;;
+d33.2;benign neoplasm of brain, unspecified;;2250;2250
+d33.3;benign neoplasm of cranial nerves;;2251;2251
+d33.4;benign neoplasm of spinal cord;;2253;2253
+d33.7;benign neoplasm of other specified parts of central nervous system;;;2258
+d33.9;benign neoplasm of central nervous system, unspecified;;2259;2259
 d34;benign neoplasm of thyroid gland;;;
 d35;benign neoplasm of other and unspecified endocrine glands;;;
 d35.0;benign neoplasm of adrenal gland;;;
 d35.1;benign neoplasm of parathyroid gland;;;
-d35.2;benign neoplasm of pituitary gland;;;
+d35.2;benign neoplasm of pituitary gland;;2262;2273
 d35.3;benign neoplasm of craniopharyngeal duct;;;
-d35.4;benign neoplasm of pineal gland;;;
+d35.4;benign neoplasm of pineal gland;;2263;2274
 d35.5;benign neoplasm of carotid body;;;
 d35.6;benign neoplasm of aortic body and other paraganglia;;;
 d35.7;benign neoplasm of other specified endocrine glands;;;
@@ -847,36 +847,36 @@ d40.7;other male genital organs;;;
 d40.9;male genital organ, unspecified;;;
 d41;neoplasm of uncertain or unknown behavior of urinary organs;;;
 d41.0;kidney;;;
-d41.1;renal pelvis;;;
-d41.2;ureter;;;
+d41.1;renal pelvis;;2374;
+d41.2;ureter;;2375;
 d41.3;urethra;;;
-d41.4;bladder;;;
+d41.4;bladder;;2376;2367
 d41.7;other urinary organs;;;
-d41.9;urinary organ, unspecified;;;
-d42;neoplasm of uncertain behavior of meninges;;;
-d42.0;neoplasm of uncertain behavior of cerebral meninges;;;
-d42.1;neoplasm of uncertain behavior of spinal meninges;;;
+d41.9;urinary organ, unspecified;;2379;2369
+d42;neoplasm of uncertain behavior of meninges;;;2376
+d42.0;neoplasm of uncertain behavior of cerebral meninges;;2383;
+d42.1;neoplasm of uncertain behavior of spinal meninges;;2385;
 d42.9;neoplasm of uncertain behavior of meninges, unspecified;;;
-d43;neoplasm of uncertain behavior of brain and central nervous system;;;
+d43;neoplasm of uncertain behavior of brain and central nervous system;237;;
 d43.0;neoplasm of uncertain behavior of brain, supratentorial;;;
 d43.1;neoplasm of uncertain behavior of brain, infratentorial;;;
-d43.2;neoplasm of uncertain behavior of brain, unspecified;;;
-d43.3;neoplasm of uncertain behavior of  cranial nerves;;;
-d43.4;neoplasm of uncertain behavior of spinal cord;;;
+d43.2;neoplasm of uncertain behavior of brain, unspecified;;2381;
+d43.3;neoplasm of uncertain behavior of  cranial nerves;;2382;
+d43.4;neoplasm of uncertain behavior of spinal cord;;2383;
 d43.7;neoplasm of uncertain behavior of  other parts of central nervous system;;;
-d43.9;neoplasm of uncertain behavior of  central nervous system, unspecified;;;
+d43.9;neoplasm of uncertain behavior of  central nervous system, unspecified;;2389;
 d44;neoplasm of uncertain behavior of endocrine glands;;;
 d44.0;neoplasm of uncertain behavior of thyroid gland;;;
 d44.1;neoplasm of uncertain behavior of adrenal gland;;;
 d44.2;neoplasm of uncertain behavior of parathyroid gland;;;
-d44.3;neoplasm of uncertain behavior of pituitary gland;;;
+d44.3;neoplasm of uncertain behavior of pituitary gland;;;2370
 d44.4;neoplasm of uncertain behavior of craniopharyngeal duct;;;
-d44.5;neoplasm of uncertain behavior of pineal gland;;;
+d44.5;neoplasm of uncertain behavior of pineal gland;;;2371
 d44.6;neoplasm of uncertain behavior of carotid body;;;
 d44.7;neoplasm of uncertain behavior of aortic body and other paraganglia;;;
 d44.8;neoplasm of uncertain behavior of pluriglandular involvement;;;
 d44.9;neoplasm of uncertain behavior of endocrine gland, unspecified;;;
-d45;polycythemia vera;;;
+d45;polycythemia vera;;208;2384
 d46;myelodysplastic syndromes;;;
 d46.0;refractory anemia without sideroblasts, so stated;;;
 d46.1;refractory anemia with (ringed) sideroblasts;;;
@@ -887,9 +887,9 @@ d46.5;refractory anaemia with multi-lineage dysplasia;;;
 d46.6;myelodysplastic syndrome with isolated del(5q) chromosomal abnormality;;;
 d46.7;other myelodysplastic syndromes;;;
 d46.9;myelodysplastic syndrome, unspecified;;;
-d47;other neoplasms of uncertain behavior of lymphoid, hematopoietic and related tissueÿ;;;
+d47;other neoplasms of uncertain behavior of lymphoid, hematopoietic and related tissueÂ ;;;
 d47.0;histiocytic and mast cell tumours of uncertain and unknown behaviour;;;
-d47.1;chronic myeloproliferative disease;;;
+d47.1;chronic myeloproliferative disease;;209;
 d47.2;monoclonal gammopathy of undetermined significanse (mgus);;;
 d47.3;essential (hemorrhagic) thrombocythemia;;;
 d47.4;osteomyelofibrosis;;;
