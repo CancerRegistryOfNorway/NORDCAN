@@ -170,31 +170,10 @@ rm(list = "unprocessed_cancer_record_dataset")
 # now you have the processed dataset. time to compute all the different
 # statistics! first the counts of cancer deaths.
 
-# You need to form `cancer_death_count_dataset` yourself using the raw data
-# you have using one of two methods.
-# If you have a dataset of cancer death counts as described in the call for
-# data, do
-
 cancer_death_count_dataset <- nordcanpreprocessing::nordcan_processed_cancer_death_count_dataset(
   unprocessed_cancer_death_count_dataset
 )
 
-# If you need to compute the counts using your cancer record dataset, do
-
-cancer_death_count_dataset <- nordcanepistats::nordcanstat_count(
-  processed_cancer_record_dataset,
-  by = c("sex", "entity", "yoi", "region", "agegroup"),
-  subset = processed_cancer_record_dataset$died_from_cancer == TRUE
-)
-data.table::setnames(cancer_death_count_dataset, c("N", "yoi"), c("cancer_death_count", "year"))
-
-# where `processed_cancer_record_dataset` is your cancer record dataset after
-# processing
-# (see [nordcanpreprocessing::nordcan_processed_cancer_record_dataset]),
-# and in this example the information on who died of which cancer is identified
-# in the logical vector `died_from_cancer`, which you need to define. It should
-# be of length `nrow(processed_cancer_record_dataset)`. One person can
-# naturally only die once, so there can be at most one `TRUE` value per person.
 
 # STATISTICS --------------------------------------------------------------
 
