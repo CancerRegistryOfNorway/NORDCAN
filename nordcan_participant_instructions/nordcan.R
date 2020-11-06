@@ -68,7 +68,7 @@ all_pkg_nms <- installed.packages()[, 1L]
 nordcan_pkg_nms <- all_pkg_nms[grepl("^nordcan", all_pkg_nms)]
 invisible(lapply(nordcan_pkg_nms, function(nordcan_pkg_nm) {
   nordcan_pkg_version <- utils::packageVersion(nordcan_pkg_nm)
-  expected_pkg_version <- "0.5.1"
+  expected_pkg_version <- "0.5.2"
   if (nordcan_pkg_version != expected_pkg_version) {
     stop("Package ", deparse(nordcan_pkg_nm), " has version ", nordcan_pkg_version,
          " but should have version ", expected_pkg_version, "; make sure ",
