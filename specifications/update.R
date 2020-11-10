@@ -35,6 +35,9 @@ icd_entity_dt <- data.table::setDT(readxl::read_xlsx(
   "specifications/ICD10.-.Entitet_2020-11-10.xlsx"
 ))
 icd_entity_dt[, "icd10" := toupper(sub("\\.", "", icd10))]
+level_col_nms <- names(icd_entity_dt)[grepl("^level", names(icd_entity_dt))]
+entity_level_col_nms <- paste0("entity_", level_col_nms)
+data.table::setnames(icd_entity_dt, level_col_nms, entity_level_col_nms)
 data.table::fwrite(
   icd_entity_dt,
   file = "specifications/icd10_to_entity_columns.csv",
