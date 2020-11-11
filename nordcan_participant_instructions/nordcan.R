@@ -68,7 +68,7 @@ all_pkg_nms <- installed.packages()[, 1L]
 nordcan_pkg_nms <- all_pkg_nms[grepl("^nordcan", all_pkg_nms)]
 invisible(lapply(nordcan_pkg_nms, function(nordcan_pkg_nm) {
   nordcan_pkg_version <- utils::packageVersion(nordcan_pkg_nm)
-  expected_pkg_version <- "0.5.2"
+  expected_pkg_version <- "0.5.2.9900"
   if (nordcan_pkg_version != expected_pkg_version) {
     stop("Package ", deparse(nordcan_pkg_nm), " has version ", nordcan_pkg_version,
          " but should have version ", expected_pkg_version, "; make sure ",
@@ -359,29 +359,9 @@ comparison$comparisons$prevalent_patient_count_dataset[
     full_years_since_entry == "0 - 999",
 ]
 
-# a good way of inspecting results is plotting. this bit of code goes through
-# cancer_record_count_dataset comparison results one entity at a time.
+# a good way of inspecting results is plotting. look at the prodced .png files.
+nordcanepistats::plot_nordcan_statistics_table_comparisons(comparison)
 
-entity_no_set <- comparison$comparisons$cancer_record_count_dataset[
-  j = sort(unique(entity))
-]
-invisible(lapply(entity_no_set, function(entity_no) {
-  plot_dt <- comparison$comparisons$cancer_record_count_dataset[
-    region == 30 & entity == entity_no,
-  ]
-  if (plot_dt[sex == 1L, .N] > 0L) {
-    plot(stat_value ~ yoi, plot_dt[sex == 1L, ])
-    title(paste0("Males, entity ", entity_no))
-    readline("Press enter to proceed")
-  }
-
-  if (plot_dt[sex == 2L, .N] > 0L) {
-    plot(stat_value ~ yoi, plot_dt[sex == 2L, ])
-    title(paste0("Females, entity ", entity_no))
-    readline("Press enter to proceed")
-  }
-  NULL
-}))
 
 # SAVING RESULTS ---------------------------------------------------------------
 
