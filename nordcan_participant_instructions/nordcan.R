@@ -68,7 +68,7 @@ all_pkg_nms <- installed.packages()[, 1L]
 nordcan_pkg_nms <- all_pkg_nms[grepl("^nordcan", all_pkg_nms)]
 invisible(lapply(nordcan_pkg_nms, function(nordcan_pkg_nm) {
   nordcan_pkg_version <- utils::packageVersion(nordcan_pkg_nm)
-  expected_pkg_version <- "0.5.2.9900"
+  expected_pkg_version <- "0.5.3"
   if (nordcan_pkg_version != expected_pkg_version) {
     stop("Package ", deparse(nordcan_pkg_nm), " has version ", nordcan_pkg_version,
          " but should have version ", expected_pkg_version, "; make sure ",
@@ -333,9 +333,8 @@ comparison <- nordcanepistats::compare_nordcan_statistics_table_lists(
 #
 # you can see an overall summary of all comparisons in
 comparison$summary
-# you should report this in its entirety to the maintainers even if everything
-# looks good. you must also look at the individual comparisons and report any
-# suspicious ones. e.g.
+# you must look at the individual comparisons and report any suspicious ones.
+# e.g.
 comparison$comparisons$cancer_record_count_dataset
 # contains the individual cancer_record_count comparisons. you can find
 # suspicious instances by filtering by adjusted p-value or the difference
@@ -359,9 +358,16 @@ comparison$comparisons$prevalent_patient_count_dataset[
     full_years_since_entry == "0 - 999",
 ]
 
-# a good way of inspecting results is plotting. look at the prodced .png files.
+# a good way of inspecting results is plotting. look at the produced .png files.
 nordcanepistats::plot_nordcan_statistics_table_comparisons(comparison)
 
+# note that we did not compare to 8.2 survival here. you'll have to do that
+# using the old-fashioned eyeball method.
+
+# you should deliver this zip to the maintainers of the NORDCAN software
+# after examining your results as proof that everything (that has been tested
+# at least) is alright.
+nordcanepistats::write_maintainer_summary_zip(comparison)
 
 # SAVING RESULTS ---------------------------------------------------------------
 
