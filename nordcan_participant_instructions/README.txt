@@ -5,21 +5,30 @@
 
 Thank you for participating in the NORDCAN beta! Yes we NORDCAN!
 
-### Third beta release info
+### Fourth beta release info
 
-After additional bugfixes we are close to the first official release.
-This is the last planned beta before the official call for data mid-November.
+We have completed additional bugfixes and tweaks to the entity and
+ICD code conversion specifications. At least in Finland and Norway the results
+make a lot of sense.
+
 It is absolutely paramount that participants look at the results they get
-and the results of the comparison to NORDCAN 8.2 statistics. This is the last
-good chance to make changes if something is amiss.
+and the results of the comparison to NORDCAN 8.2 statistics.
 
-Due to fixes in prevalence computing the statistics will take longer than in the
-previous beta. Preprocessing may take 10-20 minutes, but computing all the
-statistics can take 2 hours of computation time in total.
+A known issue for the survival estimation in this beta:
+sometimes the underlying Stata command stnet will insist that the weights
+does not sum to one (and not estimate). The estimation should run,
+and this will be fixed. But, if you dont get estimates for any groups which
+you expect estimates for thsi could be the reason.
+
+Any group (entity x period x sex) with N=30 at start and 3 or more
+observations in any age group used for weighting should have estimates.
+For the new 10 year calendar periods the age groups have three levels, thus
+combining the two youngest age groups, and combining the two oldest age groups
+of the five level age groups used in the primary five-calendar year estimates.
 
 We ask that you have completed the computations and report on any suspicious
-differences between the beta results and NORDCAN 8.2 statistics on Wednesday,
-November 4th at the latest. At a minimum we ask that you inspect comparison
+differences between the beta results and NORDCAN 8.2 statistics on Friday,
+November 20th at the latest. At a minimum we ask that you inspect comparison
 results where p_value_bh < 0.01. Notes for comparisons:
 
 - it was not possible to programmatically compare the new survival to NORDCAN
@@ -31,9 +40,6 @@ results where p_value_bh < 0.01. Notes for comparisons:
   attention especially to sites whose 5-year survival trend has plateaued,
   because there any differences are more likely due to issues in the new
   survivals than in sites that have not plateaued.
-- entity 456 (Other and unspecified leukaemias) did not exist in 8.2 but an
-  entity was given that number by mistake in the 8.2 datasets sent to
-  participants. see the comparison section in nordcan.R.
 - there have been some changes in the entities. see section
   Entities in NORDCAN in the manual.
 
