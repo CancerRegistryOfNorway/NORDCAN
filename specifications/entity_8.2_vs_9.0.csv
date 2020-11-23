@@ -5,6 +5,7 @@ entity;description_en;in_8.2;in_9.0;comment
 40;Oropharynx;Yes;Yes;C14 is moved here. Old entity 51 (Pharynx, ill defined) is removed. C05.8 and C05.9 is removed from here in 9.0 
 41;Nasopharynx;Yes;Yes;
 50;Hypopharynx;Yes;Yes;
+51;Pharynx, ill defined;Yes;No;
 60;Oesophagus;Yes;Yes;
 70;Stomach;Yes;Yes;
 80;Small intestine;Yes;Yes;
