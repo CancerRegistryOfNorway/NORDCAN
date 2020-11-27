@@ -25,11 +25,10 @@ stopifnot(
   readLines("nordcan.R", n = 1L) == "# NORDCAN"
 )
 
-# in 9.0.beta2, you should have a separate directory for storing .zip files
-# containing statistics tables from previous releases. you should have received
-# one such zip file by e-mail or otherwise. we assume you create the directory
-# "nordcan_archive" in the same directory under which the current directory is.
-# i.e. if "nordcan" is at "C:/path/to/nordcan/"
+# you should have a separate directory for storing .zip files
+# containing statistics tables from previous releases. we assume you have the
+# directory "nordcan_archive" in the same directory under which the current
+# directory is, i.e. if "nordcan" is at "C:/path/to/nordcan/"
 # then "nordcan_archive" would be at "C:/path/to/nordcan_archive/"
 stopifnot(
   dir.exists("../nordcan_archive")
@@ -68,7 +67,7 @@ all_pkg_nms <- installed.packages()[, 1L]
 nordcan_pkg_nms <- all_pkg_nms[grepl("^nordcan", all_pkg_nms)]
 invisible(lapply(nordcan_pkg_nms, function(nordcan_pkg_nm) {
   nordcan_pkg_version <- utils::packageVersion(nordcan_pkg_nm)
-  expected_pkg_version <- "0.5.3"
+  expected_pkg_version <- "1.0.0"
   if (nordcan_pkg_version != expected_pkg_version) {
     stop("Package ", deparse(nordcan_pkg_nm), " has version ", nordcan_pkg_version,
          " but should have version ", expected_pkg_version, "; make sure ",
@@ -262,6 +261,8 @@ old_statistics <- nordcanepistats::read_nordcan_statistics_tables(
 # need to massage the data a bit because of differences between the versions.
 ds_nms <- c("cancer_death_count_dataset", "cancer_record_count_dataset",
             "prevalent_patient_count_dataset")
+ds_nms <- intersect(names(statistics), ds_nms)
+ds_nms <- intersect(names(old_statistics), ds_nms)
 statistics_comp <- lapply(statistics[ds_nms], function(dt) {
   dt <- data.table::copy(dt)
   dt_stratum_col_nms <- intersect(
@@ -333,8 +334,12 @@ comparison <- nordcanepistats::compare_nordcan_statistics_table_lists(
 #
 # you can see an overall summary of all comparisons in
 comparison$summary
-# you must look at the individual comparisons and report any suspicious ones.
-# e.g.
+
+# a good way of inspecting results is plotting. look at the produced .png files.
+nordcanepistats::plot_nordcan_statistics_table_comparisons(comparison)
+
+# you must also look at the individual comparisons and report any suspicious
+# ones. e.g.
 comparison$comparisons$cancer_record_count_dataset
 # contains the individual cancer_record_count comparisons. you can find
 # suspicious instances by filtering by adjusted p-value or the difference
@@ -358,18 +363,17 @@ comparison$comparisons$prevalent_patient_count_dataset[
     full_years_since_entry == "0 - 999",
 ]
 
-# a good way of inspecting results is plotting. look at the produced .png files.
-nordcanepistats::plot_nordcan_statistics_table_comparisons(comparison)
-
 # note that we did not compare to 8.2 survival here. you'll have to do that
 # using the old-fashioned eyeball method.
+
+# INFO TO MAINTAINERS ----------------------------------------------------------
 
 # you should deliver this zip to the maintainers of the NORDCAN software
 # after examining your results as proof that everything (that has been tested
 # at least) is alright.
 nordcanepistats::write_maintainer_summary_zip(comparison)
 
-# SAVING RESULTS ---------------------------------------------------------------
+# SAVING RESULTS FOR ARCHIVE ---------------------------------------------------
 
 # the object "statistics" must be saved so that in a future release you have
 # something to compare to (among other reasons). each NORDCAN participant
@@ -408,12 +412,17 @@ if (file.exists(archive_zip_tgt_file_path)) {
   file.copy(from = archive_zip_src_file_path, to = archive_zip_tgt_file_path)
 }
 
+# SAVING RESULTS FOR SENDING ---------------------------------------------------
 
-# EPILOGUE ----------------------------------------------------------------
+# the zip created by this function should be sent to IARC. instructions on how
+# to do that will be supplied separately.
+nordcanepistats::write_nordcan_statistics_tables_for_sending(
+  statistics
+)
 
-# that's all for now. thanks for participating! in the official
-# release a .zip file will also be sent to the maintainers of the NORDCAN
-# website. instructions on how to do that will be given at that point.
+# END --------------------------------------------------------------------------
+
+# that's all folks! thank you for participating!
 
 
 

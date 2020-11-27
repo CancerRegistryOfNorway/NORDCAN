@@ -1,35 +1,24 @@
 
-## Beta instructions
+## Instructions
 
-### To beta participants
+### Official release 2020-11-27
 
-Thank you for participating in the NORDCAN beta! Yes we NORDCAN!
-
-### Fourth beta release info
-
-We have completed additional bugfixes and tweaks to the entity and
-ICD code conversion specifications. At least in Finland and Norway the results
-make a lot of sense.
+Each participant should define their own datasets according to the manual
+(nordcan_call_for_data_manual.html) and then compile the statistics by running
+through the script nordcan.R.
 
 It is absolutely paramount that participants look at the results they get
 and the results of the comparison to NORDCAN 8.2 statistics.
 
-A known issue for the survival estimation in this beta:
-sometimes the underlying Stata command stnet will insist that the weights
-does not sum to one (and not estimate). The estimation should run,
-and this will be fixed. But, if you dont get estimates for any groups which
-you expect estimates for thsi could be the reason.
+We ask that you have completed the computations and sent the aggregated
+statistics to IARC by Wednesday, December 2nd at the latest. Instructions
+on how to send the statistics to IARC will follow in a separate message.
 
-Any group (entity x period x sex) with N=30 at start and 3 or more
-observations in any age group used for weighting should have estimates.
-For the new 10 year calendar periods the age groups have three levels, thus
-combining the two youngest age groups, and combining the two oldest age groups
-of the five level age groups used in the primary five-calendar year estimates.
+### Comparing to 8.2
 
-We ask that you have completed the computations and report on any suspicious
-differences between the beta results and NORDCAN 8.2 statistics on Friday,
-November 20th at the latest. At a minimum we ask that you inspect comparison
-results where p_value_bh < 0.01. Notes for comparisons:
+At a minimum we ask that you inspect comparison
+results where p_value_bh < 0.01. We ask that you also go through the
+plots produced in nordcan.R. Notes for comparisons:
 
 - it was not possible to programmatically compare the new survival to NORDCAN
   8.2 survival, so this time comparisons must be done manually. you should at
@@ -43,15 +32,15 @@ results where p_value_bh < 0.01. Notes for comparisons:
 - there have been some changes in the entities. see section
   Entities in NORDCAN in the manual.
 
-### Beta contact info
+### Contact info
 
 We are available on the NORDCAN slack if you encounter a problem with our
 R packages or if you have questions about the call for data or other
 NORDCAN matters. We ask the participants _not_ to send e-mail concerning these
 matters because we want all the information in one place.
 
-Link to NORDCAN Slack: https://cancerregistr-hhd6843.slack.com
-Please discuss testing under the channel #testing.
+Link to NORDCAN Slack: https://cancerregistr-hhd6843.slack.com.
+Please discuss issues with the official release under the channel #release.
 If you need to be invited to Slack (you cannot join our Slack despite logging
 into your account), contact siri.laronningen@kreftregisteret.no.
 
