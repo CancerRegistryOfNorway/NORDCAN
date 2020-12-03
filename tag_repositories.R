@@ -23,7 +23,6 @@ pkg_df <- data.frame(
   pkg_nm = c(
     "nordcancore",
     "nordcanpreprocessing",
-    "basicepistats",
     "nordcansurvival",
     "nordcanepistats"
   )
@@ -57,6 +56,7 @@ if (!dir.exists("tmp")) {
 # for the latest commit --- ensure that is what you actually want.
 invisible(lapply(1:nrow(pkg_df), function(pkg_no) {
   pkg_nm <- pkg_df[["pkg_nm"]][pkg_no]
+  message("* pkg_nm = ", pkg_nm)
   url <- pkg_df[["url"]][pkg_no]
   repo_dir <- paste0("tmp/", pkg_nm)
   if (dir.exists(repo_dir)) {
@@ -71,14 +71,22 @@ invisible(lapply(1:nrow(pkg_df), function(pkg_no) {
   )
   existing_tags <- names(git2r::tags(repo_dir))
   if (!nordcan_tag %in% existing_tags) {
+    message("* applying nordcan_tag = ", nordcan_tag)
     git2r::tag(repo_dir, name = nordcan_tag)
+    message("* pushing nordcan_tag = ", nordcan_tag)
     refspec <- paste0("refs/tags/", nordcan_tag)
     git2r::push(repo_dir, refspec = refspec, credentials = ssh_cred)
+  } else {
+    message("* nordcan_tag = ", nordcan_tag, " already existed, skipping")
   }
   if (!pkg_tag %in% existing_tags) {
+    message("* applying pkg_tag = ", pkg_tag)
     git2r::tag(repo_dir, name = pkg_tag)
+    message("* pushing pkg_tag = ", pkg_tag)
     refspec <- paste0("refs/tags/", pkg_tag)
     git2r::push(repo_dir, refspec = refspec, credentials = ssh_cred)
+  } else {
+    message("* pkg_tag = ", pkg_tag, " already existed, skipping")
   }
   NULL
 }))
