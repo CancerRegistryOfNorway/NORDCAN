@@ -146,7 +146,11 @@ rmarkdown::render(
 )
 
 zip::zip(
-  zipfile = sprintf("releases/nordcan_%s_participant_instructions.zip", nordcancore::nordcan_metadata_nordcan_version()),
+  zipfile = sprintf(
+    "releases/nordcan_%s_framework_%s_participant_instructions.zip",
+    nordcancore::nordcan_metadata_nordcan_version(),
+    packageVersion("nordcancore")
+  ),
   files = dir("nordcan_participant_instructions", full.names = TRUE, recursive = TRUE)
 )
 
