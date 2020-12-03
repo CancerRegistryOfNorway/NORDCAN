@@ -204,7 +204,9 @@ statistics <- nordcanepistats::nordcan_statistics_tables(
   stata_exe_path =  "C:/Program Files (x86)/Stata14/StataMP-64.exe",
   output_objects = setdiff(
     nordcanepistats::nordcan_statistics_tables_output_object_space(),
-    c("stata_info", "survival_statistics_example", "survival_statistics_dataset")
+    c("stata_info", "survival_statistics_example", 
+      "survival_statistics_period_5_dataset",
+      "survival_statistics_period_10_dataset")
   )
 )
 
