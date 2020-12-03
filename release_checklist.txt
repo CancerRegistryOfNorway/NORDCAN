@@ -10,7 +10,7 @@
    nordcancore/data-raw/sysdata.R to update
 
 3. ensure all NORDCAN R packages have the same version; ensure
-   this version is tested for in 
+   this version is tested for in
    nordcan_participant_instructions/nordcan.R
 
 4. ensure that the NORDCAN wiki is up-to-date:
@@ -21,10 +21,9 @@
 6. git commit and push this repo
 
 7. give participants the link to the raw .zip file created by
-   collect_nordcan_participant_instructions.R, which will look something like
-   https://raw.githubusercontent.com/CancerRegistryOfNorway/NORDCAN/master/releases/nordcan_participant_instructions_9.0.zip
+   collect_nordcan_participant_instructions.R
 
-8. after giving the participants the link, add git tags to each NORDCAN R
-   package with the version of the NORDCAN release, e.g. tag "9.0" for the
-   exact commit used in that release
+8. add git tags to each NORDCAN R
+   package with the version of the NORDCAN release; you can use the script
+   tag_repositories.R for this.
 
