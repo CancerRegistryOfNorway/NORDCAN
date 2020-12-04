@@ -67,7 +67,7 @@ all_pkg_nms <- installed.packages()[, 1L]
 nordcan_pkg_nms <- all_pkg_nms[grepl("^nordcan", all_pkg_nms)]
 invisible(lapply(nordcan_pkg_nms, function(nordcan_pkg_nm) {
   nordcan_pkg_version <- utils::packageVersion(nordcan_pkg_nm)
-  expected_pkg_version <- "1.0.1"
+  expected_pkg_version <- "1.0.2"
   if (nordcan_pkg_version != expected_pkg_version) {
     stop("Package ", deparse(nordcan_pkg_nm), " has version ", nordcan_pkg_version,
          " but should have version ", expected_pkg_version, "; make sure ",
@@ -204,7 +204,7 @@ statistics <- nordcanepistats::nordcan_statistics_tables(
   stata_exe_path =  "C:/Program Files (x86)/Stata14/StataMP-64.exe",
   output_objects = setdiff(
     nordcanepistats::nordcan_statistics_tables_output_object_space(),
-    c("stata_info", "survival_statistics_example", 
+    c("stata_info", "survival_statistics_example",
       "survival_statistics_period_5_dataset",
       "survival_statistics_period_10_dataset")
   )
