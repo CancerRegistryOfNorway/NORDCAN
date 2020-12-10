@@ -3,7 +3,7 @@ library("git2r")
 library("codedoc")
 # devtools::install_github("WetRobot/codedoc")
 
-stop("WIP")
+# stop("WIP")
 
 github_nordcan_pkg_nms <- c(
   "nordcancore",
@@ -22,7 +22,8 @@ pkg_df <- data.frame(
   )
 )
 
-ssh_folder <- readline("ssh_folder = ")
+# put your ssh dir in this text file. it is ignored by git.
+ssh_folder <- readLines("ssh_folder.txt", n = 1L)
 public_ssh_key <- paste0(ssh_folder, "id_rsa.pub")
 private_ssh_key <- paste0(ssh_folder, "id_rsa")
 stopifnot(
@@ -30,6 +31,10 @@ stopifnot(
   file.exists(public_ssh_key),
   file.exists(private_ssh_key)
 )
+
+if (!dir.exists("codedoc")) {
+  dir.create("codedoc")
+}
 
 invisible(lapply(1:nrow(pkg_df), function(pkg_no) {
 
@@ -53,14 +58,18 @@ invisible(lapply(1:nrow(pkg_df), function(pkg_no) {
   script_file_paths <- dir(
     repo_dir, pattern = "\\.R$", recursive = TRUE, full.names = TRUE
   )
-  key_df <- codedoc::extract_keyed_comment_blocks(
+  block_df <- codedoc::extract_keyed_comment_blocks_(
     text_file_paths = script_file_paths
   )
-  codedoc::render_codedoc(
-    key_df = key_df,
+  codedoc_file_name <- paste0(pkg_df[["pkg_nm"]][pkg_no], ".md")
+  codedoc_file_path <- paste0("codedoc/", codedoc_file_name)
+  message("* building code docs to ", codedoc_file_path)
+  codedoc::render_codedoc_(
+    block_df = block_df,
     template_file_path = NULL,
     render_arg_list = list(
-      output_file = paste0(pkg_df[["pkg_nm"]][pkg_no], ".md"),
+      output_file = codedoc_file_name,
+      output_dir = "codedoc",
       output_format = "md_document"
     )
   )
