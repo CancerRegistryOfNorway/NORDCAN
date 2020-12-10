@@ -30,7 +30,7 @@ pkg_df <- rbind(
     url = c(
       "https://cran.r-project.org/bin/windows/contrib/4.0/digest_0.6.27.zip",
       "https://cran.r-project.org/bin/windows/contrib/4.0/skellam_0.2.0.zip",
-      "https://cran.r-project.org/bin/windows/contrib/4.0/data.table_1.13.2.zip",
+      "https://cran.r-project.org/src/contrib/Archive/data.table/data.table_1.13.2.tar.gz",
       "https://cran.r-project.org/bin/windows/contrib/4.0/zip_2.1.1.zip"
     )
   ),
@@ -50,9 +50,21 @@ pkg_df <- rbind(
   )
 )
 
+pkg_df[["file_ext"]] <- vapply(pkg_df[["url"]], function(url) {
+  if (grepl("\\.zip$", url)) {
+    ".zip"
+  } else if (grepl("\\.tar\\.gz$", url)) {
+    ".tar.gz"
+  } else if (grepl("\\.git$", url)) {
+    ".tar.gz"
+  } else {
+    stop("could not identify file_ext for url = ", url)
+  }
+}, character(1L))
 pkg_df[["file_nm"]] <- paste0(
-  "pkg_", 1:nrow(pkg_df), "_", pkg_df[["pkg_nm"]],
-  rep(c(".zip", ".tar.gz"), times = c(4L, nrow(pkg_df) - 4L))
+  "pkg_", 1:nrow(pkg_df), "_",
+  pkg_df[["pkg_nm"]],
+  pkg_df[["file_ext"]]
 )
 
 if (!dir.exists("nordcan_participant_instructions")) {
