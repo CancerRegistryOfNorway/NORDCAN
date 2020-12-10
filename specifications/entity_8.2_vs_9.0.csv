@@ -1,16 +1,16 @@
 entity;description_en;in_8.2;in_9.0;comment
-10;Lip;Yes;Yes;C00.5 is removed from here in 9.0
-20;Oral Cavity;Yes;Yes;C00.5 is moved here in 9.0. C05.8 and C05.9 is moved here in 9.0
+10;Lip;Yes;Yes;C00.5 removed
+20;Oral Cavity;Yes;Yes;C00.5, C05.8, C05.9 added
 30;Salivary glands;Yes;Yes;
-40;Oropharynx;Yes;Yes;C14 is moved here. Old entity 51 (Pharynx, ill defined) is removed. C05.8 and C05.9 is removed from here in 9.0 
+40;Oropharynx;Yes;Yes;C05.8-9 removed, C14 added
 41;Nasopharynx;Yes;Yes;
 50;Hypopharynx;Yes;Yes;
-51;Pharynx, ill defined;Yes;No;
+51;Pharynx, ill defined;Yes;No;Entity removed in 9.0. Cases moved to 40
 60;Oesophagus;Yes;Yes;
 70;Stomach;Yes;Yes;
 80;Small intestine;Yes;Yes;
 90;Colon;Yes;Yes;
-100;Rectum;Partly;Yes;Anal cancer (C21) is removed from this group in 9.0
+100;Rectum;Partly;Yes;C21 removed
 110;Liver;Yes;Yes;
 120;Gallbladder;Yes;Yes;
 130;Pancreas;Yes;Yes;
@@ -23,67 +23,69 @@ entity;description_en;in_8.2;in_9.0;comment
 200;Corpus uteri;Yes;Yes;
 210;Uterus, other;Yes;Yes;
 220;Ovary and tubes;Yes;Yes;
-227;Vulva;No;Yes;
-228;Vagina;No;Yes;
-229;Other female genital organs;No;Yes;
+227;Vulva;No;Yes;New in NORDCAN 9.0
+228;Vagina;No;Yes;New in NORDCAN 9.0
+229;Other female genital organs;No;Yes;New in NORDCAN 9.0
 230;Vulva, vagina and other female genital organs;Yes;Yes;
 240;Prostate;Yes;Yes;
 250;Testis;Yes;Yes;
 260;Penis and other male genital organs;Yes;Yes;
 270;Kidney;Yes;Yes;
-280;Bladder and urinary tract;Yes;Yes;
+280;Bladder and urinary tract;Yes;Yes;Same ICD10-codes in both versions, but also exclusion on morphology codes. Not clear how/if this was implemented in 8.2
 290;Melanoma of skin;Yes;Yes;
-300;Skin, non-melanoma;Yes;Yes;
+300;Skin, non-melanoma;Yes;Yes;C46.0, C46.2-9 removed
 310;Eye;Yes;Yes;
-316;Meningeomas;No;Yes;
-317;Gliomas;No;Yes;
-318;Nerve sheet tumors;No;No;
-319;Other brain and CNS;No;Yes;
-320;Brain and CNS;Yes;Yes;D35.2 and D44.3 removed from here in 9.0 (into 315/321 which is not in NORDCAN 8.2)
+315;Endocrine tumors of brain and CNS;No;Yes;New in NORDCAN 9.0
+316;Meningeomas;No;Yes;New in NORDCAN 9.0
+317;Gliomas;No;Yes;New in NORDCAN 9.0
+318;Nerve sheet tumors;No;No;Not used in neither NORDCAN 8.2 or 9.0. Might be included later
+319;Other brain and CNS;No;Yes;New in NORDCAN 9.0
+320;Brain and CNS excluding endocrine tumors;Yes;Yes;C75.1-3, D35.2-4 and D44.3-5 removed
+321;Brain and CNS including endocrine tumors;No;Yes;New in NORDCAN 9.0, same as old entity code 320
 330;Thyroid;Yes;Yes;
 340;Bone;Yes;Yes;
-350;Soft tissues;Yes;Yes;
-360;Non Hodgkin lymphomas;Yes;Yes;C880 is moved here in 9.0
+350;Soft tissues;Yes;Yes;C46.1 removed
+360;Non Hodgkin lymphomas;Yes;Yes;C880 and C96 added
 370;Hodgkin lymphomas;Yes;Yes;
 380;Multiple myelomas;Yes;Yes;
 390;Myelodysplastic syndromes;Yes;Yes;
 392;Myeloproliferative diseases;Yes;Yes;
-394;Other hematopoietic diseases;Yes;Yes;C88.0 is removed from here in 9.0
+394;Other hematopoietic diseases;Yes;Yes;C88.0 and 96 removed, C94-6 and D47.2 added
 401;Acute lymphatic leukaemias;Yes;Yes;
 402;Chronic lymphatic leukaemias;Yes;Yes;
 403;Other and unspecified lymphatic leukaemias;Yes;Yes;
-404;Acute myeloid leukaemias;Yes;Yes;
+404;Acute myeloid leukaemias;Yes;Yes;C94.4-5 removed, C92.3-6 added
 405;Chronic myeloid leukaemias;Yes;Yes;
-406;Other and unspecified myeloid leukaemia;Yes;Yes;
-407;Leukaemia, cell unspecified;Yes;Yes;
-410;Other specified cancers;Partly;Yes;Anal cancer (C21) is put into this group in 9.0
+406;Other and unspecified myeloid leukaemia;Yes;Yes;C92.3-6 removed, C94.4 added
+407;Leukaemia, cell unspecified;Yes;Yes;C91, C92, C93, C94 added (2-digit ICD10-codes), should not impact incidence. Might impact mortality
+410;Other specified cancers;Partly;Yes;C21, C46.0-1 added
 420;Other and ill-defined cancers;Yes;Yes;
-430;Malignant haematopoietic diseases;Yes;Yes;
-431;Non Hodgkin lymphoma NOS;No;Yes;
-434;Classical Hodgkin lymphoma;No;Yes;
-435;Chronic lymphocytic leukaemia/small lymphocytic lymphoma;No;Yes;
-436;Immunoproliferative diseases;No;Yes;
-437;Mantle cell/centrocytic;No;Yes;
-438;Follicular B lymphoma;No;Yes;
-439;Diffuse B lymphoma;No;Yes;
-440;Burkitt's lymphoma;No;Yes;
-441;Marginal zone lymphoma;No;Yes;
-442;T lymphoma cutenaeous;No;Yes;
-443;Other T cell lymphomas;No;Yes;
-444;Lymphoblastic lymphoma/Acute (precursor cell) lymphatic leukaemia;No;Yes;
-445;Plasma cell neoplasms;No;Yes;
-446;Mature B cell leukaemia;No;Yes;
-448;Lymphatic leukaemia, NOS;No;Yes;
-449;Leukaemia, NOS;No;Yes;
-450;Myeloid leukaemia, NOS;No;Yes;
-451;Acute myeloid leukaemia;No;Yes;
-452;Myeloproliferative neoplasms;No;Yes;
-453;Myelodysplastic syndrome;No;Yes;
-454;Myelodysplastic/myeloproliferative neoplasms NOS;No;Yes;
-455;Other and unscpecified lymphomas;No;Yes;
-456;Other and unspecified leukaemias;No;Yes;
+430;Malignant haematopoietic diseases;Yes;Yes;D47.2 added
+431;Non Hodgkin lymphoma NOS;No;Yes;New in NORDCAN 9.0
+434;Classical Hodgkin lymphoma;No;Yes;New in NORDCAN 9.0
+435;Chronic lymphocytic leukaemia/small lymphocytic lymphoma;No;Yes;New in NORDCAN 9.0
+436;Immunoproliferative diseases;No;Yes;New in NORDCAN 9.0
+437;Mantle cell/centrocytic;No;Yes;New in NORDCAN 9.0
+438;Follicular B lymphoma;No;Yes;New in NORDCAN 9.0
+439;Diffuse B lymphoma;No;Yes;New in NORDCAN 9.0
+440;Burkitt's lymphoma;No;Yes;New in NORDCAN 9.0
+441;Marginal zone lymphoma;No;Yes;New in NORDCAN 9.0
+442;T lymphoma cutenaeous;No;Yes;New in NORDCAN 9.0
+443;Other T cell lymphomas;No;Yes;New in NORDCAN 9.0
+444;Lymphoblastic lymphoma/Acute (precursor cell) lymphatic leukaemia;No;Yes;New in NORDCAN 9.0
+445;Plasma cell neoplasms;No;Yes;New in NORDCAN 9.0
+446;Mature B cell leukaemia;No;Yes;New in NORDCAN 9.0
+448;Lymphatic leukaemia, NOS;No;Yes;New in NORDCAN 9.0
+449;Leukaemia, NOS;No;Yes;New in NORDCAN 9.0
+450;Myeloid leukaemia, NOS;No;Yes;New in NORDCAN 9.0
+451;Acute myeloid leukaemia;No;Yes;New in NORDCAN 9.0
+452;Myeloproliferative neoplasms;No;Yes;New in NORDCAN 9.0
+453;Myelodysplastic syndrome;No;Yes;New in NORDCAN 9.0
+454;Myelodysplastic/myeloproliferative neoplasms NOS;No;Yes;New in NORDCAN 9.0
+455;Other and unscpecified lymphomas;No;Yes;New in NORDCAN 9.0
+456;Other and unspecified leukaemias;No;Yes;New in NORDCAN 9.0
 510;Lip, oral cavity and pharynx;Yes;Yes;
-520;Colorectal;Partly;Yes;Anal cancer (C21) is removed from this group in 9.0
+520;Colorectal;Partly;Yes;C21 removed
 888;Basal cell carcinoma;Yes;Yes;
 970;All sites but non-melanoma skin cancer, breast and prostate;Yes;Yes;
 980;All sites;Yes;Yes;
