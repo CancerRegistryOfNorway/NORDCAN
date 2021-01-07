@@ -50,11 +50,11 @@ entity;description_en;in_8.2;in_9.0;comment
 380;Multiple myelomas;Yes;Yes;
 390;Myelodysplastic syndromes;Yes;Yes;
 392;Myeloproliferative diseases;Yes;Yes;
-394;Other hematopoietic diseases;Yes;Yes;C88.0 and 96 removed, C94-6 and D47.2 added
+394;Other hematopoietic diseases;Yes;Yes;C88.0 and 96 removed, C94.6 and D47.2 added
 401;Acute lymphatic leukaemias;Yes;Yes;
 402;Chronic lymphatic leukaemias;Yes;Yes;
 403;Other and unspecified lymphatic leukaemias;Yes;Yes;
-404;Acute myeloid leukaemias;Yes;Yes;C94.4-5 removed, C92.3-6 added
+404;Acute myeloid leukaemias;Yes;Yes;C94.4 and C94.6 removed, C92.3-6 added
 405;Chronic myeloid leukaemias;Yes;Yes;
 406;Other and unspecified myeloid leukaemia;Yes;Yes;C92.3-6 removed, C94.4 added
 407;Leukaemia, cell unspecified;Yes;Yes;C91, C92, C93, C94 added (2-digit ICD10-codes), should not impact incidence. Might impact mortality
