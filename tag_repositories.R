@@ -1,38 +1,21 @@
 
-
-
-
-
 # info -------------------------------------------------------------------------
 # this script assumes you have the latest nordcancore package installed.
 # nordcancore::nordcan_metadata_nordcan_version() has to be correct.
 
-
-
-
-
-# packages ---------------------------------------------------------------------
+# libraries --------------------------------------------------------------------
 library("git2r")
 
-
-
-
-
-# tag repos --------------------------------------------------------------------
-pkg_df <- data.frame(
-  pkg_nm = c(
-    "nordcancore",
-    "nordcanpreprocessing",
-    "nordcansurvival",
-    "nordcanepistats"
-  )
+# pkg_df -----------------------------------------------------------------------
+pkg_nms <- c(
+  "nordcancore",
+  "nordcanpreprocessing",
+  "nordcansurvival",
+  "nordcanepistats"
 )
-pkg_df$url <- paste0(
-  "git@github.com:CancerRegistryOfNorway/",
-  pkg_df$pkg_nm,
-  ".git"
-)
-# put your ssh dir in this text file. it is ignored by git.
+pkg_df <- read.csv("packages.csv")
+
+# creds ------------------------------------------------------------------------
 ssh_folder <- readLines("ssh_folder.txt", n = 1L)
 public_ssh_key <- paste0(ssh_folder, "id_rsa.pub")
 private_ssh_key <- paste0(ssh_folder, "id_rsa")
@@ -45,6 +28,8 @@ ssh_cred <- git2r::cred_ssh_key(
   publickey = public_ssh_key,
   privatekey = private_ssh_key
 )
+
+# tag --------------------------------------------------------------------------
 nordcan_version <- nordcancore::nordcan_metadata_nordcan_version()
 pkg_version <- utils::packageVersion("nordcancore")
 nordcan_tag <- paste0("nordcan_", nordcan_version)

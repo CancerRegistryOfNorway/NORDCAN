@@ -1,5 +1,5 @@
 
-
+# libraries --------------------------------------------------------------------
 library("devtools")
 library("git2r")
 
@@ -9,63 +9,8 @@ stopifnot(
   as.integer(R.Version()[["major"]]) == 4L
 )
 
-cran_pkg_nms <- c("digest", "skellam", "data.table", "zip")
-
-github_support_pkg_nms <- c(
-  "dbc",
-  "iarccrgtools"
-)
-
-github_nordcan_pkg_nms <- c(
-  "nordcancore",
-  "nordcanpreprocessing",
-  "basicepistats",
-  "nordcansurvival",
-  "nordcanepistats"
-)
-
-pkg_df <- rbind(
-  data.frame(
-    pkg_nm = cran_pkg_nms,
-    url = c(
-      "https://cran.r-project.org/bin/windows/contrib/4.0/digest_0.6.27.zip",
-      "https://cran.r-project.org/bin/windows/contrib/4.0/skellam_0.2.0.zip",
-      "https://cran.r-project.org/src/contrib/Archive/data.table/data.table_1.13.2.tar.gz",
-      "https://cran.r-project.org/bin/windows/contrib/4.0/zip_2.1.1.zip"
-    )
-  ),
-  data.frame(
-    pkg_nm = github_support_pkg_nms,
-    url = paste0(
-      "git@github.com:WetRobot/", github_support_pkg_nms, ".git"
-    )
-  ),
-  data.frame(
-    pkg_nm = github_nordcan_pkg_nms,
-    url = paste0(
-      "git@github.com:CancerRegistryOfNorway/",
-      github_nordcan_pkg_nms,
-      ".git"
-    )
-  )
-)
-
-pkg_df[["file_ext"]] <- vapply(pkg_df[["url"]], function(url) {
-  if (grepl("\\.zip$", url)) {
-    ".zip"
-  } else if (grepl("\\.tar\\.gz$", url)) {
-    ".tar.gz"
-  } else if (grepl("\\.git$", url)) {
-    ".tar.gz"
-  } else {
-    stop("could not identify file_ext for url = ", url)
-  }
-}, character(1L))
-pkg_df[["file_nm"]] <- paste0(
-  "pkg_", 1:nrow(pkg_df), "_",
-  pkg_df[["pkg_nm"]],
-  pkg_df[["file_ext"]]
-)
+# pkg_df -----------------------------------------------------------------------
+pkg_df <- read.csv("packages.csv")
 
 if (!dir.exists("nordcan_participant_instructions")) {
   dir.create("nordcan_participant_instructions")
@@ -78,6 +23,7 @@ pkg_df[["file_path"]] <- paste0(
   "nordcan_participant_instructions/pkgs/", pkg_df[["file_nm"]]
 )
 
+# creds ------------------------------------------------------------------------
 # put your ssh dir in this text file. it is ignored by git.
 ssh_folder <- readLines("ssh_folder.txt", n = 1L)
 public_ssh_key <- paste0(ssh_folder, "id_rsa.pub")
@@ -87,7 +33,12 @@ stopifnot(
   file.exists(public_ssh_key),
   file.exists(private_ssh_key)
 )
+cred <- git2r::cred_ssh_key(
+  publickey = public_ssh_key,
+  privatekey = private_ssh_key
+)
 
+# download (+build) packages ---------------------------------------------------
 invisible(lapply(1:nrow(pkg_df), function(file_no) {
   file_path <- pkg_df[["file_path"]][file_no]
   zip_path <- sub("\\Q.tar.gz\\E$", ".zip", file_path)
@@ -102,10 +53,7 @@ invisible(lapply(1:nrow(pkg_df), function(file_no) {
     git2r::clone(
       url = url,
       local_path = repo_dir,
-      credentials = git2r::cred_ssh_key(
-        publickey = public_ssh_key,
-        privatekey = private_ssh_key
-      ),
+      credentials = cred,
       progress = FALSE
     )
     devtools::build(repo_dir, path = zip_path, binary = TRUE, quiet = TRUE)
@@ -138,6 +86,7 @@ invisible(lapply(1:nrow(pkg_df), function(file_no) {
   message("* done")
 }))
 
+# compile docs from wiki -------------------------------------------------------
 if (dir.exists("wiki")) {
   unlink(x = "wiki", recursive = TRUE, force = TRUE)
 }
@@ -148,7 +97,8 @@ git2r::clone(
   progress = FALSE
 )
 
-## If the following block failed, open the rmd file, and run knit in Rstudio will do the same work.
+# If the following block failed, open the rmd file, and run knit in Rstudio
+# will do the same work.
 # Rememeber to move the html file to correct folder.
 rmarkdown::render(
   input = "nordcan_call_for_data_manual.rmd",
@@ -157,13 +107,16 @@ rmarkdown::render(
   quiet = FALSE
 )
 
+# create release .zip ----------------------------------------------------------
 zip::zip(
   zipfile = sprintf(
     "releases/nordcan_%s_framework_%s_participant_instructions.zip",
     nordcancore::nordcan_metadata_nordcan_version(),
     packageVersion("nordcancore")
   ),
-  files = dir("nordcan_participant_instructions", full.names = TRUE, recursive = TRUE)
+  files = dir(
+    "nordcan_participant_instructions", full.names = TRUE, recursive = TRUE
+  )
 )
 
 
