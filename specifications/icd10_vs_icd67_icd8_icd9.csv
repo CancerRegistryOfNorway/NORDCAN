@@ -116,7 +116,7 @@ C188;malignant neoplasm of overlapping sites of colon;1537;;
 C189;malignant neoplasm of colon, unspecified;1538;1538;1539
 C19;malignant neoplasm of rectosigmoid junction;;1540;1540
 C20;malignant neoplasm of rectum;;1541;
-C21;malignant neoplasm of anus and anal canal;;1542;154
+C21;malignant neoplasm of anus and anal canal;;1542;
 C210;malignant neoplasm of anus, unspecified;;;1543
 C211;malignant neoplasm of anal canal;;;1542
 C212;malignant neoplasm of cloacogenic zone;;;
@@ -906,7 +906,7 @@ D485;skin;;;
 D486;breast;;;
 D487;other specified sites;;;
 D489;neoplasm of uncertain or unknown behaviour, unspecified;;;
-C20;malignant neoplasm of rectum;154;154;1541
+C20;malignant neoplasm of rectum;154;154;154
 C34;malignant neoplasm of bronchus and lung;163;;
 C96;other and unspecified malignant neoplasms of lymphoid, hematopoietic and related tissue;206;;
 C96;other and unspecified malignant neoplasms of lymphoid, hematopoietic and related tissue;207;;
