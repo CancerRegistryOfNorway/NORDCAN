@@ -106,6 +106,11 @@ invisible(lapply(nordcan_pkg_nms, function(nordcan_pkg_nm) {
 #   "path/to/unprocessed_cancer_death_count_dataset.csv"
 # )
 
+
+
+
+
+
 # SETTINGs ----------------------------------------------------------------
 
 # next you need to set global settings for the NORDCAN software so that e.g.
@@ -119,12 +124,16 @@ invisible(lapply(nordcan_pkg_nms, function(nordcan_pkg_nm) {
 # ?nordcancore::set_global_nordcan_settings
 nordcancore::set_global_nordcan_settings(
   work_dir = getwd(),
-  participant_name = "Finland",
-  stat_cancer_record_count_first_year = 1953L,
-  stat_cancer_death_count_first_year = 1953L,
-  regional_data_first_year = 1953L,
-  llast_year = 2019L
+  participant_name = "Norway",
+  first_year_incidence = 1953L,
+  first_year_mortality = 1953L,
+  first_year_region = 1953L,
+  last_year_incidence = 2019L,
+  last_year_mortality = 2019L,
+  last_year_survival = 2018L
 )
+
+nordcancore::get_global_nordcan_settings()
 
 # PREPROCESSING -----------------------------------------------------------
 

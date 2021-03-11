@@ -79,25 +79,3 @@ if (dir.exists("tmp")) {
   unlink("tmp", force = TRUE, recursive = TRUE)
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
