@@ -1,15 +1,12 @@
-
-# libraries --------------------------------------------------------------------
+# Import libraries
 library("devtools")
 library("git2r")
 
-# this assertion because NORDCAN participants must have R 4.x.x,
+# This assertion because NORDCAN participants must have R 4.x.x,
 # and packages built with an older version R 3.x.x do not work in R 4.x.x
-stopifnot(
-  as.integer(R.Version()[["major"]]) == 4L
-)
+stopifnot(as.integer(R.Version()[["major"]]) >= 4L)
 
-# pkg_df -----------------------------------------------------------------------
+# package data frame 
 pkg_df <- read.csv("packages.csv")
 
 if (!dir.exists("nordcan_participant_instructions")) {
@@ -19,12 +16,13 @@ if (dir.exists("nordcan_participant_instructions/pkgs")) {
   unlink("nordcan_participant_instructions/pkgs", recursive = TRUE)
 }
 dir.create("nordcan_participant_instructions/pkgs")
-pkg_df[["file_path"]] <- paste0(
+pkg_df$file_path <- paste0(
   "nordcan_participant_instructions/pkgs/", pkg_df[["file_nm"]]
 )
 
-# creds ------------------------------------------------------------------------
-# put your ssh dir in this text file. it is ignored by git.
+# create "ssh_folder.txt" which contains the folder for your ssh files 
+# "ssh_folder.txt" is ignored by git (see .gitignore), so it will not 
+# appear on GitHub.
 ssh_folder <- readLines("ssh_folder.txt", n = 1L)
 public_ssh_key <- paste0(ssh_folder, "id_rsa.pub")
 private_ssh_key <- paste0(ssh_folder, "id_rsa")
@@ -38,11 +36,16 @@ cred <- git2r::cred_ssh_key(
   privatekey = private_ssh_key
 )
 
+
 # download (+build) packages ---------------------------------------------------
-invisible(lapply(1:nrow(pkg_df), function(file_no) {
-  file_path <- pkg_df[["file_path"]][file_no]
+nordcan_version <- NULL 
+
+
+for (file_no in 1:nrow(pkg_df))  {
+  print(file_no)
+  file_path <- pkg_df$file_path[file_no]
   zip_path <- sub("\\Q.tar.gz\\E$", ".zip", file_path)
-  url <- as.character(pkg_df[["url"]][file_no])
+  url <- as.character(pkg_df$url[file_no])
   url_ext <- sub(".+\\.(?=[a-z]{3}$)", "", url, perl = TRUE)
   if (url_ext == "git") {
     repo_dir <- tempdir()
@@ -60,6 +63,12 @@ invisible(lapply(1:nrow(pkg_df), function(file_no) {
     message(
       "* building windows binary of ", repo_dir, " to ", zip_path, "..."
     )
+    if (grepl("nordcan", url)) {
+      Des <- readLines(paste0(repo_dir, "\\DESCRIPTION"))
+      ver <- Des[grep("Version: ", Des)]
+      v <- gsub("Version: ", "", ver)
+      nordcan_version <- c(nordcan_version, v)
+    }
     unlink(repo_dir, recursive = TRUE, force = TRUE)
   } else {
     message("* downloading from ", url, " to ", file_path, "...")
@@ -73,6 +82,12 @@ invisible(lapply(1:nrow(pkg_df), function(file_no) {
       message(
         "* building windows binary of ", file_path, " to ", zip_path, "..."
       )
+      repo_dir <- tempdir()
+      if (dir.exists(repo_dir)) {
+        unlink(repo_dir, recursive = TRUE, force = TRUE)
+      }
+      dir.create(repo_dir)
+      
       devtools::build(
         pkg = file_path,
         path = zip_path,
@@ -84,7 +99,14 @@ invisible(lapply(1:nrow(pkg_df), function(file_no) {
   }
 
   message("* done")
-}))
+}
+
+
+
+if (length(unique(nordcan_version)) != 1) {
+  stop("The versions of some NORDCAN package are not consistant!")
+}
+
 
 # compile docs from wiki -------------------------------------------------------
 if (dir.exists("wiki")) {
@@ -97,9 +119,13 @@ git2r::clone(
   progress = FALSE
 )
 
+
+
+
 # If the following block failed, open the rmd file, and run knit in Rstudio
 # will do the same work.
 # Rememeber to move the html file to correct folder.
+repo_dir <- tempdir(); dir.create(repo_dir)
 rmarkdown::render(
   input = "nordcan_call_for_data_manual.rmd",
   output_dir = "nordcan_participant_instructions",
