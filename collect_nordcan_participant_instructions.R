@@ -139,7 +139,7 @@ zip::zip(
   zipfile = sprintf(
     "releases/nordcan_%s_%s.zip",
     nordcancore::nordcan_metadata_nordcan_version(),
-    packageVersion("nordcancore")
+    unique(nordcan_version)
   ),
   files = dir(
     "nordcan_participant_instructions", full.names = TRUE, recursive = TRUE
