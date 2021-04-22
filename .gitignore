@@ -5,6 +5,7 @@
 *.Rproj
 wiki
 ssh_folder.txt
+packages_gitlab.csv
 codedoc
 codedoc.html
 nordcan_call_for_data_manual.html
