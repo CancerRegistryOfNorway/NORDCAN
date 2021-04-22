@@ -128,8 +128,8 @@ nordcancore::set_global_nordcan_settings(
   first_year_incidence = 1953L,
   first_year_mortality = 1953L,
   first_year_region = 1953L,
-  last_year_incidence = 2019L,
-  last_year_mortality = 2019L,
+  last_year_incidence = 2018L,
+  last_year_mortality = 2018L,
   last_year_survival = 2018L
 )
 
