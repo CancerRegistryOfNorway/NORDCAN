@@ -3,12 +3,12 @@
 ##############################
 
 ## This section includes 3 tasks:
-## (1) Manually specify the path of installation (zip) file. 
+## (1) Manually specify the path of unzipped installation folder. 
 ## (2) Install NORDCAN packages 
 ## (3) verify the installation. 
 
-## (1) Manually specify the path of installation (zip) file
-path_nordcan_zip <- "P:/Dataflyt/nordcan/version/nordcan_9.0_framework_1.0.4_participant_instructions.zip"
+## (1) Manually specify the path of unzipped installation folder.
+path_nordcan <- "P:/Dataflyt/nordcan/version/nordcan_participant_instructions"
 
 ## (2) Install NORDCAN packages.
 ##  Remove installed (old version) NORDCAN packages. 
@@ -18,12 +18,8 @@ nordcan_pkgs <-  c("nordcancore",
                    "nordcansurvival")
 remove.packages(nordcan_pkgs)
 
-##  unzip the installation packages to a temporary directory
-dir_tmp <- tempdir()
-zip::unzip(zipfile = path_nordcan_zip, exdir = dir_tmp)
-setwd(paste(dir_tmp, "nordcan_participant_instructions", sep = "/"))
-
-##  install the NORDCAN packages
+##  Install the NORDCAN packages
+setwd(path_nordcan)
 pkg_paths <- sort(dir(path = "pkgs", pattern = "^pkg_.*.zip$", full.names = TRUE))
 for (pkg_path in pkg_paths) {
   clean_pkg_path <- sub("pkg_[0-9]+_", "", pkg_path)
