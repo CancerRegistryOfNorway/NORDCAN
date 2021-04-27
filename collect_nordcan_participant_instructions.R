@@ -8,7 +8,7 @@ stopifnot(as.integer(R.Version()[["major"]]) >= 4L)
 
 # package data frame 
 pkg_df <- read.csv("packages.csv")
-pkg_df <- read.csv("packages_gitlab.csv") # specially for norway 
+# pkg_df <- read.csv("packages_gitlab.csv") # specially for norway 
 
 if (!dir.exists("nordcan_participant_instructions")) {
   dir.create("nordcan_participant_instructions")
@@ -137,7 +137,7 @@ rmarkdown::render(
 # create release .zip ----------------------------------------------------------
 zip::zip(
   zipfile = sprintf(
-    "releases/nordcan_%s_%s.zip",
+    "releases/nordcan_%s_%s_beta.zip",
     nordcancore::nordcan_metadata_nordcan_version(),
     unique(nordcan_version)
   ),

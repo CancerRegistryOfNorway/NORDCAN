@@ -8,7 +8,8 @@
 ## (3) verify the installation. 
 
 ## (1) Manually specify the path of unzipped installation folder.
-path_nordcan <- "P:/Dataflyt/nordcan/version/nordcan_participant_instructions"
+path_nordcan <- "path/to/nordcan_participant_instructions"
+setwd(path_nordcan)
 
 ## (2) Install NORDCAN packages.
 ##  Remove installed (old version) NORDCAN packages. 
@@ -19,7 +20,6 @@ nordcan_pkgs <-  c("nordcancore",
 remove.packages(nordcan_pkgs)
 
 ##  Install the NORDCAN packages
-setwd(path_nordcan)
 pkg_paths <- sort(dir(path = "pkgs", pattern = "^pkg_.*.zip$", full.names = TRUE))
 for (pkg_path in pkg_paths) {
   clean_pkg_path <- sub("pkg_[0-9]+_", "", pkg_path)
@@ -62,28 +62,28 @@ for (pkg in nordcan_pkg_nms) {
 ###########################################################
 ## (1) Manually specify the paths & NORDCAN global settings
 
-path_IARC  <- "C:/Program Files (x86)/IARCcrgTools/IARCcrgTools.EXE"
-path_STATA <- "S:/Prog64/STATA/Stata16MP/StataMP-64.exe"
+path_IARC  <- "path/to/IARCcrgTools/IARCcrgTools.EXE"
+path_STATA <- "path/to/StataMP-64.exe"
 
 ## paths of raw dataset: 
-file_incidence  <- "p:/Dataflyt/nordcan/data/2019/incidence_2019.csv"
-file_lifetable  <- "p:/Dataflyt/nordcan/data/2019/life_table_2019.csv"
-file_population <- "p:/Dataflyt/nordcan/data/2019/population_2019.csv"
-file_mortality  <- "p:/Dataflyt/nordcan/data/2019/mortality_2019.csv"
+file_incidence  <- "path/to/incidence_2019.csv"
+file_lifetable  <- "path/to/life_table_2019.csv"
+file_population <- "path/to/population_2019.csv"
+file_mortality  <- "path/to/mortality_2019.csv"
 
 ## directory for saving the output of NORDCAN processing.
-dir_result <- "p:/Dataflyt/nordcan/user/huti/test2019/"
+dir_result <- "path/to/nordcan2019/"
 
 ## directory for holding the archived (.zip) result.
-dir_archive <- "p:/Dataflyt/nordcan/user/huti/test2019/"
+dir_archive <- "path/to/nordcan2019/"
 
 ## path of previous archived result to compared with.
-file_archived <- "p:/Dataflyt/nordcan/archive/nordcan_9.0.beta4_statistics_tables.zip"
+file_archived <- "path/to/nordcan_9.0.beta4_statistics_tables.zip"
 
 ## Set up global settings. Remember to modify the 'participant_name' and 'last_year_..'
 nordcancore::set_global_nordcan_settings(
   work_dir = dir_result,
-  participant_name = "Norway", 
+  participant_name = "Norway", # need to be modified
   first_year_incidence = 1953L,
   first_year_mortality = 1953L,
   first_year_region    = 1953L,
@@ -235,16 +235,16 @@ comparison$comparisons$cancer_record_count_dataset[p_value_bh < 0.05 | abs(stat_
 top_region <- nordcancore::nordcan_metadata_participant_info()[["topregion_number"]]
 comparison$comparisons$cancer_record_count_dataset[
   region == top_region & (p_value_bh < 0.01 | (abs(stat_value) > 100L)),
-]
+  ]
 ## and
 comparison$comparisons$cancer_death_count_dataset[
   region == top_region & (p_value_bh < 0.01 | (abs(stat_value) > 100L)),
-]
+  ]
 ## and
 comparison$comparisons$prevalent_patient_count_dataset[
   region == top_region & (p_value_bh < 0.01 | (abs(stat_value) > 100L)) &
     full_years_since_entry == "0 - 999",
-]
+  ]
 
 ## You should deliver this zip to the maintainers of the NORDCAN software
 ## after examining your results as proof that everything (that has been tested
