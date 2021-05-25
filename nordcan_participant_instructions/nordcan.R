@@ -65,7 +65,8 @@ for (pkg in nordcan_pkg_nms) {
 path_IARC  <- "path/to/IARCcrgTools/IARCcrgTools.EXE"
 path_STATA <- "path/to/StataMP-64.exe"
 
-## paths of raw dataset: 
+## paths of raw dataset (they are not necessarily have to be in csv format, 
+## but should have the same names as section(2), 123-126):  
 file_incidence  <- "path/to/incidence_2019.csv"
 file_lifetable  <- "path/to/life_table_2019.csv"
 file_population <- "path/to/population_2019.csv"
@@ -95,6 +96,8 @@ nordcancore::set_global_nordcan_settings(
 setwd(dir_result)
 nordcan_version <-  nordcancore::nordcan_metadata_nordcan_version()
 
+
+
 ## Show global setting 
 gns <- nordcancore::get_global_nordcan_settings()
 gns[c("participant_name", 
@@ -103,12 +106,20 @@ gns[c("participant_name",
       "first_year_region", "first_year_survival", 
       "last_year_incidence", "last_year_mortality", "last_year_survival")]
 
+## Checking whether the directory is empty.
+if (length(file.exists(dir_result)) > 0 | 
+    length(file.exists(dir_archive)) > 0 ) {
+  stop("Folder 'dir_result' or 'dir_archive' is not empty.
+       The following process will overwrite the contents of your folder! 
+       Users should take their own risk of conducting the following process!")
+}
+
 
 
 ################################################
 ## (2) Import raw data into R, and pre-processing
 
-## Read raw data into R
+## Read raw data into R.
 general_population_size_dataset        <- data.table::fread(file_population)
 national_population_life_table         <- data.table::fread(file_lifetable)
 unprocessed_cancer_record_dataset      <- data.table::fread(file_incidence)
@@ -249,6 +260,11 @@ comparison$comparisons$prevalent_patient_count_dataset[
 ## You should deliver this zip to the maintainers of the NORDCAN software
 ## after examining your results as proof that everything (that has been tested
 ## at least) is alright.
+
+## Including undefined ICD version & codes
+if (exists("._undefined")) {
+  comparison$undefined_icd_version_and_codes <- ._undefined
+}
 nordcanepistats::write_maintainer_summary_zip(comparison)
 
 
@@ -260,8 +276,8 @@ nordcanepistats::write_maintainer_summary_zip(comparison)
 nordcanepistats::write_nordcan_statistics_tables_for_archive(statistics)
 ## target archive file name
 tgt_file_name <- paste0("nordcan_", nordcan_version, "_statistics_tables.zip")
-path_src_file <- paste0(dir_result, "nordcan_statistics_tables.zip")
-path_tgt_file <- paste0(dir_archive, tgt_file_name)
+path_src_file <- paste0(dir_result,  ifelse(grepl("/$", dir_result), "", "/"), "nordcan_statistics_tables.zip")
+path_tgt_file <- paste0(dir_archive, ifelse(grepl("/$", dir_archive), "", "/"), tgt_file_name)
 ## move the zip file for archiving. 
 if (file.exists(path_tgt_file)) {
   stop("File already exists: ", path_tgt_file)
