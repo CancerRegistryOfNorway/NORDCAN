@@ -262,8 +262,9 @@ comparison$comparisons$prevalent_patient_count_dataset[
 ## at least) is alright.
 
 ## Including undefined ICD version & codes
-if (exists("._undefined")) {
-  comparison$undefined_icd_version_and_codes <- ._undefined
+if (file.exists("undefined_icd_version_and_codes.csv")) {
+  undefined_icd <- data.table::fread(file_population)
+  comparison$undefined_icd_version_and_codes <- undefined_icd
 }
 nordcanepistats::write_maintainer_summary_zip(comparison)
 

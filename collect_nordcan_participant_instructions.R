@@ -137,7 +137,7 @@ rmarkdown::render(
 # create release .zip ----------------------------------------------------------
 zip::zip(
   zipfile = sprintf(
-    "releases/nordcan_%s_%s_beta.zip",
+    "releases/nordcan_%s_%s.zip",
     nordcancore::nordcan_metadata_nordcan_version(),
     unique(nordcan_version)
   ),
