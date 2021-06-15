@@ -58,6 +58,8 @@ for (pkg in nordcan_pkg_nms) {
 ## (4) Compare the new-calculated statistics tables with an older version.
 ## (5) Save result for archive and sending.
 
+## To run survival analysis, the disk where STATA is installed should has 2GB 
+## free space at the minimum!
 
 ###########################################################
 ## (1) Manually specify the paths & NORDCAN global settings
@@ -76,7 +78,7 @@ file_mortality  <- "path/to/mortality_2019.csv"
 dir_result <- "path/to/nordcan2019/"
 
 ## directory for holding the archived (.zip) result.
-dir_archive <- "path/to/nordcan2019/"
+dir_archive <- "path/to/nordcan_archive/"
 
 ## path of previous archived result to compared with.
 file_archived <- "path/to/nordcan_9.0.beta4_statistics_tables.zip"
@@ -107,8 +109,8 @@ gns[c("participant_name",
       "last_year_incidence", "last_year_mortality", "last_year_survival")]
 
 ## Checking whether the directory is empty.
-if (length(file.exists(dir_result)) > 0 | 
-    length(file.exists(dir_archive)) > 0 ) {
+if (length(list.files(dir_result)) > 0 | 
+    length(list.files(dir_archive)) > 0 ) {
   stop("Folder 'dir_result' or 'dir_archive' is not empty.
        The following process will overwrite the contents of your folder! 
        Users should take their own risk of conducting the following process!")
