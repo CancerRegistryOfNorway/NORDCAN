@@ -289,6 +289,12 @@ if (file.exists(path_tgt_file)) {
 }
 
 
+## Add population projection file to nordcan_statistics_tables. 
+## If user currently has no such file, just passby the following code block.
+file_pop_proj <- "path/to/population_projection.csv"
+data_pop_proj <- data.table::fread(file_pop_proj)
+statistics$population_projection_dataset <- data_pop_proj
+
 ## Saving results for sending. The zip created by this function should be sent to IARC.
 nordcanepistats::write_nordcan_statistics_tables_for_sending(statistics)
 
