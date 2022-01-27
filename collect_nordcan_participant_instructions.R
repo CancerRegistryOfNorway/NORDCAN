@@ -24,7 +24,7 @@ pkg_df$file_path <- paste0(
 # create "ssh_folder.txt" which contains the folder for your ssh files 
 # "ssh_folder.txt" is ignored by git (see .gitignore), so it will not 
 # appear on GitHub.
-ssh_folder <- readLines("ssh_folder.txt", n = 1L)
+ssh_folder <- "C:/Users/huti/.ssh/"
 public_ssh_key <- paste0(ssh_folder, "id_rsa.pub")
 private_ssh_key <- paste0(ssh_folder, "id_rsa")
 stopifnot(

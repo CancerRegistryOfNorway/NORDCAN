@@ -1,5 +1,5 @@
 pkg_nm,url,file_ext,file_nm
-digest,https://cran.r-project.org/bin/windows/contrib/4.0/digest_0.6.27.zip,.zip,pkg_01_digest.zip
+digest,https://cran.r-project.org/bin/windows/contrib/4.0/digest_0.6.29.zip,.zip,pkg_01_digest.zip
 skellam,https://cran.r-project.org/bin/windows/contrib/4.0/skellam_0.2.0.zip,.zip,pkg_02_skellam.zip
 data.table,https://cran.r-project.org/src/contrib/Archive/data.table/data.table_1.13.2.tar.gz,.tar.gz,pkg_03_data.table.tar.gz
 zip,https://cran.r-project.org/bin/windows/contrib/4.0/zip_2.2.0.zip,.zip,pkg_04_zip.zip
