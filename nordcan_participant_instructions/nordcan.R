@@ -3,19 +3,19 @@
 ##############################
 
 ## This section includes 3 tasks:
-## (1) Manually specify the path of unzipped installation folder. 
-## (2) Install NORDCAN packages 
-## (3) verify the installation. 
+## (1) Manually specify the path of unzipped installation folder.
+## (2) Install NORDCAN packages
+## (3) verify the installation.
 
 ## (1) Manually specify the path of unzipped installation folder.
 path_nordcan <- "path/to/nordcan_participant_instructions"
 setwd(path_nordcan)
 
 ## (2) Install NORDCAN packages.
-##  Remove installed (old version) NORDCAN packages. 
-nordcan_pkgs <-  c("nordcancore", 
-                   "nordcanepistats", 
-                   "nordcanpreprocessing", 
+##  Remove installed (old version) NORDCAN packages.
+nordcan_pkgs <-  c("nordcancore",
+                   "nordcanepistats",
+                   "nordcanpreprocessing",
                    "nordcansurvival")
 remove.packages(nordcan_pkgs)
 
@@ -38,7 +38,7 @@ print(sprintf("The version of 'nordcancore' is: %s", expected_pkg_version))
 for (pkg in nordcan_pkg_nms) {
   nordcan_pkg_version <- utils::packageVersion(pkg)
   if (nordcan_pkg_version != expected_pkg_version) {
-    message(sprintf("The version of package '%s' is '%s', but should be '%s'!", 
+    message(sprintf("The version of package '%s' is '%s', but should be '%s'!",
                     pkg, nordcan_pkg_version, expected_pkg_version))
   }
 }
@@ -50,7 +50,7 @@ for (pkg in nordcan_pkg_nms) {
 #####################################
 
 ## The processing includes 5 sections:
-## (1) Manually specify the paths of 'IARCcrgTools', 'STATA',  
+## (1) Manually specify the paths of 'IARCcrgTools', 'STATA',
 ##     raw data (cancer record, etc.), and set up NORDCAN global settings
 ## (2) Import raw data into R, and pre-process the cancer record (with IARCcrgTools)
 ##     & cancer death count data.
@@ -58,7 +58,7 @@ for (pkg in nordcan_pkg_nms) {
 ## (4) Compare the new-calculated statistics tables with an older version.
 ## (5) Save result for archive and sending.
 
-## To run survival analysis, the disk where STATA is installed should has 2GB 
+## To run survival analysis, the disk where STATA is installed should has 2GB
 ## free space at the minimum!
 
 ###########################################################
@@ -67,8 +67,8 @@ for (pkg in nordcan_pkg_nms) {
 path_IARC  <- "path/to/IARCcrgTools/IARCcrgTools.EXE"
 path_STATA <- "path/to/StataMP-64.exe"
 
-## paths of raw dataset (they are not necessarily have to be in csv format, 
-## but should have the same names as section(2), 123-126):  
+## paths of raw dataset (they are not necessarily have to be in csv format,
+## but should have the same names as section(2), 123-126):
 file_incidence  <- "path/to/incidence_2019.csv"
 file_lifetable  <- "path/to/life_table_2019.csv"
 file_population <- "path/to/population_2019.csv"
@@ -100,19 +100,19 @@ nordcan_version <-  nordcancore::nordcan_metadata_nordcan_version()
 
 
 
-## Show global setting 
+## Show global setting
 gns <- nordcancore::get_global_nordcan_settings()
-gns[c("participant_name", 
-      "work_dir", "survival_work_dir", "iarccrgtools_work_dir", 
-      "first_year_incidence", "first_year_mortality", "first_year_prevalence", 
-      "first_year_region", "first_year_survival", 
+gns[c("participant_name",
+      "work_dir", "survival_work_dir", "iarccrgtools_work_dir",
+      "first_year_incidence", "first_year_mortality", "first_year_prevalence",
+      "first_year_region", "first_year_survival",
       "last_year_incidence", "last_year_mortality", "last_year_survival")]
 
 ## Checking whether the directory is empty.
-if (length(list.files(dir_result)) > 0 | 
+if (length(list.files(dir_result)) > 0 |
     length(list.files(dir_archive)) > 0 ) {
   stop("Folder 'dir_result' or 'dir_archive' is not empty.
-       The following process will overwrite the contents of your folder! 
+       The following process will overwrite the contents of your folder!
        Users should take their own risk of conducting the following process!")
 }
 
@@ -138,29 +138,29 @@ saveRDS(cancer_record_dataset, "cancer_record_dataset.rds")
 # cancer_record_dataset <- data.table::setDT(readRDS("cancer_record_dataset.rds"))
 
 
-## process cancer death count 
-cancer_death_count_dataset <- 
+## process cancer death count
+cancer_death_count_dataset <-
   nordcanpreprocessing::nordcan_processed_cancer_death_count_dataset(
     x = unprocessed_cancer_death_count_dataset
   )
 
 ## Export undefined ICD version & codes
 if (exists("._undefined")) {
-  write.table(._undefined, file = "undefined_icd_version_and_codes.csv", 
+  write.table(._undefined, file = "undefined_icd_version_and_codes.csv",
               row.names = FALSE, sep = ";")
 }
 
 ## Export raw records with undefined ICD version & codes
 if (exists("._undefined")) {
   names_order <- names(unprocessed_cancer_death_count_dataset)
-  tmp <- merge(unprocessed_cancer_death_count_dataset, ._undefined, 
+  tmp <- merge(unprocessed_cancer_death_count_dataset, ._undefined,
                by = c("icd_version", "icd_code"), all.y = TRUE)
   fn <- "unprocessed_cancer_death_count_dataset_with_undefined_icd_version_and_codes.csv"
   write.table(tmp[, ..names_order], file = fn, row.names = FALSE, sep = ";")
 }
 
-## Remove data sets which will not be used in further for saving computer's memory. 
-rm(list = c("unprocessed_cancer_record_dataset", 
+## Remove data sets which will not be used in further for saving computer's memory.
+rm(list = c("unprocessed_cancer_record_dataset",
             "unprocessed_cancer_death_count_dataset"))
 gc()
 
@@ -170,7 +170,7 @@ gc()
 ## (3) Generate the NORDCAN statistics tables. This section is time consuming.
 
 ## Run one of the following commands (a, b, c) to set what will be calculated.
-## a) Run the following line if you *don't* want to calculate survival statistics. 
+## a) Run the following line if you *don't* want to calculate survival statistics.
 output_objects <- c("session_info",
                     "cancer_death_count_dataset",
                     "general_population_size_dataset",
@@ -179,19 +179,19 @@ output_objects <- c("session_info",
                     "imp_quality_statistics_dataset" )
 
 ## b) Run the following line if you want to calculate survival analysis *only*.
-output_objects <- c("survival_statistics_period_5_dataset", 
+output_objects <- c("survival_statistics_period_5_dataset",
                     "survival_statistics_period_10_dataset")
 
 ## c) Run the following line will generate *all* statistics tables!
 output_objects <- NULL
 
-## After choosing one of above 3 output_objects, run the following to start... 
+## After choosing one of above 3 output_objects, run the following to start...
 statistics <- nordcanepistats::nordcan_statistics_tables(
   cancer_record_dataset           = cancer_record_dataset,
   general_population_size_dataset = general_population_size_dataset,
   national_population_life_table  = national_population_life_table,
   cancer_death_count_dataset      = cancer_death_count_dataset,
-  stata_exe_path = path_STATA, 
+  stata_exe_path = path_STATA,
   output_objects = output_objects
 )
 
@@ -213,22 +213,22 @@ saveRDS(object = statistics, file = paste0("nordcan_", nordcan_version, "_statis
 
 
 #############################################################
-## (4) comparing statistics tables to an older version 
+## (4) comparing statistics tables to an older version
 
 ## import old and new version of statistics tables
 old_statistics <- nordcanepistats::read_nordcan_statistics_tables(file_archived)
 
-## Read above saved results back into R. 
+## Read above saved results back into R.
 statistics <- readRDS(paste0("nordcan_", nordcan_version, "_statistics.rds"))
 
-## Define which dataset will be compared. 
+## Define which dataset will be compared.
 ds_nms <- c("cancer_death_count_dataset",
             "cancer_record_count_dataset",
             "prevalent_patient_count_dataset")
 
 ## Start the comparison
 comparison <- nordcanepistats::compare_nordcan_statistics_table_lists(
-  current_stat_table_list = statistics[ds_nms], 
+  current_stat_table_list = statistics[ds_nms],
   old_stat_table_list = old_statistics[ds_nms]
 )
 
@@ -239,7 +239,7 @@ comparison$version2compare <- version2compare
 ## An overall summary of all comparisons
 comparison$summary
 
-## Plot the comparison in figures (.png). 
+## Plot the comparison in figures (.png).
 nordcanepistats::plot_nordcan_statistics_table_comparisons(comparison)
 
 ## An example showing the full comparison details
@@ -277,7 +277,7 @@ nordcanepistats::write_maintainer_summary_zip(comparison)
 
 
 ##############################################
-## (5) Saving results for archive & sending 
+## (5) Saving results for archive & sending
 
 ## Save result into a .zip file and move it to 'dir_archive'.
 nordcanepistats::write_nordcan_statistics_tables_for_archive(statistics)
@@ -285,7 +285,7 @@ nordcanepistats::write_nordcan_statistics_tables_for_archive(statistics)
 tgt_file_name <- paste0("nordcan_", nordcan_version, "_statistics_tables.zip")
 path_src_file <- paste0(dir_result,  ifelse(grepl("/$", dir_result), "", "/"), "nordcan_statistics_tables.zip")
 path_tgt_file <- paste0(dir_archive, ifelse(grepl("/$", dir_archive), "", "/"), tgt_file_name)
-## move the zip file for archiving. 
+## move the zip file for archiving.
 if (file.exists(path_tgt_file)) {
   stop("File already exists: ", path_tgt_file)
 } else {
@@ -293,11 +293,21 @@ if (file.exists(path_tgt_file)) {
 }
 
 
-## Add population projection file to nordcan_statistics_tables. 
+## Add population projection file to nordcan_statistics_tables.
 ## If user currently has no such file, just passby the following code block.
 file_pop_proj <- "path/to/population_projection.csv"
 data_pop_proj <- data.table::fread(file_pop_proj)
-statistics$population_projection_dataset <- data_pop_proj
+if (all(c("year", "sex", "age", "region", "pop_midyear") %in% names(data_pop_proj))) {
+  if (min(data_pop_proj$year) == max(general_population_size_dataset$year)+1) {
+    statistics$population_projection_dataset <- data_pop_proj
+  } else {
+    stop("First year of population projection is the year after the last year of the population file")
+  }
+} else {
+  stop("Population_projection dataset must contain varaibles: 'year', 'sex', 'age', 'region', 'pop_midyear'")
+}
+
+
 
 ## Saving results for sending. The zip created by this function should be sent to IARC.
 nordcanepistats::write_nordcan_statistics_tables_for_sending(statistics)
