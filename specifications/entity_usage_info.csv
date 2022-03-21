@@ -1,72 +1,72 @@
-entity;level;grouping;display_order;sex;incidence/prevalence;mortality;survival
-10;level_30;sub group;5;0;true;true;true
-20;level_30;sub group;6;0;true;true;true
-30;level_30;sub group;7;0;true;true;true
-40;level_30;sub group;8;0;true;true;true
-41;level_30;sub group;9;0;true;true;true
-50;level_30;sub group;10;0;true;true;true
-51;level_30;sub group;11;0;true;true;true
-60;level_30;both main group and sub group;12;0;true;true;true
-70;level_30;both main group and sub group;13;0;true;true;true
-80;level_30;both main group and sub group;14;0;true;true;true
-90;level_30;sub group;16;0;true;true;true
-100;level_30;sub group;17;0;true;true;true
-105;level_30;both main group and sub group;18;0;true;true;true
-110;level_30;both main group and sub group;19;0;true;true;true
-120;level_30;both main group and sub group;20;0;true;true;true
-130;level_30;both main group and sub group;21;0;true;true;true
-140;level_30;both main group and sub group;22;0;true;true;true
-150;level_30;both main group and sub group;23;0;true;true;true
-160;level_30;both main group and sub group;24;0;true;true;true
-170;level_30;both main group and sub group;25;0;true;true;true
-180;level_30;both main group and sub group;26;0;true;true;true
-190;level_30;both main group and sub group;27;2;true;true;true
-200;level_30;both main group and sub group;28;2;true;true;true
-210;level_30;both main group and sub group;29;2;true;true;true
-220;level_30;both main group and sub group;30;2;true;true;true
-227;level_30;sub group;32;2;true;true;true
-228;level_30;sub group;33;2;true;true;false
-229;level_30;sub group;34;2;true;true;false
-230;level_20;main group;31;2;true;true;true
-240;level_30;both main group and sub group;35;1;true;true;true
-250;level_30;both main group and sub group;36;1;true;true;true
-260;level_30;both main group and sub group;37;1;true;true;true
-270;level_30;both main group and sub group;38;0;true;true;true
-280;level_30;both main group and sub group;39;0;true;true;true
-290;level_30;both main group and sub group;40;0;true;true;true
-300;level_30;both main group and sub group;41;0;true;true;true
-310;level_30;both main group and sub group;42;0;true;true;true
-315;level_30;sub group;49;0;true;true;false
-316;level_30;sub group;45;0;true;false;false
-317;level_30;sub group;46;0;true;false;false
-318;level_30;sub group;47;0;true;false;false
-319;level_30;sub group;48;0;true;false;false
-320;level_20;main group;44;0;true;true;true
-321;level_13;main group;43;0;true;true;true
-330;level_30;both main group and sub group;50;0;true;true;true
-340;level_30;both main group and sub group;51;0;true;true;true
-350;level_30;both main group and sub group;52;0;true;true;true
-360;level_30;main group;54;0;true;true;true
-370;level_30;main group;55;0;true;true;true
-380;level_30;main group;56;0;true;true;true
-390;level_30;main group;57;0;true;true;true
-392;level_30;main group;58;0;true;true;true
-394;level_30;main group;59;0;true;true;true
-400;level_20;main group;60;0;true;true;true
-401;level_30;main group;61;0;true;true;true
-402;level_30;main group;62;0;true;true;true
-403;level_30;main group;63;0;true;true;true
-404;level_30;main group;64;0;true;true;true
-405;level_30;main group;65;0;true;true;true
-406;level_30;main group;66;0;true;true;true
-407;level_30;main group;67;0;true;true;true
-410;level_30;both main group and sub group;68;0;true;true;true
-420;level_30;both main group and sub group;69;0;true;true;true
-430;level_13;main group;53;0;true;true;true
-510;level_20;main group;4;0;true;true;true
-520;level_20;main group;15;0;true;true;true
-888;level_30;;;0;false;false;false
-970;level_12;all sites;3;0;true;true;true
-980;level_10;all sites;1;0;true;true;true
-990;level_11;all sites;2;0;true;true;true
-999;level_30;;;0;false;false;false
+entity;entity_description_en;level;grouping;entity_display_order;sex;incidence/prevalence;mortality;survival
+10;Lip;level_30;sub group;5;0;true;true;true
+20;Oral Cavity;level_30;sub group;6;0;true;true;true
+30;Salivary glands;level_30;sub group;7;0;true;true;true
+40;Oropharynx;level_30;sub group;8;0;true;true;true
+41;Nasopharynx;level_30;sub group;9;0;true;true;true
+50;Hypopharynx;level_30;sub group;10;0;true;true;true
+51;Pharynx, ill defined;level_30;sub group;11;0;true;true;true
+60;Oesophagus;level_30;both main group and sub group;12;0;true;true;true
+70;Stomach;level_30;both main group and sub group;13;0;true;true;true
+80;Small intestine;level_30;both main group and sub group;14;0;true;true;true
+90;Colon;level_30;sub group;16;0;true;true;true
+100;Rectum;level_30;sub group;17;0;true;true;true
+105;Anus and anal canal;level_30;both main group and sub group;18;0;true;true;true
+110;Liver;level_30;both main group and sub group;19;0;true;true;true
+120;Gallbladder;level_30;both main group and sub group;20;0;true;true;true
+130;Pancreas;level_30;both main group and sub group;21;0;true;true;true
+140;Nasal Cavity, middle ear and sinuses;level_30;both main group and sub group;22;0;true;true;true
+150;Larynx;level_30;both main group and sub group;23;0;true;true;true
+160;Lung;level_30;both main group and sub group;24;0;true;true;true
+170;Pleura;level_30;both main group and sub group;25;0;true;true;true
+180;Breast;level_30;both main group and sub group;26;0;true;true;true
+190;Cervix uteri;level_30;both main group and sub group;27;2;true;true;true
+200;Corpus uteri;level_30;both main group and sub group;28;2;true;true;true
+210;Uterus, other;level_30;both main group and sub group;29;2;true;true;true
+220;Ovary and tubes;level_30;both main group and sub group;30;2;true;true;true
+227;Vulva;level_30;sub group;32;2;true;true;true
+228;Vagina;level_30;sub group;33;2;true;true;false
+229;Other female genital organs;level_30;sub group;34;2;true;true;false
+230;Vulva, vagina and other female genital organs;level_20;main group;31;2;true;true;true
+240;Prostate;level_30;both main group and sub group;35;1;true;true;true
+250;Testis;level_30;both main group and sub group;36;1;true;true;true
+260;Penis and other male genital organs;level_30;both main group and sub group;37;1;true;true;true
+270;Kidney;level_30;both main group and sub group;38;0;true;true;true
+280;Bladder and urinary tract;level_30;both main group and sub group;39;0;true;true;true
+290;Melanoma of skin;level_30;both main group and sub group;40;0;true;true;true
+300;Skin, non-melanoma;level_30;both main group and sub group;41;0;true;true;true
+310;Eye;level_30;both main group and sub group;42;0;true;true;true
+315;Endocrine tumors of brain and CNS;level_30;sub group;49;0;true;true;false
+316;Meningiomas;level_30;sub group;45;0;true;false;false
+317;Gliomas;level_30;sub group;46;0;true;false;false
+318;Nerve sheet tumors;level_30;sub group;47;0;true;false;false
+319;Other brain and CNS;level_30;sub group;48;0;true;false;false
+320;Brain and CNS excluding endocrine tumors;level_20;main group;44;0;true;true;true
+321;Brain and CNS including endocrine tumors;level_13;main group;43;0;true;true;true
+330;Thyroid;level_30;both main group and sub group;50;0;true;true;true
+340;Bone;level_30;both main group and sub group;51;0;true;true;true
+350;Soft tissues;level_30;both main group and sub group;52;0;true;true;true
+360;Non Hodgkin lymphomas;level_30;main group;54;0;true;true;true
+370;Hodgkin lymphomas;level_30;main group;55;0;true;true;true
+380;Multiple myelomas;level_30;main group;56;0;true;true;true
+390;Myelodysplastic syndromes;level_30;main group;57;0;true;true;true
+392;Myeloproliferative diseases;level_30;main group;58;0;true;true;true
+394;Other hematopoietic diseases;level_30;main group;59;0;true;true;true
+400;Leukaemias;level_20;main group;60;0;true;true;true
+401;Acute lymphatic leukaemias;level_30;main group;61;0;true;true;true
+402;Chronic lymphatic leukaemias;level_30;main group;62;0;true;true;true
+403;Other and unspecified lymphatic leukaemias;level_30;main group;63;0;true;true;true
+404;Acute myeloid leukaemias;level_30;main group;64;0;true;true;true
+405;Chronic myeloid leukaemias;level_30;main group;65;0;true;true;true
+406;Other and unspecified myeloid leukaemia;level_30;main group;66;0;true;true;true
+407;Leukaemia, cell unspecified;level_30;main group;67;0;true;true;true
+410;Other specified cancers;level_30;both main group and sub group;68;0;true;true;true
+420;Other and ill-defined cancers;level_30;both main group and sub group;69;0;true;true;true
+430;Malignant haematopoietic diseases;level_13;main group;53;0;true;true;true
+510;Lip, oral cavity and pharynx;level_20;main group;4;0;true;true;true
+520;Colorectal;level_20;main group;15;0;true;true;true
+888;Basal cell carcinoma;level_30;;;0;false;false;false
+970;All sites but non-melanoma skin cancer, breast and prostate;level_12;all sites;3;0;true;true;true
+980;All sites;level_10;all sites;1;0;true;true;true
+990;All sites but non-melanoma skin cancer;level_11;all sites;2;0;true;true;true
+999;Not included in NORDCAN;level_30;;;0;false;false;false
