@@ -43,6 +43,7 @@ for (pkg in nordcan_pkg_nms) {
   }
 }
 
+## Close and restart the nordcan.R-script now to ensure that the packages work as expected!!
 
 
 #####################################
@@ -69,13 +70,13 @@ path_STATA <- "path/to/StataMP-64.exe"
 
 ## paths of raw dataset (they are not necessarily have to be in csv format,
 ## but should have the same names as section(2), 123-126):
-file_incidence  <- "path/to/incidence_2019.csv"
-file_lifetable  <- "path/to/life_table_2019.csv"
-file_population <- "path/to/population_2019.csv"
-file_mortality  <- "path/to/mortality_2019.csv"
+file_incidence  <- "path/to/incidence_2020.csv"
+file_lifetable  <- "path/to/life_table_2020.csv"
+file_population <- "path/to/population_2020.csv"
+file_mortality  <- "path/to/mortality_2020.csv"
 
 ## directory for saving the output of NORDCAN processing.
-dir_result <- "path/to/nordcan2019/"
+dir_result <- "path/to/nordcan2020/"
 
 ## directory for holding the archived (.zip) result.
 dir_archive <- "path/to/nordcan_archive/"
@@ -90,9 +91,9 @@ nordcancore::set_global_nordcan_settings(
   first_year_incidence = 1953L,
   first_year_mortality = 1953L,
   first_year_region    = 1953L,
-  last_year_incidence  = 2019L,
-  last_year_mortality  = 2019L,
-  last_year_survival   = 2019L
+  last_year_incidence  = 2020L,
+  last_year_mortality  = 2020L,
+  last_year_survival   = 2020L
 )
 
 setwd(dir_result)
@@ -186,6 +187,8 @@ output_objects <- c("survival_statistics_period_5_dataset",
 output_objects <- NULL
 
 ## After choosing one of above 3 output_objects, run the following to start...
+library(dbc)
+
 statistics <- nordcanepistats::nordcan_statistics_tables(
   cancer_record_dataset           = cancer_record_dataset,
   general_population_size_dataset = general_population_size_dataset,
