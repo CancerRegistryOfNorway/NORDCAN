@@ -82,7 +82,7 @@ dir_result <- "path/to/nordcan2020/"
 dir_archive <- "path/to/nordcan_archive/"
 
 ## path of previous archived result to compared with.
-file_archived <- "path/to/nordcan_9.0.beta4_statistics_tables.zip"
+file_archived <- "path/to/previous_statistics_tables.zip"
 
 ## Set up global settings. Remember to modify the 'participant_name' and 'last_year_..'
 nordcancore::set_global_nordcan_settings(
