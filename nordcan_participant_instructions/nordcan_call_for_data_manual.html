@@ -421,8 +421,8 @@ file to prepare in each country:</a>
 
 <ul>
 <li>document build date: 2022-04-08</li>
-<li>build code version: 5f395ceaa9f873d1f04b5dbc1004be3c2602456a</li>
-<li>wiki version: 3aa32672ab8d1d2253c301827387c2e047c4b891</li>
+<li>build code version: 4a2d3e1422d4b2bc3a441a2844b15a16d9ff8e4e</li>
+<li>wiki version: 2cc757b3370f16763576c2bc1e06c1ddcb7300af</li>
 </ul>
 <div id="call-for-data---incidence" class="section level1">
 <h1>Call for data - Incidence</h1>
@@ -1347,675 +1347,815 @@ is converted from ICD6-ICD9.</p>
 <div id="changes-between-8.2-and-9.0" class="section level2">
 <h2>Changes between 8.2 and 9.0</h2>
 <p>(Dev note: this table was formed manually by pasting the result of
-<code>knitr::kable(data.table::fread(&quot;https://raw.githubusercontent.com/CancerRegistryOfNorway/NORDCAN/master/specifications/entity_8.2_vs_9.0.csv&quot;))</code>
+<code>knitr::kable(data.table::fread(&quot;https://raw.githubusercontent.com/CancerRegistryOfNorway/NORDCAN/master/specifications/entity_usage_info.csv&quot;))</code>
 here)</p>
 <table>
 <colgroup>
-<col width="3%" />
-<col width="31%" />
-<col width="3%" />
-<col width="3%" />
-<col width="57%" />
+<col width="4%" />
+<col width="35%" />
+<col width="5%" />
+<col width="17%" />
+<col width="12%" />
+<col width="2%" />
+<col width="12%" />
+<col width="5%" />
+<col width="5%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="right">entity</th>
-<th align="left">description_en</th>
-<th align="left">in_8.2</th>
-<th align="left">in_9.0</th>
-<th align="left">comment</th>
+<th align="left">entity_description_en</th>
+<th align="left">level</th>
+<th align="left">grouping</th>
+<th align="right">entity_display_order</th>
+<th align="right">sex</th>
+<th align="left">incidence/prevalence</th>
+<th align="left">mortality</th>
+<th align="left">survival</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="right">10</td>
 <td align="left">Lip</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left">C00.5 removed</td>
+<td align="left">level_30</td>
+<td align="left">sub group</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="even">
 <td align="right">20</td>
 <td align="left">Oral Cavity</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left">C00.5, C05.8, C05.9 added</td>
+<td align="left">level_30</td>
+<td align="left">sub group</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="odd">
 <td align="right">30</td>
 <td align="left">Salivary glands</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">sub group</td>
+<td align="right">7</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="even">
 <td align="right">40</td>
 <td align="left">Oropharynx</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left">C05.8-9 removed, C14 added</td>
+<td align="left">level_30</td>
+<td align="left">sub group</td>
+<td align="right">8</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="odd">
 <td align="right">41</td>
 <td align="left">Nasopharynx</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">sub group</td>
+<td align="right">9</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="even">
 <td align="right">50</td>
 <td align="left">Hypopharynx</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">sub group</td>
+<td align="right">10</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="odd">
 <td align="right">51</td>
 <td align="left">Pharynx, ill defined</td>
-<td align="left">Yes</td>
-<td align="left">No</td>
-<td align="left">Entity removed in 9.0. Cases moved to 40</td>
+<td align="left">level_30</td>
+<td align="left">sub group</td>
+<td align="right">11</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="even">
 <td align="right">60</td>
 <td align="left">Oesophagus</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">12</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="odd">
 <td align="right">70</td>
 <td align="left">Stomach</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">13</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="even">
 <td align="right">80</td>
 <td align="left">Small intestine</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">14</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="odd">
 <td align="right">90</td>
 <td align="left">Colon</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">sub group</td>
+<td align="right">16</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="even">
 <td align="right">100</td>
 <td align="left">Rectum</td>
-<td align="left">Partly</td>
-<td align="left">Yes</td>
-<td align="left">C21 removed</td>
+<td align="left">level_30</td>
+<td align="left">sub group</td>
+<td align="right">17</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="odd">
+<td align="right">105</td>
+<td align="left">Anus and anal canal</td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">18</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
 <td align="right">110</td>
 <td align="left">Liver</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">19</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="right">120</td>
 <td align="left">Gallbladder</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">20</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="right">130</td>
 <td align="left">Pancreas</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">21</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="right">140</td>
 <td align="left">Nasal Cavity, middle ear and sinuses</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">22</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="right">150</td>
 <td align="left">Larynx</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">23</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="right">160</td>
 <td align="left">Lung</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">24</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="right">170</td>
 <td align="left">Pleura</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">25</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="right">180</td>
 <td align="left">Breast</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">26</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="right">190</td>
 <td align="left">Cervix uteri</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">27</td>
+<td align="right">2</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="right">200</td>
 <td align="left">Corpus uteri</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">28</td>
+<td align="right">2</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="right">210</td>
 <td align="left">Uterus, other</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">29</td>
+<td align="right">2</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="right">220</td>
 <td align="left">Ovary and tubes</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">30</td>
+<td align="right">2</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="right">227</td>
 <td align="left">Vulva</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
+<td align="left">level_30</td>
+<td align="left">sub group</td>
+<td align="right">32</td>
+<td align="right">2</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="right">228</td>
 <td align="left">Vagina</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
+<td align="left">level_30</td>
+<td align="left">sub group</td>
+<td align="right">33</td>
+<td align="right">2</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">FALSE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="right">229</td>
 <td align="left">Other female genital organs</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
+<td align="left">level_30</td>
+<td align="left">sub group</td>
+<td align="right">34</td>
+<td align="right">2</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">FALSE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="right">230</td>
 <td align="left">Vulva, vagina and other female genital organs</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_20</td>
+<td align="left">main group</td>
+<td align="right">31</td>
+<td align="right">2</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="right">240</td>
 <td align="left">Prostate</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">35</td>
+<td align="right">1</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="right">250</td>
 <td align="left">Testis</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">36</td>
+<td align="right">1</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="right">260</td>
 <td align="left">Penis and other male genital organs</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">37</td>
+<td align="right">1</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="right">270</td>
 <td align="left">Kidney</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">38</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="right">280</td>
 <td align="left">Bladder and urinary tract</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left">Same ICD10-codes in both versions, but also exclusion
-on morphology codes. Not clear how/if this was implemented in 8.2</td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">39</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="right">290</td>
 <td align="left">Melanoma of skin</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">40</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="right">300</td>
 <td align="left">Skin, non-melanoma</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left">C46.0, C46.2-9 removed</td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">41</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="right">310</td>
 <td align="left">Eye</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">42</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="right">315</td>
 <td align="left">Endocrine tumors of brain and CNS</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="even">
-<td align="right">316</td>
-<td align="left">Meningeomas</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
+<td align="left">level_30</td>
+<td align="left">sub group</td>
+<td align="right">49</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">FALSE</td>
 </tr>
 <tr class="odd">
+<td align="right">316</td>
+<td align="left">Meningiomas</td>
+<td align="left">level_30</td>
+<td align="left">sub group</td>
+<td align="right">45</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="even">
 <td align="right">317</td>
 <td align="left">Gliomas</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
+<td align="left">level_30</td>
+<td align="left">sub group</td>
+<td align="right">46</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="right">318</td>
 <td align="left">Nerve sheet tumors</td>
-<td align="left">No</td>
-<td align="left">No</td>
-<td align="left">Not used in neither NORDCAN 8.2 or 9.0. Might be
-included later</td>
+<td align="left">level_30</td>
+<td align="left">sub group</td>
+<td align="right">47</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="right">319</td>
 <td align="left">Other brain and CNS</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
+<td align="left">level_30</td>
+<td align="left">sub group</td>
+<td align="right">48</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="right">320</td>
 <td align="left">Brain and CNS excluding endocrine tumors</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left">C75.1-3, D35.2-4 and D44.3-5 removed</td>
+<td align="left">level_20</td>
+<td align="left">main group</td>
+<td align="right">44</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="right">321</td>
 <td align="left">Brain and CNS including endocrine tumors</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0, same as old entity code 320</td>
+<td align="left">level_13</td>
+<td align="left">main group</td>
+<td align="right">43</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="right">330</td>
 <td align="left">Thyroid</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">50</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="right">340</td>
 <td align="left">Bone</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">51</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="right">350</td>
 <td align="left">Soft tissues</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left">C46.1 removed</td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">52</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="right">360</td>
 <td align="left">Non Hodgkin lymphomas</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left">C880 and C96 added</td>
+<td align="left">level_30</td>
+<td align="left">main group</td>
+<td align="right">54</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="right">370</td>
 <td align="left">Hodgkin lymphomas</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">main group</td>
+<td align="right">55</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="right">380</td>
 <td align="left">Multiple myelomas</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="right">390</td>
-<td align="left">Myelodysplastic syndromes</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">main group</td>
+<td align="right">56</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="odd">
-<td align="right">392</td>
-<td align="left">Myeloproliferative diseases</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="right">390</td>
+<td align="left">Myelodysplastic syndromes</td>
+<td align="left">level_30</td>
+<td align="left">main group</td>
+<td align="right">57</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="even">
+<td align="right">392</td>
+<td align="left">Myeloproliferative diseases</td>
+<td align="left">level_30</td>
+<td align="left">main group</td>
+<td align="right">58</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
 <td align="right">394</td>
 <td align="left">Other hematopoietic diseases</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left">C88.0 and 96 removed, C94-6 and D47.2 added</td>
+<td align="left">level_30</td>
+<td align="left">main group</td>
+<td align="right">59</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="right">400</td>
+<td align="left">Leukaemias</td>
+<td align="left">level_20</td>
+<td align="left">main group</td>
+<td align="right">60</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="odd">
 <td align="right">401</td>
 <td align="left">Acute lymphatic leukaemias</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">main group</td>
+<td align="right">61</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="even">
 <td align="right">402</td>
 <td align="left">Chronic lymphatic leukaemias</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">main group</td>
+<td align="right">62</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="odd">
 <td align="right">403</td>
 <td align="left">Other and unspecified lymphatic leukaemias</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">main group</td>
+<td align="right">63</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="even">
 <td align="right">404</td>
 <td align="left">Acute myeloid leukaemias</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left">C94.4-5 removed, C92.3-6 added</td>
+<td align="left">level_30</td>
+<td align="left">main group</td>
+<td align="right">64</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="odd">
 <td align="right">405</td>
 <td align="left">Chronic myeloid leukaemias</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">main group</td>
+<td align="right">65</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="even">
 <td align="right">406</td>
 <td align="left">Other and unspecified myeloid leukaemia</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left">C92.3-6 removed, C94.4 added</td>
+<td align="left">level_30</td>
+<td align="left">main group</td>
+<td align="right">66</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="odd">
 <td align="right">407</td>
 <td align="left">Leukaemia, cell unspecified</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left">C91, C92, C93, C94 added (2-digit ICD10-codes), should
-not impact incidence. Might impact mortality</td>
+<td align="left">level_30</td>
+<td align="left">main group</td>
+<td align="right">67</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="even">
 <td align="right">410</td>
 <td align="left">Other specified cancers</td>
-<td align="left">Partly</td>
-<td align="left">Yes</td>
-<td align="left">C21, C46.0-1 added</td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">68</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="odd">
 <td align="right">420</td>
 <td align="left">Other and ill-defined cancers</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_30</td>
+<td align="left">both main group and sub group</td>
+<td align="right">69</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="even">
 <td align="right">430</td>
 <td align="left">Malignant haematopoietic diseases</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left">D47.2 added</td>
+<td align="left">level_13</td>
+<td align="left">main group</td>
+<td align="right">53</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="odd">
-<td align="right">431</td>
-<td align="left">Non Hodgkin lymphoma NOS</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="even">
-<td align="right">434</td>
-<td align="left">Classical Hodgkin lymphoma</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="odd">
-<td align="right">435</td>
-<td align="left">Chronic lymphocytic leukaemia/small lymphocytic
-lymphoma</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="even">
-<td align="right">436</td>
-<td align="left">Immunoproliferative diseases</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="odd">
-<td align="right">437</td>
-<td align="left">Mantle cell/centrocytic</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="even">
-<td align="right">438</td>
-<td align="left">Follicular B lymphoma</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="odd">
-<td align="right">439</td>
-<td align="left">Diffuse B lymphoma</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="even">
-<td align="right">440</td>
-<td align="left">Burkitt’s lymphoma</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="odd">
-<td align="right">441</td>
-<td align="left">Marginal zone lymphoma</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="even">
-<td align="right">442</td>
-<td align="left">T lymphoma cutenaeous</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="odd">
-<td align="right">443</td>
-<td align="left">Other T cell lymphomas</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="even">
-<td align="right">444</td>
-<td align="left">Lymphoblastic lymphoma/Acute (precursor cell) lymphatic
-leukaemia</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="odd">
-<td align="right">445</td>
-<td align="left">Plasma cell neoplasms</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="even">
-<td align="right">446</td>
-<td align="left">Mature B cell leukaemia</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="odd">
-<td align="right">448</td>
-<td align="left">Lymphatic leukaemia, NOS</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="even">
-<td align="right">449</td>
-<td align="left">Leukaemia, NOS</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="odd">
-<td align="right">450</td>
-<td align="left">Myeloid leukaemia, NOS</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="even">
-<td align="right">451</td>
-<td align="left">Acute myeloid leukaemia</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="odd">
-<td align="right">452</td>
-<td align="left">Myeloproliferative neoplasms</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="even">
-<td align="right">453</td>
-<td align="left">Myelodysplastic syndrome</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="odd">
-<td align="right">454</td>
-<td align="left">Myelodysplastic/myeloproliferative neoplasms NOS</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="even">
-<td align="right">455</td>
-<td align="left">Other and unscpecified lymphomas</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="odd">
-<td align="right">456</td>
-<td align="left">Other and unspecified leukaemias</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">New in NORDCAN 9.0</td>
-</tr>
-<tr class="even">
 <td align="right">510</td>
 <td align="left">Lip, oral cavity and pharynx</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="right">520</td>
-<td align="left">Colorectal</td>
-<td align="left">Partly</td>
-<td align="left">Yes</td>
-<td align="left">C21 removed</td>
+<td align="left">level_20</td>
+<td align="left">main group</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="even">
-<td align="right">888</td>
-<td align="left">Basal cell carcinoma</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="right">520</td>
+<td align="left">Colorectal</td>
+<td align="left">level_20</td>
+<td align="left">main group</td>
+<td align="right">15</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="odd">
+<td align="right">888</td>
+<td align="left">Basal cell carcinoma</td>
+<td align="left">level_30</td>
+<td align="left"></td>
+<td align="right">NA</td>
+<td align="right">0</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="even">
 <td align="right">970</td>
 <td align="left">All sites but non-melanoma skin cancer, breast and
 prostate</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="right">980</td>
-<td align="left">All sites</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="left">level_12</td>
+<td align="left">all sites</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="odd">
-<td align="right">990</td>
-<td align="left">All sites but non-melanoma skin cancer</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left"></td>
+<td align="right">980</td>
+<td align="left">All sites</td>
+<td align="left">level_10</td>
+<td align="left">all sites</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="even">
+<td align="right">990</td>
+<td align="left">All sites but non-melanoma skin cancer</td>
+<td align="left">level_11</td>
+<td align="left">all sites</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
 <td align="right">999</td>
 <td align="left">Not included in NORDCAN</td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
+<td align="left">level_30</td>
 <td align="left"></td>
+<td align="right">NA</td>
+<td align="right">0</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
 </tr>
 </tbody>
 </table>
