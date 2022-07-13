@@ -236,7 +236,8 @@ comparison <- nordcanepistats::compare_nordcan_statistics_table_lists(
 )
 
 ## Version number to compared
-version2compare <- regmatches(file_archived, regexec("_([0-9]{,2}.[0-9]{,2})", file_archived))[[1]][2]
+version2compare <- regmatches(file_archived, regexec("[0-9]+[.][0-9]+", file_archived))[[1]]
+stopifnot(numeric_version(version2compare) >= "9.0", numeric_version(version2compare) <= "9.10")
 comparison$version2compare <- version2compare
 
 ## An overall summary of all comparisons
