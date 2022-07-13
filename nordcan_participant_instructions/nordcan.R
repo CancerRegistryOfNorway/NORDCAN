@@ -283,6 +283,23 @@ nordcanepistats::write_maintainer_summary_zip(comparison)
 ##############################################
 ## (5) Saving results for archive & sending
 
+## Add population projection file to nordcan_statistics_tables.
+## If user currently has no such file, just passby the following code block.
+file_pop_proj <- "path/to/general_population_projection_dataset.csv"
+if (file.exists(file_pop_proj)) {
+  data_pop_proj <- data.table::fread(file_pop_proj)
+  if (all(c("year", "sex", "age", "region", "pop_midyear") %in% names(data_pop_proj))) {
+    if (min(data_pop_proj$year) == max(general_population_size_dataset$year)+1) {
+      statistics$general_population_projection_dataset <- data_pop_proj
+    } else {
+      stop("First year of population projection is the year after the last year of the population file")
+    }
+  } else {
+    stop("Population_projection dataset must contain varaibles: 'year', 'sex', 'age', 'region', 'pop_midyear'")
+  }
+}
+
+
 ## Save result into a .zip file and move it to 'dir_archive'.
 nordcanepistats::write_nordcan_statistics_tables_for_archive(statistics)
 ## target archive file name
@@ -295,22 +312,6 @@ if (file.exists(path_tgt_file)) {
 } else {
   file.rename(from = path_src_file, to = path_tgt_file)
 }
-
-
-## Add population projection file to nordcan_statistics_tables.
-## If user currently has no such file, just passby the following code block.
-file_pop_proj <- "path/to/population_projection.csv"
-data_pop_proj <- data.table::fread(file_pop_proj)
-if (all(c("year", "sex", "age", "region", "pop_midyear") %in% names(data_pop_proj))) {
-  if (min(data_pop_proj$year) == max(general_population_size_dataset$year)+1) {
-    statistics$population_projection_dataset <- data_pop_proj
-  } else {
-    stop("First year of population projection is the year after the last year of the population file")
-  }
-} else {
-  stop("Population_projection dataset must contain varaibles: 'year', 'sex', 'age', 'region', 'pop_midyear'")
-}
-
 
 
 ## Saving results for sending. The zip created by this function should be sent to IARC.
