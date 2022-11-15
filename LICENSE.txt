@@ -1,0 +1,56 @@
+Copyright (c) <2022> <NORDCAN>
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+Special note on Stata files:
+The Stata Journal and the contents of the supporting files 
+(programs, datasets, and help files) are copyright © by StataCorp LLC. 
+The contents of the supporting files (programs, datasets, and help files) 
+may be copied or reproduced by any means whatsoever, in whole or in part, 
+as long as any copy or reproduction includes attribution to both (1) the author and 
+(2) the Stata Journal.
+
+Stata community-contributed packages distributed with the Nordcan survival module:
+
+stnet
+Authors: Enzo Coviello (enzocovi@gmail.com), Paul Dickman, Karri Seppa, and Arun Pokhrel.
+Article: Estimating net survival using a life-table approach. The Stata Journal Volume 15 Number 1: pp. 173-185 https://www.stata-journal.com/article.html?article=st0375
+Code archive: https://ideas.repec.org/c/boc/bocode/s457533.html
+Licence: GPL v3 (https://www.gnu.org/licenses/gpl-3.0.txt).
+
+fre
+Author: Ben Jann, 2007.
+Description: FRE: Stata module to display one-way frequency table
+Code archive: https://ideas.repec.org/c/boc/bocode/s456835.html
+Licence: GPL v3 (https://www.gnu.org/licenses/gpl-3.0.txt).
+
+Terms of use for the anonymous example data included in the survival package:
+The anonymous example data [name of dataset] is provided from Cancer Registry of Norway, who has the ownership to the data, 
+for limited use within the NORDCAN survival package only.
+
+The anonymous example data [name of dataset] SHOULD NOT be copied, changed, redistributed, 
+or used in any settings other than as provided by the NORDCAN survival package.
+
+The example data are anonymous, which means that the data are rendered anonymous in such a manner that the data subject no longer can be identified. 
+Thus, the processing of these data falls outside the scope of the GDPR.
+
+Any questions about these data should be directed to data@kreftregisteret.no. 
+
+...
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
