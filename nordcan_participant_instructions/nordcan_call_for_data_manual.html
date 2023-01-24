@@ -254,6 +254,7 @@ if (window.hljs) {
 
 
 
+
 <style type="text/css">
 .main-container {
   max-width: 940px;
@@ -274,6 +275,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -363,66 +367,67 @@ pre code {
 
 <div id="TOC">
 <ul>
-<li><a href="#call-for-data---incidence">Call for data - Incidence</a>
+<li><a href="#call-for-data---incidence" id="toc-call-for-data---incidence">Call for data - Incidence</a>
 <ul>
-<li><a href="#data-to-be-extracted-from-each-registry">Data to be
-extracted from each registry</a>
+<li><a href="#data-to-be-extracted-from-each-registry" id="toc-data-to-be-extracted-from-each-registry">Data to be extracted
+from each registry</a>
 <ul>
-<li><a href="#preparations">Preparations</a></li>
-<li><a href="#file---type-and-name">File - type and name</a></li>
-<li><a href="#data-types">Data types</a></li>
+<li><a href="#preparations" id="toc-preparations">Preparations</a></li>
+<li><a href="#file---type-and-name" id="toc-file---type-and-name">File -
+type and name</a></li>
+<li><a href="#data-types" id="toc-data-types">Data types</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#call-for-data---mortality">Call for data - Mortality</a>
+<li><a href="#call-for-data---mortality" id="toc-call-for-data---mortality">Call for data - Mortality</a>
 <ul>
-<li><a href="#file---type-and-name-1">File - type and name</a></li>
-<li><a href="#data-types-1">Data types</a></li>
-<li><a href="#icd-codes">ICD-codes</a></li>
-<li><a href="#recommendations">Recommendations</a></li>
+<li><a href="#file---type-and-name-1" id="toc-file---type-and-name-1">File - type and name</a></li>
+<li><a href="#data-types-1" id="toc-data-types-1">Data types</a></li>
+<li><a href="#icd-codes" id="toc-icd-codes">ICD-codes</a></li>
+<li><a href="#recommendations" id="toc-recommendations">Recommendations</a></li>
 </ul></li>
-<li><a href="#data-to-be-extracted">Data to be extracted:</a>
+<li><a href="#data-to-be-extracted" id="toc-data-to-be-extracted">Data
+to be extracted:</a>
 <ul>
-<li><a href="#cod-versions">CoD-versions</a></li>
-<li><a href="#conversions-between-icd6-9-and-icd10">Conversions between
-ICD6-9 and ICD10</a></li>
+<li><a href="#cod-versions" id="toc-cod-versions">CoD-versions</a></li>
+<li><a href="#conversions-between-icd6-9-and-icd10" id="toc-conversions-between-icd6-9-and-icd10">Conversions between ICD6-9
+and ICD10</a></li>
 </ul></li>
-<li><a href="#call-for-data---population">Call for data - Population</a>
+<li><a href="#call-for-data---population" id="toc-call-for-data---population">Call for data - Population</a>
 <ul>
-<li><a href="#file---type-and-name-2">File - type and name</a></li>
-<li><a href="#data-types-2">Data types</a></li>
-<li><a href="#population-file">Population file</a></li>
-<li><a href="#population-projections">Population projections</a></li>
+<li><a href="#file---type-and-name-2" id="toc-file---type-and-name-2">File - type and name</a></li>
+<li><a href="#data-types-2" id="toc-data-types-2">Data types</a></li>
+<li><a href="#population-file" id="toc-population-file">Population
+file</a></li>
+<li><a href="#population-projections" id="toc-population-projections">Population projections</a></li>
 </ul></li>
-<li><a href="#call-for-data---survival">Call for data - Survival</a>
+<li><a href="#call-for-data---survival" id="toc-call-for-data---survival">Call for data - Survival</a>
 <ul>
-<li><a href="#the-survival-call-for-data-uses-the-same-cancer-case-data-as-incidence-and-prevalence.">1.
+<li><a href="#the-survival-call-for-data-uses-the-same-cancer-case-data-as-incidence-and-prevalence." id="toc-the-survival-call-for-data-uses-the-same-cancer-case-data-as-incidence-and-prevalence.">1.
 The survival call for data uses <em>the same cancer case data as
 incidence and prevalence</em>.</a></li>
-<li><a href="#life-table-file-to-prepare-in-each-country">2. Life table
-file to prepare in each country:</a>
+<li><a href="#life-table-file-to-prepare-in-each-country" id="toc-life-table-file-to-prepare-in-each-country">2. Life table file
+to prepare in each country:</a>
 <ul>
-<li><a href="#file---type-and-name-3">File - type and name</a></li>
+<li><a href="#file---type-and-name-3" id="toc-file---type-and-name-3">File - type and name</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#entities-in-nordcan">Entities in NORDCAN</a>
+<li><a href="#entities-in-nordcan" id="toc-entities-in-nordcan">Entities
+in NORDCAN</a></li>
+<li><a href="#regions-used-in-nordcan" id="toc-regions-used-in-nordcan">Regions used in NORDCAN</a></li>
+<li><a href="#nordcan.r-versions" id="toc-nordcan.r-versions">nordcan.R-versions</a>
 <ul>
-<li><a href="#changes-between-8.2-and-9.0">Changes between 8.2 and
-9.0</a></li>
-</ul></li>
-<li><a href="#regions-used-in-nordcan">Regions used in NORDCAN</a></li>
-<li><a href="#nordcan.r-versions">nordcan.R-versions</a>
-<ul>
-<li><a href="#nordcan_9.0_1.0">nordcan_9.0_1.0</a></li>
-<li><a href="#nordcan_9.1_1.1">nordcan_9.1_1.1</a></li>
-<li><a href="#nordcan_9.2_1.2">nordcan_9.2_1.2</a></li>
+<li><a href="#nordcan_9.0_1.0" id="toc-nordcan_9.0_1.0">nordcan_9.0_1.0</a></li>
+<li><a href="#nordcan_9.1_1.1" id="toc-nordcan_9.1_1.1">nordcan_9.1_1.1</a></li>
+<li><a href="#nordcan_9.2_1.2" id="toc-nordcan_9.2_1.2">nordcan_9.2_1.2</a></li>
+<li><a href="#nordcan_9.3_1.3" id="toc-nordcan_9.3_1.3">nordcan_9.3_1.3</a></li>
 </ul></li>
 </ul>
 </div>
 
 <ul>
-<li>document build date: 2022-04-08</li>
-<li>build code version: 4a2d3e1422d4b2bc3a441a2844b15a16d9ff8e4e</li>
-<li>wiki version: 2cc757b3370f16763576c2bc1e06c1ddcb7300af</li>
+<li>document build date: 2023-01-24</li>
+<li>build code version: 11c574b385fc96798998d93ba537b6a3226e5f1d</li>
+<li>wiki version: 9739dd1689141f96db48fe005bf24efcfd395b7c</li>
 </ul>
 <div id="call-for-data---incidence" class="section level1">
 <h1>Call for data - Incidence</h1>
@@ -565,7 +570,7 @@ available. <br>”Sex at birth” is preferred by JRC/ENCR</td>
 <td>F15</td>
 <td>Nordcan / JRC</td>
 <td>Datasize can be max 15. Only numbers are allowed <br> Only one
-record for each running number is allowed in the raw data file.Â </td>
+record for each running number is allowed in the raw data file. </td>
 <td>Unique running number for each tumor</td>
 </tr>
 <tr class="even">
@@ -639,7 +644,7 @@ letter, but without the decimal point (“.”)</td>
 <td>F1</td>
 <td>Nordcan / JRC</td>
 <td>0 = Benign neoplasm<br>1 = Neoplasm of uncertain and unknown
-behaviour (uncertain whether benign or malignant, â€œborderlineâ€
+behaviour (uncertain whether benign or malignant, “borderline”
 malignant, incipient cancer, bladder papilloma)<br>2 = In-situ neoplasm
 (carcinoma in situ/non invasive/preleukaemia/intraepithelial tumor)<br>3
 = Malignant neoplasm<br>6 = Pseudomyxoma</td>
@@ -658,10 +663,10 @@ Pre-B, B-precursor<br>7 = Null cell, Non T-non B<br>8 = NK-cell (natural
 killer cell)<br><br>For all: <br>9 = Unknown or not applicable</td>
 <td>From Jacques: The grade and differentiation code is the 6th digit of
 ICD-O morphological code (see ICD-O-1/2/3) and is optional. <br>In the
-IARC check program â€œSome histological terms, such as “Seminoma,
+IARC check program “Some histological terms, such as”Seminoma,
 anaplastic” (9062/34) include a grade description. This routine
 identifies these histological terms and checks if the associated grade
-code is correct (ICD-O-3 First revision 2013).â€<br>If a grade code is
+code is correct (ICD-O-3 First revision 2013).”<br>If a grade code is
 provided (which is rather rare), then you can check it with the
 morphological code. You may ignore it in NORDCAN.</td>
 </tr>
@@ -936,7 +941,7 @@ country total, that is: given the country code as regional code (see <a href="ht
 </colgroup>
 <thead>
 <tr class="header">
-<th>ï»¿Variable name</th>
+<th>﻿Variable name</th>
 <th>Variable description</th>
 <th>Format/Size</th>
 <th>Coding</th>
@@ -1175,19 +1180,24 @@ age-group</td>
 can be obtained from the national statistics bureaus. All projections
 contains a high growth projection, a main projection and a low growth
 projection. We use the main (medium) projection in NORDCAN.</p>
-<p>Projections have almost the same data format as the population file,
+<ul>
+<li>Projections have almost the same data format as the population file,
 but have 1-year age groups for each year and sex instead of 5-year age
-groups. NORDPRED uses 5 x 5-year periods for predictions, so 25 years of
-population predictions is ideal. It might be - if it is not possible to
-deliver 25 years - that the program can run on 20 years, just filling
-out ‘0’ in the last period. Midyear population is the most important for
-the population projections, so this is what we ask you to deliver in
-this file.</p>
-<p>The first year in this table should be the one after the last year in
-the population size table.<br />
-Population for all ages should be included.<br />
-Population for the whole country and for each region must be
-included.</p>
+groups.</li>
+<li>NORDPRED uses 5 x 5-year periods for predictions, so 25 years of
+population predictions is ideal. Minimum prediction year should be last
+year predicted + 6 years, so if predicting until 2040, it should be
+population projection until 2046.</li>
+<li>Midyear population is the most important for the population
+projections, so this is what we ask you to deliver in this file.</li>
+<li>The first year in this table should be the one after the last year
+in the population size table.<br />
+</li>
+<li>Population for all ages should be included.<br />
+</li>
+<li>Population for the whole country and for each region must be
+included.</li>
+</ul>
 <p>This table must look like like this:</p>
 <table>
 <thead>
@@ -1344,829 +1354,17 @@ ICD10.</p>
 IARCcrgCheckTools from ICDO3 topography and morphology.</p>
 <p>For mortality, ICD10-codes for earlier years (before ICD10 was used)
 is converted from ICD6-ICD9.</p>
-<div id="changes-between-8.2-and-9.0" class="section level2">
-<h2>Changes between 8.2 and 9.0</h2>
-<p>(Dev note: this table was formed manually by pasting the result of
-<code>knitr::kable(data.table::fread(&quot;https://raw.githubusercontent.com/CancerRegistryOfNorway/NORDCAN/master/specifications/entity_usage_info.csv&quot;))</code>
-here)</p>
-<table>
-<colgroup>
-<col width="4%" />
-<col width="35%" />
-<col width="5%" />
-<col width="17%" />
-<col width="12%" />
-<col width="2%" />
-<col width="12%" />
-<col width="5%" />
-<col width="5%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="right">entity</th>
-<th align="left">entity_description_en</th>
-<th align="left">level</th>
-<th align="left">grouping</th>
-<th align="right">entity_display_order</th>
-<th align="right">sex</th>
-<th align="left">incidence/prevalence</th>
-<th align="left">mortality</th>
-<th align="left">survival</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">10</td>
-<td align="left">Lip</td>
-<td align="left">level_30</td>
-<td align="left">sub group</td>
-<td align="right">5</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">20</td>
-<td align="left">Oral Cavity</td>
-<td align="left">level_30</td>
-<td align="left">sub group</td>
-<td align="right">6</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">30</td>
-<td align="left">Salivary glands</td>
-<td align="left">level_30</td>
-<td align="left">sub group</td>
-<td align="right">7</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">40</td>
-<td align="left">Oropharynx</td>
-<td align="left">level_30</td>
-<td align="left">sub group</td>
-<td align="right">8</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">41</td>
-<td align="left">Nasopharynx</td>
-<td align="left">level_30</td>
-<td align="left">sub group</td>
-<td align="right">9</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">50</td>
-<td align="left">Hypopharynx</td>
-<td align="left">level_30</td>
-<td align="left">sub group</td>
-<td align="right">10</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">51</td>
-<td align="left">Pharynx, ill defined</td>
-<td align="left">level_30</td>
-<td align="left">sub group</td>
-<td align="right">11</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">60</td>
-<td align="left">Oesophagus</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">12</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">70</td>
-<td align="left">Stomach</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">13</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">80</td>
-<td align="left">Small intestine</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">14</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">90</td>
-<td align="left">Colon</td>
-<td align="left">level_30</td>
-<td align="left">sub group</td>
-<td align="right">16</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">100</td>
-<td align="left">Rectum</td>
-<td align="left">level_30</td>
-<td align="left">sub group</td>
-<td align="right">17</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">105</td>
-<td align="left">Anus and anal canal</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">18</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">110</td>
-<td align="left">Liver</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">19</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">120</td>
-<td align="left">Gallbladder</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">20</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">130</td>
-<td align="left">Pancreas</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">21</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">140</td>
-<td align="left">Nasal Cavity, middle ear and sinuses</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">22</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">150</td>
-<td align="left">Larynx</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">23</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">160</td>
-<td align="left">Lung</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">24</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">170</td>
-<td align="left">Pleura</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">25</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">180</td>
-<td align="left">Breast</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">26</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">190</td>
-<td align="left">Cervix uteri</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">27</td>
-<td align="right">2</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">200</td>
-<td align="left">Corpus uteri</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">28</td>
-<td align="right">2</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">210</td>
-<td align="left">Uterus, other</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">29</td>
-<td align="right">2</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">220</td>
-<td align="left">Ovary and tubes</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">30</td>
-<td align="right">2</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">227</td>
-<td align="left">Vulva</td>
-<td align="left">level_30</td>
-<td align="left">sub group</td>
-<td align="right">32</td>
-<td align="right">2</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">228</td>
-<td align="left">Vagina</td>
-<td align="left">level_30</td>
-<td align="left">sub group</td>
-<td align="right">33</td>
-<td align="right">2</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">FALSE</td>
-</tr>
-<tr class="even">
-<td align="right">229</td>
-<td align="left">Other female genital organs</td>
-<td align="left">level_30</td>
-<td align="left">sub group</td>
-<td align="right">34</td>
-<td align="right">2</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">FALSE</td>
-</tr>
-<tr class="odd">
-<td align="right">230</td>
-<td align="left">Vulva, vagina and other female genital organs</td>
-<td align="left">level_20</td>
-<td align="left">main group</td>
-<td align="right">31</td>
-<td align="right">2</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">240</td>
-<td align="left">Prostate</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">35</td>
-<td align="right">1</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">250</td>
-<td align="left">Testis</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">36</td>
-<td align="right">1</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">260</td>
-<td align="left">Penis and other male genital organs</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">37</td>
-<td align="right">1</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">270</td>
-<td align="left">Kidney</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">38</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">280</td>
-<td align="left">Bladder and urinary tract</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">39</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">290</td>
-<td align="left">Melanoma of skin</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">40</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">300</td>
-<td align="left">Skin, non-melanoma</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">41</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">310</td>
-<td align="left">Eye</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">42</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">315</td>
-<td align="left">Endocrine tumors of brain and CNS</td>
-<td align="left">level_30</td>
-<td align="left">sub group</td>
-<td align="right">49</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">FALSE</td>
-</tr>
-<tr class="odd">
-<td align="right">316</td>
-<td align="left">Meningiomas</td>
-<td align="left">level_30</td>
-<td align="left">sub group</td>
-<td align="right">45</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-</tr>
-<tr class="even">
-<td align="right">317</td>
-<td align="left">Gliomas</td>
-<td align="left">level_30</td>
-<td align="left">sub group</td>
-<td align="right">46</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-</tr>
-<tr class="odd">
-<td align="right">318</td>
-<td align="left">Nerve sheet tumors</td>
-<td align="left">level_30</td>
-<td align="left">sub group</td>
-<td align="right">47</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-</tr>
-<tr class="even">
-<td align="right">319</td>
-<td align="left">Other brain and CNS</td>
-<td align="left">level_30</td>
-<td align="left">sub group</td>
-<td align="right">48</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-</tr>
-<tr class="odd">
-<td align="right">320</td>
-<td align="left">Brain and CNS excluding endocrine tumors</td>
-<td align="left">level_20</td>
-<td align="left">main group</td>
-<td align="right">44</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">321</td>
-<td align="left">Brain and CNS including endocrine tumors</td>
-<td align="left">level_13</td>
-<td align="left">main group</td>
-<td align="right">43</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">330</td>
-<td align="left">Thyroid</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">50</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">340</td>
-<td align="left">Bone</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">51</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">350</td>
-<td align="left">Soft tissues</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">52</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">360</td>
-<td align="left">Non Hodgkin lymphomas</td>
-<td align="left">level_30</td>
-<td align="left">main group</td>
-<td align="right">54</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">370</td>
-<td align="left">Hodgkin lymphomas</td>
-<td align="left">level_30</td>
-<td align="left">main group</td>
-<td align="right">55</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">380</td>
-<td align="left">Multiple myelomas</td>
-<td align="left">level_30</td>
-<td align="left">main group</td>
-<td align="right">56</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">390</td>
-<td align="left">Myelodysplastic syndromes</td>
-<td align="left">level_30</td>
-<td align="left">main group</td>
-<td align="right">57</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">392</td>
-<td align="left">Myeloproliferative diseases</td>
-<td align="left">level_30</td>
-<td align="left">main group</td>
-<td align="right">58</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">394</td>
-<td align="left">Other hematopoietic diseases</td>
-<td align="left">level_30</td>
-<td align="left">main group</td>
-<td align="right">59</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">400</td>
-<td align="left">Leukaemias</td>
-<td align="left">level_20</td>
-<td align="left">main group</td>
-<td align="right">60</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">401</td>
-<td align="left">Acute lymphatic leukaemias</td>
-<td align="left">level_30</td>
-<td align="left">main group</td>
-<td align="right">61</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">402</td>
-<td align="left">Chronic lymphatic leukaemias</td>
-<td align="left">level_30</td>
-<td align="left">main group</td>
-<td align="right">62</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">403</td>
-<td align="left">Other and unspecified lymphatic leukaemias</td>
-<td align="left">level_30</td>
-<td align="left">main group</td>
-<td align="right">63</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">404</td>
-<td align="left">Acute myeloid leukaemias</td>
-<td align="left">level_30</td>
-<td align="left">main group</td>
-<td align="right">64</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">405</td>
-<td align="left">Chronic myeloid leukaemias</td>
-<td align="left">level_30</td>
-<td align="left">main group</td>
-<td align="right">65</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">406</td>
-<td align="left">Other and unspecified myeloid leukaemia</td>
-<td align="left">level_30</td>
-<td align="left">main group</td>
-<td align="right">66</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">407</td>
-<td align="left">Leukaemia, cell unspecified</td>
-<td align="left">level_30</td>
-<td align="left">main group</td>
-<td align="right">67</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">410</td>
-<td align="left">Other specified cancers</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">68</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">420</td>
-<td align="left">Other and ill-defined cancers</td>
-<td align="left">level_30</td>
-<td align="left">both main group and sub group</td>
-<td align="right">69</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">430</td>
-<td align="left">Malignant haematopoietic diseases</td>
-<td align="left">level_13</td>
-<td align="left">main group</td>
-<td align="right">53</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">510</td>
-<td align="left">Lip, oral cavity and pharynx</td>
-<td align="left">level_20</td>
-<td align="left">main group</td>
-<td align="right">4</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">520</td>
-<td align="left">Colorectal</td>
-<td align="left">level_20</td>
-<td align="left">main group</td>
-<td align="right">15</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">888</td>
-<td align="left">Basal cell carcinoma</td>
-<td align="left">level_30</td>
-<td align="left"></td>
-<td align="right">NA</td>
-<td align="right">0</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-</tr>
-<tr class="even">
-<td align="right">970</td>
-<td align="left">All sites but non-melanoma skin cancer, breast and
-prostate</td>
-<td align="left">level_12</td>
-<td align="left">all sites</td>
-<td align="right">3</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">980</td>
-<td align="left">All sites</td>
-<td align="left">level_10</td>
-<td align="left">all sites</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="right">990</td>
-<td align="left">All sites but non-melanoma skin cancer</td>
-<td align="left">level_11</td>
-<td align="left">all sites</td>
-<td align="right">2</td>
-<td align="right">0</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="right">999</td>
-<td align="left">Not included in NORDCAN</td>
-<td align="left">level_30</td>
-<td align="left"></td>
-<td align="right">NA</td>
-<td align="right">0</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-<td align="left">FALSE</td>
-</tr>
-</tbody>
-</table>
-</div>
+<p>An overview of the entities can be found at <a href="https://metadata.kreftregisteret.no/variables/detail/814?tabIndex=4" class="uri">https://metadata.kreftregisteret.no/variables/detail/814?tabIndex=4</a></p>
+<p>Please contact the NRODCAN secretariat at <a href="mailto:sla@kreftregisteret.no" class="email">sla@kreftregisteret.no</a> for information if you need
+details on changes to entities between versions. You can also find some
+information here: <a href="https://github.com/CancerRegistryOfNorway/NORDCAN/wiki/nordcan.R-versions" class="uri">https://github.com/CancerRegistryOfNorway/NORDCAN/wiki/nordcan.R-versions</a></p>
 </div>
 <div id="regions-used-in-nordcan" class="section level1">
 <h1>Regions used in NORDCAN</h1>
 <table>
 <thead>
 <tr class="header">
-<th><strong>ï»¿Value</strong></th>
+<th><strong>﻿Value</strong></th>
 <th><strong>Description</strong></th>
 </tr>
 </thead>
@@ -2277,7 +1475,7 @@ prostate</td>
 </tr>
 <tr class="odd">
 <td>65</td>
-<td>Uppsala-Ã–rebro</td>
+<td>Uppsala-Örebro</td>
 </tr>
 <tr class="even">
 <td>66</td>
@@ -2314,8 +1512,8 @@ has one change: age should be at least 0-99, not 0-90 as the old version
 said.</li>
 <li>10-year survival for breast and prostate is now included</li>
 <li>There has been a small change in the conversion of ICD9 = 154. It
-was previously mapped to C21 and grouped with the entity â€œOther
-specified cancersâ€ but is now mapped to C20 and included in the rectal
+was previously mapped to C21 and grouped with the entity “Other
+specified cancers” but is now mapped to C20 and included in the rectal
 cancer and colorectal cancer entities.</li>
 <li>Cancer cases and cancer deaths without place of residence
 (impossible to put in a specific region) should, according to the call
@@ -2344,6 +1542,13 @@ Vulva</li>
 <li>Added the validation and inclusion of the population projection file
 to the zip-file to be sent to IARC, and updated the description on
 format and valid columns for this file</li>
+</ul>
+</div>
+<div id="nordcan_9.3_1.3" class="section level2">
+<h2>nordcan_9.3_1.3</h2>
+<p><strong>Released:</strong> in progress…</p>
+<ul>
+<li>Removed C94.6 from entity 400 (Leukaemias)</li>
 </ul>
 </div>
 </div>
