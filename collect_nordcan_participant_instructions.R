@@ -1,6 +1,7 @@
 # Import libraries
 library("devtools")
-library("git2r")
+library("git2r"); ## For linux, run this cmd first: sudo apt-get install libssh2-1-dev
+
 
 # This assertion because NORDCAN participants must have R 4.x.x,
 # and packages built with an older version R 3.x.x do not work in R 4.x.x
@@ -24,9 +25,9 @@ pkg_df$file_path <- paste0(
 # create "ssh_folder.txt" which contains the folder for your ssh files 
 # "ssh_folder.txt" is ignored by git (see .gitignore), so it will not 
 # appear on GitHub.
-ssh_folder <- "C:/Users/huti/.ssh/"
-public_ssh_key <- paste0(ssh_folder, "id_rsa.pub")
-private_ssh_key <- paste0(ssh_folder, "id_rsa")
+ssh_folder <- "/home/huti/.ssh/"
+public_ssh_key <- paste0(ssh_folder, "id_ecdsa.pub")
+private_ssh_key <- paste0(ssh_folder, "id_ecdsa")
 stopifnot(
   dir.exists(ssh_folder),
   file.exists(public_ssh_key),
@@ -42,7 +43,7 @@ cred <- git2r::cred_ssh_key(
 nordcan_version <- NULL 
 
 
-for (file_no in 1:nrow(pkg_df))  {
+for (file_no in 7:nrow(pkg_df))  {
   print(file_no)
   file_path <- pkg_df$file_path[file_no]
   zip_path <- sub("\\Q.tar.gz\\E$", ".zip", file_path)
