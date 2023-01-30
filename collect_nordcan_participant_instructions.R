@@ -7,9 +7,9 @@ library("git2r"); ## For linux, run this cmd first: sudo apt-get install libssh2
 # and packages built with an older version R 3.x.x do not work in R 4.x.x
 stopifnot(as.integer(R.Version()[["major"]]) >= 4L)
 
-# package data frame 
+# package data frame
 pkg_df <- read.csv("packages.csv")
-# pkg_df <- read.csv("packages_gitlab.csv") # specially for norway 
+# pkg_df <- read.csv("packages_gitlab.csv") # specially for norway
 
 if (!dir.exists("nordcan_participant_instructions")) {
   dir.create("nordcan_participant_instructions")
@@ -18,12 +18,13 @@ if (dir.exists("nordcan_participant_instructions/pkgs")) {
   unlink("nordcan_participant_instructions/pkgs", recursive = TRUE)
 }
 dir.create("nordcan_participant_instructions/pkgs")
+
 pkg_df$file_path <- paste0(
   "nordcan_participant_instructions/pkgs/", pkg_df[["file_nm"]]
 )
 
-# create "ssh_folder.txt" which contains the folder for your ssh files 
-# "ssh_folder.txt" is ignored by git (see .gitignore), so it will not 
+# create "ssh_folder.txt" which contains the folder for your ssh files
+# "ssh_folder.txt" is ignored by git (see .gitignore), so it will not
 # appear on GitHub.
 ssh_folder <- "/home/huti/.ssh/"
 public_ssh_key <- paste0(ssh_folder, "id_ecdsa.pub")
@@ -40,7 +41,7 @@ cred <- git2r::cred_ssh_key(
 
 
 # download (+build) packages ---------------------------------------------------
-nordcan_version <- NULL 
+nordcan_version <- NULL
 
 
 for (file_no in 7:nrow(pkg_df))  {
@@ -89,7 +90,7 @@ for (file_no in 7:nrow(pkg_df))  {
         unlink(repo_dir, recursive = TRUE, force = TRUE)
       }
       dir.create(repo_dir)
-      
+
       devtools::build(
         pkg = file_path,
         path = zip_path,

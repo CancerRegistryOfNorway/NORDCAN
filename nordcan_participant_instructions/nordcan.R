@@ -110,8 +110,8 @@ gns[c("participant_name",
       "last_year_incidence", "last_year_mortality", "last_year_survival")]
 
 ## Checking whether the directory is empty.
-if (length(list.files(dir_result)) > 0 |
-    length(list.files(dir_archive)) > 0 ) {
+if (length(list.files(dir_result, recursive = TRUE)) > 0 |
+    length(list.files(dir_archive, recursive = TRUE)) > 0 ) {
   stop("Folder 'dir_result' or 'dir_archive' is not empty.
        The following process will overwrite the contents of your folder!
        Users should take their own risk of conducting the following process!")
