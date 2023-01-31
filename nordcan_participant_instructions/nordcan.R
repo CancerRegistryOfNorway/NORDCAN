@@ -319,6 +319,8 @@ nordcanepistats::write_nordcan_statistics_tables_for_sending(statistics)
 
 
 
-
+# run this if you think you have finished here. this cleans up potentially
+# sensitive data in dir_result.
+nordcancore::clean_results()
 
 ## END OF NORDCAN JOURNEY ##
