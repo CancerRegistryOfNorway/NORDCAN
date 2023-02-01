@@ -112,9 +112,9 @@ gns[c("participant_name",
 ## Checking whether the directory is empty.
 if (length(list.files(dir_result, recursive = TRUE)) > 0 |
     length(list.files(dir_archive, recursive = TRUE)) > 0 ) {
-  stop("Folder 'dir_result' or 'dir_archive' is not empty.
-       The following process will overwrite the contents of your folder!
-       Users should take their own risk of conducting the following process!")
+  message("Folder 'dir_result' or 'dir_archive' is not empty.
+The following process will overwrite the contents of your folder!
+Users should take their own risk of conducting the following process!")
 }
 
 
@@ -187,7 +187,6 @@ output_objects <- c("survival_statistics_period_5_dataset",
 output_objects <- NULL
 
 ## After choosing one of above 3 output_objects, run the following to start...
-library(dbc)
 
 statistics <- nordcanepistats::nordcan_statistics_tables(
   cancer_record_dataset           = cancer_record_dataset,
