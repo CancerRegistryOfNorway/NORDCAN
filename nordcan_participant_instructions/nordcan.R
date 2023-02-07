@@ -43,7 +43,7 @@ for (pkg in nordcan_pkg_nms) {
   }
 }
 
-## Close and restart the nordcan.R-script now to ensure that the packages work as expected!!
+## Note: close and reopen RStudio to ensure that the packages work as expected!!
 
 
 #####################################
@@ -68,12 +68,15 @@ for (pkg in nordcan_pkg_nms) {
 path_IARC  <- "path/to/IARCcrgTools/IARCcrgTools.EXE"
 path_STATA <- "path/to/StataMP-64.exe"
 
-## paths of raw dataset (they are not necessarily have to be in csv format,
-## but should have the same names as section(2), 123-126):
+## paths of raw dataset 
 file_incidence  <- "path/to/incidence_2020.csv"
 file_lifetable  <- "path/to/life_table_2020.csv"
 file_population <- "path/to/population_2020.csv"
 file_mortality  <- "path/to/mortality_2020.csv"
+
+## path of population projection data 
+## (if there is no such file, just leave it as it is). 
+file_pop_proj   <- "path/to/general_population_projection_dataset.csv"
 
 ## directory for saving the output of NORDCAN processing.
 dir_result <- "path/to/nordcan2020/"
@@ -81,10 +84,11 @@ dir_result <- "path/to/nordcan2020/"
 ## directory for holding the archived (.zip) result.
 dir_archive <- "path/to/nordcan_archive/"
 
-## path of previous archived result to compared with.
+## path of previous archived statistics result (.zip) to compared with.
 stats_archived <- "path/to/previous_statistics_tables.zip"
 
-## Set up global settings. Remember to modify the 'participant_name' and 'last_year_..'
+## Set up global settings. 
+## Remember to modify the 'participant_name' and 'last_year_..'
 nordcancore::set_global_nordcan_settings(
   work_dir = dir_result,
   participant_name = "Norway", # need to be modified
@@ -99,8 +103,7 @@ nordcancore::set_global_nordcan_settings(
 setwd(dir_result)
 nordcan_version <-  nordcancore::nordcan_metadata_nordcan_version()
 
-
-## Show global setting
+## Show global settings
 gns <- nordcancore::get_global_nordcan_settings()
 gns[c("participant_name", "work_dir", "survival_work_dir", "iarccrgtools_work_dir",
       "first_year_incidence", 
@@ -113,8 +116,7 @@ gns[c("participant_name", "work_dir", "survival_work_dir", "iarccrgtools_work_di
       "last_year_survival")]
 
 ## Checking whether the directory is empty.
-nordcancore::dir_check(dir_result, dir_archive)
-
+nordcanepistats::dir_check(dir_result, dir_archive)
 
 
 ################################################
@@ -140,15 +142,15 @@ saveRDS(cancer_record_dataset, "cancer_record_dataset.rds")
 ## process cancer death count
 cancer_death_count_dataset <-
   nordcanpreprocessing::nordcan_processed_cancer_death_count_dataset(
-    x = unprocessed_cancer_death_count_dataset
-  )
+    x = unprocessed_cancer_death_count_dataset)
 
-## Export undefined ICD version & codes
-nordcancore::export_undefined() 
+## Export undefined ICD version & codes.
+nordcanepistats::export_undefined() 
 
 ## Remove data sets which will not be used in further for saving computer's memory.
-rm(list = c("unprocessed_cancer_record_dataset","unprocessed_cancer_death_count_dataset")); gc()
-
+rm(list = c("unprocessed_cancer_record_dataset",
+            "unprocessed_cancer_death_count_dataset")); 
+gc();
 
 
 ##############################################################################
@@ -171,7 +173,6 @@ output_objects <- c("survival_statistics_period_5_dataset",
 output_objects <- NULL
 
 ## After choosing one of above 3 output_objects, run the following to start...
-
 statistics <- nordcanepistats::nordcan_statistics_tables(
   cancer_record_dataset           = cancer_record_dataset,
   general_population_size_dataset = general_population_size_dataset,
@@ -181,40 +182,33 @@ statistics <- nordcanepistats::nordcan_statistics_tables(
   output_objects = output_objects
 )
 
-## Checking whether there is any error in 'statistics table'
-for (elem_nm in names(statistics))  {
-  elem <- statistics[[elem_nm]]
-  if (inherits(elem, "error")) {
-    message("ERROR: could not produce result ", deparse(elem_nm), "; please ",
-            "report the error printed below to the NORDCAN R framework ",
-            "maintainers (unless you can see that you have made some mistake)")
-    str(elem)
-    NULL
-  }
-}
-
 ## Save result to disk, so you can import it later without re-run above codes.
 stats_current <- paste0("nordcan_", nordcan_version, "_statistics.rds")
 saveRDS(object = statistics, file = stats_current)
-
+## load saved statistics from disk.
+# statistics <- readRDS(stats_current)
 
 
 #############################################################
 ## (4) comparing statistics tables to an older version
 
-## Define which dataset will be compared.
+## list which dataset will be compared.
 ds_nms <- c("cancer_death_count_dataset",
             "cancer_record_count_dataset",
             "prevalent_patient_count_dataset")
 
 comparison <- nordcanepistats::compare_nordcan_statistics(
-  stats_current  = stats_current, stats_archived = stats_archived, ds_nms = ds_nms)
+  stats_current  = stats_current, 
+  stats_archived = stats_archived, 
+  ds_nms = ds_nms)
 
 ## An overall summary of all comparisons
 comparison$summary
 
-## Plot the comparison in figures (.png).
+## Plot the comparison in figures (.pdf).
 nordcanepistats::plot_nordcan_statistics_table_comparisons(comparison)
+
+
 
 ## An example showing the full comparison details
 comparison$comparisons$cancer_record_count_dataset
@@ -231,10 +225,10 @@ comparison$comparisons$cancer_death_count_dataset[
 comparison$comparisons$prevalent_patient_count_dataset[
   region == top_region & (p_value_bh < 0.01 | (abs(stat_value) > 100L)) & full_years_since_entry == "0 - 999",]
 
-## You should deliver this zippd file to the maintainers of the NORDCAN software
-## after examining your results as proof that everything (that has been tested
-## at least) is alright.
 
+## You should deliver this zipped file to the maintainers of the NORDCAN software
+## after checking your results as proof that everything (that has been tested
+## at least) is correct.
 nordcanepistats::write_maintainer_summary_zip(comparison)
 
 
@@ -242,35 +236,15 @@ nordcanepistats::write_maintainer_summary_zip(comparison)
 ##############################################
 ## (5) Saving results for archive & sending
 
-## Add population projection file to nordcan_statistics_tables.
-## If user currently has no such file, just passby the following code block.
-file_pop_proj <- "path/to/general_population_projection_dataset.csv"
-if (file.exists(file_pop_proj)) {
-  data_pop_proj <- data.table::fread(file_pop_proj)
-  if (all(c("year", "sex", "age", "region", "pop_midyear") %in% names(data_pop_proj))) {
-    if (min(data_pop_proj$year) == max(general_population_size_dataset$year)+1) {
-      statistics$general_population_projection_dataset <- data_pop_proj
-    } else {
-      stop("First year of population projection is the year after the last year of the population file")
-    }
-  } else {
-    stop("Population_projection dataset must contain varaibles: 'year', 'sex', 'age', 'region', 'pop_midyear'")
-  }
-}
+## Add population projection file to nordcan statistics tables.
+statistics$general_population_projection_dataset <- 
+  nordcanepistats::evaluate_population_projection(file_pop_proj)
 
 
-## Save result into a .zip file and move it to 'dir_archive'.
+## Save result into a .zip file 
 nordcanepistats::write_nordcan_statistics_tables_for_archive(statistics)
-## target archive file name
-tgt_file_name <- paste0("nordcan_", nordcan_version, "_statistics_tables.zip")
-path_src_file <- paste0(dir_result,  ifelse(grepl("/$", dir_result), "", "/"), "nordcan_statistics_tables.zip")
-path_tgt_file <- paste0(dir_archive, ifelse(grepl("/$", dir_archive), "", "/"), tgt_file_name)
-## move the zip file for archiving.
-if (file.exists(path_tgt_file)) {
-  stop("File already exists: ", path_tgt_file)
-} else {
-  file.rename(from = path_src_file, to = path_tgt_file)
-}
+## and move it to 'dir_archive'.
+nordcanepistats::move_statistic_tables_zip_to_dir_archive(dir_result, dir_archive)
 
 
 ## Saving results for sending. The zip file created by this function should be sent to IARC.
@@ -278,7 +252,6 @@ nordcanepistats::write_nordcan_statistics_tables_for_sending(statistics)
 
 
 # remove sensitive data in 'dir_result' after running the above line.
-nordcancore::clean_results()
-
+nordcanepistats::clean_results()
 
 ## END OF NORDCAN JOURNEY ##
