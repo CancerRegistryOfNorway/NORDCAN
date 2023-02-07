@@ -82,7 +82,7 @@ dir_result <- "path/to/nordcan2020/"
 dir_archive <- "path/to/nordcan_archive/"
 
 ## path of previous archived result to compared with.
-file_archived <- "path/to/previous_statistics_tables.zip"
+stats_archived <- "path/to/previous_statistics_tables.zip"
 
 ## Set up global settings. Remember to modify the 'participant_name' and 'last_year_..'
 nordcancore::set_global_nordcan_settings(
@@ -100,22 +100,20 @@ setwd(dir_result)
 nordcan_version <-  nordcancore::nordcan_metadata_nordcan_version()
 
 
-
 ## Show global setting
 gns <- nordcancore::get_global_nordcan_settings()
-gns[c("participant_name",
-      "work_dir", "survival_work_dir", "iarccrgtools_work_dir",
-      "first_year_incidence", "first_year_mortality", "first_year_prevalence",
-      "first_year_region", "first_year_survival",
-      "last_year_incidence", "last_year_mortality", "last_year_survival")]
+gns[c("participant_name", "work_dir", "survival_work_dir", "iarccrgtools_work_dir",
+      "first_year_incidence", 
+      "first_year_mortality",
+      "first_year_prevalence",
+      "first_year_region", 
+      "first_year_survival",
+      "last_year_incidence", 
+      "last_year_mortality", 
+      "last_year_survival")]
 
 ## Checking whether the directory is empty.
-if (length(list.files(dir_result, recursive = TRUE)) > 0 |
-    length(list.files(dir_archive, recursive = TRUE)) > 0 ) {
-  message("Folder 'dir_result' or 'dir_archive' is not empty.
-The following process will overwrite the contents of your folder!
-Users should take their own risk of conducting the following process!")
-}
+nordcancore::dir_check(dir_result, dir_archive)
 
 
 
@@ -146,24 +144,10 @@ cancer_death_count_dataset <-
   )
 
 ## Export undefined ICD version & codes
-if (exists("._undefined")) {
-  write.table(._undefined, file = "undefined_icd_version_and_codes.csv",
-              row.names = FALSE, sep = ";")
-}
-
-## Export raw records with undefined ICD version & codes
-if (exists("._undefined")) {
-  names_order <- names(unprocessed_cancer_death_count_dataset)
-  tmp <- merge(unprocessed_cancer_death_count_dataset, ._undefined,
-               by = c("icd_version", "icd_code"), all.y = TRUE)
-  fn <- "unprocessed_cancer_death_count_dataset_with_undefined_icd_version_and_codes.csv"
-  write.table(tmp[, ..names_order], file = fn, row.names = FALSE, sep = ";")
-}
+nordcancore::export_undefined() 
 
 ## Remove data sets which will not be used in further for saving computer's memory.
-rm(list = c("unprocessed_cancer_record_dataset",
-            "unprocessed_cancer_death_count_dataset"))
-gc()
+rm(list = c("unprocessed_cancer_record_dataset","unprocessed_cancer_death_count_dataset")); gc()
 
 
 
@@ -210,34 +194,21 @@ for (elem_nm in names(statistics))  {
 }
 
 ## Save result to disk, so you can import it later without re-run above codes.
-saveRDS(object = statistics, file = paste0("nordcan_", nordcan_version, "_statistics.rds"))
+stats_current <- paste0("nordcan_", nordcan_version, "_statistics.rds")
+saveRDS(object = statistics, file = stats_current)
 
 
 
 #############################################################
 ## (4) comparing statistics tables to an older version
 
-## import old and new version of statistics tables
-old_statistics <- nordcanepistats::read_nordcan_statistics_tables(file_archived)
-
-## Read above saved results back into R.
-statistics <- readRDS(paste0("nordcan_", nordcan_version, "_statistics.rds"))
-
 ## Define which dataset will be compared.
 ds_nms <- c("cancer_death_count_dataset",
             "cancer_record_count_dataset",
             "prevalent_patient_count_dataset")
 
-## Start the comparison
-comparison <- nordcanepistats::compare_nordcan_statistics_table_lists(
-  current_stat_table_list = statistics[ds_nms],
-  old_stat_table_list = old_statistics[ds_nms]
-)
-
-## Version number to compared
-version2compare <- regmatches(file_archived, regexec("[0-9]+[.][0-9]+", file_archived))[[1]]
-stopifnot(numeric_version(version2compare) >= "9.0", numeric_version(version2compare) <= "9.10")
-comparison$version2compare <- version2compare
+comparison <- nordcanepistats::compare_nordcan_statistics(
+  stats_current  = stats_current, stats_archived = stats_archived, ds_nms = ds_nms)
 
 ## An overall summary of all comparisons
 comparison$summary
@@ -247,34 +218,23 @@ nordcanepistats::plot_nordcan_statistics_table_comparisons(comparison)
 
 ## An example showing the full comparison details
 comparison$comparisons$cancer_record_count_dataset
-
 ## showing the comparison by filtering the 'p_value_bh' or 'stat_value'.
 comparison$comparisons$cancer_record_count_dataset[p_value_bh < 0.05 | abs(stat_value) > 20,]
-
 ## At a minimum you should inspect suspicious results as follows:
 top_region <- nordcancore::nordcan_metadata_participant_info()[["topregion_number"]]
 comparison$comparisons$cancer_record_count_dataset[
-  region == top_region & (p_value_bh < 0.01 | (abs(stat_value) > 100L)),
-  ]
+  region == top_region & (p_value_bh < 0.01 | (abs(stat_value) > 100L)),]
 ## and
 comparison$comparisons$cancer_death_count_dataset[
-  region == top_region & (p_value_bh < 0.01 | (abs(stat_value) > 100L)),
-  ]
+  region == top_region & (p_value_bh < 0.01 | (abs(stat_value) > 100L)),]
 ## and
 comparison$comparisons$prevalent_patient_count_dataset[
-  region == top_region & (p_value_bh < 0.01 | (abs(stat_value) > 100L)) &
-    full_years_since_entry == "0 - 999",
-  ]
+  region == top_region & (p_value_bh < 0.01 | (abs(stat_value) > 100L)) & full_years_since_entry == "0 - 999",]
 
-## You should deliver this zip to the maintainers of the NORDCAN software
+## You should deliver this zippd file to the maintainers of the NORDCAN software
 ## after examining your results as proof that everything (that has been tested
 ## at least) is alright.
 
-## Including undefined ICD version & codes
-if (file.exists("undefined_icd_version_and_codes.csv")) {
-  undefined_icd <- data.table::fread(file_population)
-  comparison$undefined_icd_version_and_codes <- undefined_icd
-}
 nordcanepistats::write_maintainer_summary_zip(comparison)
 
 
@@ -313,13 +273,12 @@ if (file.exists(path_tgt_file)) {
 }
 
 
-## Saving results for sending. The zip created by this function should be sent to IARC.
+## Saving results for sending. The zip file created by this function should be sent to IARC.
 nordcanepistats::write_nordcan_statistics_tables_for_sending(statistics)
 
 
-
-# run this if you think you have finished here. this cleans up potentially
-# sensitive data in dir_result.
+# remove sensitive data in 'dir_result' after running the above line.
 nordcancore::clean_results()
+
 
 ## END OF NORDCAN JOURNEY ##
