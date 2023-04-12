@@ -1,14 +1,14 @@
 
 ## Instructions
 
-### Official release 2021-05-25
+### Official release 2023-04-28
 
 Each participant should define their own datasets according to the manual
 (nordcan_call_for_data_manual.html) and then compile the statistics by running
 through the script nordcan.R.
 
 It is absolutely paramount that participants look at the results they get
-and the results of the comparison to NORDCAN 9.0 statistics.
+and the results of the comparison to the previous NORDCAN statistics.
 
 
 ### Contact info
@@ -33,7 +33,7 @@ get an idea of what is required of you.
 
 
 ### nordcan_sweden_step3.R
-This script was prepared for Sweden or for these countries having limited computer source. 
+This script was prepared for Sweden or for countries having limited computer source. 
 
 
 ### File nordcan_call_for_data_manual.html
