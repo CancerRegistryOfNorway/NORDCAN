@@ -43,7 +43,7 @@ for (pkg in nordcan_pkg_nms) {
   }
 }
 
-## Note: close and reopen RStudio to ensure that the packages work as expected!!
+## Note: recommend restart RStudio to ensure that the packages work as expected!!
 
 
 #####################################
@@ -163,24 +163,41 @@ output_objects <- c("session_info",
                     "general_population_size_dataset",
                     "cancer_record_count_dataset",
                     "prevalent_patient_count_dataset",
-                    "imp_quality_statistics_dataset" )
+                    "imp_quality_general_statistics_dataset",
+                    "imp_quality_exclusion_statistics_dataset" )
 
 ## b) Run the following line if you want to calculate survival analysis *only*.
-output_objects <- c("survival_statistics_period_5_dataset",
-                    "survival_statistics_period_10_dataset")
+output_objects <- c(
+  "survival_statistics_standardised_survivaltime_05_period_05",
+  "survival_statistics_standardised_survivaltime_05_period_10",
+  "survival_statistics_standardised_survivaltime_10_period_05",
+  "survival_statistics_standardised_survivaltime_10_period_10",
+  
+  "survival_statistics_agespecific_survivaltime_05_period_05",
+  "survival_statistics_agespecific_survivaltime_05_period_10",
+  "survival_statistics_agespecific_survivaltime_10_period_05",
+  "survival_statistics_agespecific_survivaltime_10_period_10"
+)
 
 ## c) Run the following line will generate *all* statistics tables!
 output_objects <- NULL
 
-## After choosing one of above 3 output_objects, run the following to start...
+
+## set "survival_test_sample" to "TRUE" will calculate survival based on a small 
+## sample data to get through the calculation quickly.
+## You need to set it to "FALSE" to conduct calculation on full dataset. 
+survival_test_sample <- TRUE
+
 statistics <- nordcanepistats::nordcan_statistics_tables(
   cancer_record_dataset           = cancer_record_dataset,
   general_population_size_dataset = general_population_size_dataset,
   national_population_life_table  = national_population_life_table,
   cancer_death_count_dataset      = cancer_death_count_dataset,
   stata_exe_path = path_STATA,
-  output_objects = output_objects
+  output_objects = output_objects, 
+  survival_test_sample = survival_test_sample
 )
+
 
 ## Save result to disk, so you can import it later without re-run above codes.
 stats_current <- paste0("nordcan_", nordcan_version, "_statistics.rds")
@@ -207,7 +224,6 @@ comparison$summary
 
 ## Plot the comparison in figures (.pdf).
 nordcanepistats::plot_nordcan_statistics_table_comparisons(comparison)
-
 
 
 ## An example showing the full comparison details
