@@ -12,10 +12,10 @@
 
 ## The following 3-line commands need be run for both steps.
 output_objects_all <- nordcanepistats::nordcan_statistics_tables_output_object_space()
-output_objects_survival <- c("survival_statistics_standardised_survivaltime_05_period_05",
-                             "survival_statistics_standardised_survivaltime_05_period_10",
-                             "survival_statistics_standardised_survivaltime_10_period_05",
-                             "survival_statistics_standardised_survivaltime_10_period_10",
+output_objects_survival <- c("survival_statistics_agestandardised_survivaltime_05_period_05",
+                             "survival_statistics_agestandardised_survivaltime_05_period_10",
+                             "survival_statistics_agestandardised_survivaltime_10_period_05",
+                             "survival_statistics_agestandardised_survivaltime_10_period_10",
                              
                              "survival_statistics_agespecific_survivaltime_05_period_05",
                              "survival_statistics_agespecific_survivaltime_05_period_10",

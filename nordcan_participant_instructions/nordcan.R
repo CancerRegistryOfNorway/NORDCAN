@@ -168,10 +168,10 @@ output_objects <- c("session_info",
 
 ## b) Run the following line if you want to calculate survival analysis *only*.
 output_objects <- c(
-  "survival_statistics_standardised_survivaltime_05_period_05",
-  "survival_statistics_standardised_survivaltime_05_period_10",
-  "survival_statistics_standardised_survivaltime_10_period_05",
-  "survival_statistics_standardised_survivaltime_10_period_10",
+  "survival_statistics_agestandardised_survivaltime_05_period_05",
+  "survival_statistics_agestandardised_survivaltime_05_period_10",
+  "survival_statistics_agestandardised_survivaltime_10_period_05",
+  "survival_statistics_agestandardised_survivaltime_10_period_10",
   
   "survival_statistics_agespecific_survivaltime_05_period_05",
   "survival_statistics_agespecific_survivaltime_05_period_10",
