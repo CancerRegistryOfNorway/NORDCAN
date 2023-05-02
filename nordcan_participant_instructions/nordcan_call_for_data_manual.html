@@ -425,17 +425,16 @@ in NORDCAN</a></li>
 </div>
 
 <ul>
-<li>document build date: 2023-01-24</li>
-<li>build code version: 11c574b385fc96798998d93ba537b6a3226e5f1d</li>
-<li>wiki version: 9739dd1689141f96db48fe005bf24efcfd395b7c</li>
+<li>document build date: 2023-05-02</li>
+<li>build code version: dd1b552147544c4c767903cfa4f69ee08955ce9b</li>
+<li>wiki version: d5cd47db11937d4e845b46df91db011617b8b5e8</li>
 </ul>
 <div id="call-for-data---incidence" class="section level1">
 <h1>Call for data - Incidence</h1>
 <p>The incidence call for data is the main cancer case dataset, and is
 used for both incidence, prevalence and survival. The call for data is
-made to be as similar as possible to the ENCR/JRC call for data. This is
-to make it easier to deliver data for both ANCR-projects and
-ENCR-projects.</p>
+made to be as similar as possible to the JRC/ENCR call for data, but
+does currently not include variables only relevant for JRC/ENCR.</p>
 <div id="data-to-be-extracted-from-each-registry" class="section level2">
 <h2>Data to be extracted from each registry</h2>
 <p>The raw data file should adhere to the specification given below. The
@@ -451,14 +450,12 @@ data file.</p>
 <h3>Preparations</h3>
 <p>We recommend the following: * Cases where end_of_follow_up is before
 date_of_incidence and vit_sta = 3 should be excluded * Cases where
-date_of_incidence is before date_of_birth should can happen if date of
+date_of_incidence is before date_of_birth can happen if date of
 incidence is set to the 1st of the month. These can be corrected
 manually in the dataset before using them in the R-modules, or can be
 excluded * Cases with missing information on region should be included
 in the country total, that is: given the country code as regional code
 (see <a href="https://github.com/CancerRegistryOfNorway/NORDCAN/wiki/Specification-Regions">Regions</a>).</p>
-<p><strong><em>Variables only marked as mandatory for JRC can be
-excluded in NORDCAN</em></strong></p>
 </div>
 <div id="file---type-and-name" class="section level3">
 <h3>File - type and name</h3>
@@ -479,16 +476,14 @@ characters/numbers.</p>
 <col width="2%" />
 <col width="6%" />
 <col width="1%" />
-<col width="2%" />
-<col width="51%" />
-<col width="36%" />
+<col width="52%" />
+<col width="37%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th>Variable name</th>
 <th>Variable label/description</th>
 <th>Format/Size</th>
-<th>Mandatory NORDCAN/JRC</th>
 <th>Coding</th>
 <th>Comment</th>
 </tr>
@@ -498,7 +493,6 @@ characters/numbers.</p>
 <td>pat</td>
 <td>Patient identification code</td>
 <td>F15</td>
-<td>Nordcan / JRC</td>
 <td>Datasize can be max 15, only numbers are allowed <br> One ID can be
 used for several rows (several cases), but is only connected to 1
 person</td>
@@ -508,7 +502,6 @@ person</td>
 <td>date_of_birth</td>
 <td>Date of birth</td>
 <td>A10</td>
-<td>Nordcan</td>
 <td>Valid date yyyy-mm-dd <br> First possible date in JRC is 01.01.1870.
 There is no minimum allowed date in NORDCAN</td>
 <td>According to ISO 8601</td>
@@ -517,7 +510,6 @@ There is no minimum allowed date in NORDCAN</td>
 <td>flag_dob</td>
 <td>Flagging for date of birth</td>
 <td>F1</td>
-<td>Nordcan</td>
 <td>0 = exact date of birth<br>1 = Set date of birth</td>
 <td>Flagging of dates which are “set”/“made” because accurate/exact date
 is missing</td>
@@ -526,7 +518,6 @@ is missing</td>
 <td>age</td>
 <td>Age at diagnosis (in years)</td>
 <td>F3</td>
-<td>Nordcan / JRC</td>
 <td>0 &gt; and &lt; 121</td>
 <td></td>
 </tr>
@@ -534,7 +525,6 @@ is missing</td>
 <td>sex</td>
 <td>Current sex of patient</td>
 <td>F1</td>
-<td>Nordcan / JRC</td>
 <td>1 = Male<br>2 = Female<br>3 = Other &amp; unknown</td>
 <td>“Current sex” is preferred in NORDCAN, <br>“Sex at time of
 diagnosis” or “sex at time of birth” can be used if “Current sex is not
@@ -544,31 +534,13 @@ available. <br>”Sex at birth” is preferred by JRC/ENCR</td>
 <td>region</td>
 <td>Regional place of residence at time of diagnosis</td>
 <td>F2</td>
-<td>Nordcan</td>
 <td>See <a href="https://github.com/CancerRegistryOfNorway/NORDCAN/wiki/Specification-Regions">regions</a></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>geo_code</td>
-<td>Code for geographical area of residence at diagnosis</td>
-<td>A10</td>
-<td>JRC</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>geo_label</td>
-<td>Name of geographical area of residence at diagnosis</td>
-<td>A50</td>
-<td>JRC</td>
-<td></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>tum</td>
 <td>Tumor identification code</td>
 <td>F15</td>
-<td>Nordcan / JRC</td>
 <td>Datasize can be max 15. Only numbers are allowed <br> Only one
 record for each running number is allowed in the raw data file. </td>
 <td>Unique running number for each tumor</td>
@@ -577,7 +549,6 @@ record for each running number is allowed in the raw data file. </td>
 <td>tum_sequence</td>
 <td>Sequence of tumors for each person</td>
 <td>F2</td>
-<td>Nordcan</td>
 <td>Min value = 1, max value not set</td>
 <td>The number of this case in a sequence for the patient, for instance
 1 for the first case, 2 for the second case etc. <br>If synchronous
@@ -590,7 +561,6 @@ number.</td>
 <td>date_of_incidence</td>
 <td>Date of incidence</td>
 <td>A10</td>
-<td>Nordcan</td>
 <td>Valid date yyyy-mm-dd <br> Min allowed value: 01.01.1901 <br> Max
 allowed value: according to user input (index year)</td>
 <td>Necessary for calculations of survival/days of follow up.<br>Will
@@ -603,7 +573,6 @@ date.</td>
 <td>flag_doi</td>
 <td>Flagging for date of incidence</td>
 <td>F1</td>
-<td>Nordcan</td>
 <td>0 = exact date of incidence<br>1 = set date of incidence</td>
 <td></td>
 </tr>
@@ -611,7 +580,6 @@ date.</td>
 <td>bod</td>
 <td>Basis of diagnosis according to ENCR recommendation</td>
 <td>F1</td>
-<td>Nordcan / JRC</td>
 <td>0 = Death certificate only (DCO)<br>1 = Clinical<br>2 = Clinical
 investigation<br>4 = Specific tumor markers<br>5 = Cytology<br>6 =
 Histology of a metastasis<br>7 = Histology of a primary tumor<br>9 =
@@ -624,7 +592,6 @@ includes blood samples, xray etc.</td>
 <td>topo</td>
 <td>Topography in ICDO3, given as Cxxx</td>
 <td>A4</td>
-<td>Nordcan / JRC</td>
 <td>Non-valid values will be picked up by the IARCcrgCheckTool</td>
 <td>Registries need to provide ICDO3 <br> The full four-digit
 character’s ICD-O-3 code should be provided, including the initial
@@ -634,7 +601,6 @@ letter, but without the decimal point (“.”)</td>
 <td>morpho</td>
 <td>First 4 digits of morphology in ICDO3</td>
 <td>F4</td>
-<td>Nordcan / JRC</td>
 <td>Non-valid values will be picked up by the IARCcrgCheckTool</td>
 <td>Registries need to provide ICDO3</td>
 </tr>
@@ -642,7 +608,6 @@ letter, but without the decimal point (“.”)</td>
 <td>beh</td>
 <td>Tumor behavior, 5th digit of morphology</td>
 <td>F1</td>
-<td>Nordcan / JRC</td>
 <td>0 = Benign neoplasm<br>1 = Neoplasm of uncertain and unknown
 behaviour (uncertain whether benign or malignant, “borderline”
 malignant, incipient cancer, bladder papilloma)<br>2 = In-situ neoplasm
@@ -651,57 +616,33 @@ malignant, incipient cancer, bladder papilloma)<br>2 = In-situ neoplasm
 <td></td>
 </tr>
 <tr class="odd">
-<td>grade</td>
-<td>Grade of tumor, 6th digit of morphology</td>
-<td>F1</td>
-<td>JRC</td>
-<td>For solid tumours:<br>1 = Grade 1, Well differentiated<br>2 = Grade
-2, Moderately differentiated<br>3 = Grade 3, Poorly differentiated<br>4
-= Grade IV, Undifferentiated, anaplastic<br><br>For leukaemias and
-lymphomas (only for JRC):<br>5 = T-cell, T-precursor<br>6 = B-cell,
-Pre-B, B-precursor<br>7 = Null cell, Non T-non B<br>8 = NK-cell (natural
-killer cell)<br><br>For all: <br>9 = Unknown or not applicable</td>
-<td>From Jacques: The grade and differentiation code is the 6th digit of
-ICD-O morphological code (see ICD-O-1/2/3) and is optional. <br>In the
-IARC check program “Some histological terms, such as”Seminoma,
-anaplastic” (9062/34) include a grade description. This routine
-identifies these histological terms and checks if the associated grade
-code is correct (ICD-O-3 First revision 2013).”<br>If a grade code is
-provided (which is rather rare), then you can check it with the
-morphological code. You may ignore it in NORDCAN.</td>
-</tr>
-<tr class="even">
 <td>laterality</td>
 <td>Laterality of tumor</td>
 <td>F1</td>
-<td>Nordcan</td>
 <td>0 = Not applicable<br>1 = Right<br>2 = Left<br>3 = Unilateral
 NOS<br>4 = Bilateral<br>9 = Unknown</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>autopsy</td>
 <td>Incidental finding of cancer at autopsy</td>
 <td>F1</td>
-<td>Nordcan / JRC</td>
 <td>0 = No (not found at autopsy)<br>1 = Yes (found at autopsy)<br>9 =
 Unknown</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>vit_sta</td>
 <td>Last known vital status of patient</td>
 <td>F1</td>
-<td>Nordcan / JRC</td>
 <td>1 = Alive<br>2 = Dead<br>3 = Lost to follow up/Censored/Emigrated
 (NORDCAN only)<br>9 = Unknown</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>end_of_followup</td>
 <td>Date for last known vital status</td>
 <td>A10</td>
-<td>Nordcan</td>
 <td>Valid date yyyy-mm-dd <br> Min allowed value: 01.01.1901 <br> Max
 allowed value: according to user input (index year)</td>
 <td>Necessary for calculations of survival/days of follow up.<br>Will
@@ -709,185 +650,12 @@ not be distributed out of the registry.<br>Date of death or emigration
 if Vit_stat = 2 or 3.<br>Last date of follow up if Vit_stat =
 1<br>According to ISO 8601</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>flag_eof</td>
 <td>Flagging for date for end of follow up</td>
 <td>F1</td>
-<td>Nordcan</td>
 <td>0 = exact date for end of follow up<br>1 = set date for end of
 follow up</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>cod</td>
-<td>Official underlying cause of death</td>
-<td>A4</td>
-<td>JRC</td>
-<td>According to relevant version of ICD<br>Blank/R99 =
-Unknown/missing</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>icd</td>
-<td>ICD-edition used for coding cause of death</td>
-<td>F2</td>
-<td>JRC</td>
-<td>Range of allowed values &lt;12<br>99 = unknown/missing</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>tnm_ed</td>
-<td>TNM-edition used</td>
-<td>F2</td>
-<td>JRC</td>
-<td>99 = missing</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>ct</td>
-<td>cT</td>
-<td>A10</td>
-<td>JRC</td>
-<td>JRC Quality Check software will identify non-valid values</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>cn</td>
-<td>cN</td>
-<td>A10</td>
-<td>JRC</td>
-<td>JRC Quality Check software will identify non-valid values</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>cm</td>
-<td>cM</td>
-<td>A10</td>
-<td>JRC</td>
-<td>JRC Quality Check software will identify non-valid values</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>pt</td>
-<td>pT</td>
-<td>A10</td>
-<td>JRC</td>
-<td>JRC Quality Check software will identify non-valid values</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>pn</td>
-<td>pN</td>
-<td>A10</td>
-<td>JRC</td>
-<td>JRC Quality Check software will identify non-valid values</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>pm</td>
-<td>pM</td>
-<td>A10</td>
-<td>JRC</td>
-<td>JRC Quality Check software will identify non-valid values</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>tos</td>
-<td>Type of staging system</td>
-<td>A3</td>
-<td>JRC</td>
-<td>A = Ann Arbor / Lugano stage<br>D = Dukes’ stage<br>E = Extent of
-disease<br>F = FIGO stage<br>S = TNM stage, unknown whether clinical or
-pathological<br>cIS = Clinical TNM stage<br>paS = Pathological TNM
-stage<br>cpS = Combination of clinical &amp; pathological TNM
-stage<br>coS = Condensed TNM stage<br>esS = Essential TNM stage<br>T1 =
-Tier 1 stage for paediatric tumours<br>T2 = Tier 2 stage for paediatric
-tumours<br>8 = Other system<br>9 = Unknown</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>stage</td>
-<td>Stage of tumor</td>
-<td>F1</td>
-<td>JRC</td>
-<td>0 = Stage 0, stage 0a, stage 0is, carcinoma in situ,
-non-invasive<br>1 = Stage I, FIGO I, localized, localized limited (L),
-limited, Dukes A<br>2 = Stage II, FIGO II, localized advanced (A),
-locally advanced, advanced, direct extension, Dukes B<br>3 = Stage III,
-FIGO III, regional (with or without direct extention), R+, N+, Dukes
-C<br>4 = Stage IV, FIGO IV, metastatic, distant, M+, Dukes D<br>9 =
-Unknown</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>surgery</td>
-<td>Surgery</td>
-<td>F1</td>
-<td>JRC</td>
-<td>0 = No<br>1 = Yes, without specification<br>2 = Yes, local surgery
-only<br>3 = Yes, ‘operative’ surgery<br>9 = Unknown</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>rt</td>
-<td>Radiotherapy</td>
-<td>F1</td>
-<td>JRC</td>
-<td>0 = No<br>1 = Yes, without specification<br>2 = Yes, neoadjuvant
-(pre-operative) radiotherapy<br>3 = Yes, adjuvant (post-operative)
-radiotherapy<br>9 = Unknown</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>cht</td>
-<td>Chemotherapy</td>
-<td>F1</td>
-<td>JRC</td>
-<td>0 = No<br>1 = Yes, without other specification<br>2 = Yes,
-neoadjuvant (pre-operative)<br>3 = Yes, adjuvant (post-operative)<br>4 =
-Yes, both neoadjuvant and adjuvant<br>9 = Unknown</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>tt</td>
-<td>Targeted therapy</td>
-<td>F1</td>
-<td>JRC</td>
-<td>0 = No<br>1 = Yes<br>9 = Unknown</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>it</td>
-<td>Immunetherapy</td>
-<td>F1</td>
-<td>JRC</td>
-<td>0 = No<br>1 = Yes<br>9 = Unknown</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>ht</td>
-<td>Hormone therapy</td>
-<td>F1</td>
-<td>JRC</td>
-<td>0 = No<br>1 = Yes<br>9 = Unknown</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>ot</td>
-<td>Other or unspecified therapy</td>
-<td>F1</td>
-<td>JRC</td>
-<td>0 = No<br>1 = Yes, without other specification<br>2 = Yes,
-neoadjuvant (pre-operative)<br>3 = Yes, adjuvant (post-operative)<br>9 =
-Unknown</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>sct</td>
-<td>Stem cell transplantation</td>
-<td>F1</td>
-<td>JRC</td>
-<td>0 = No<br>1 = Yes<br>9 = Unknown</td>
 <td></td>
 </tr>
 </tbody>
@@ -1496,13 +1264,13 @@ information here: <a href="https://github.com/CancerRegistryOfNorway/NORDCAN/wik
 <h1>nordcan.R-versions</h1>
 <div id="nordcan_9.0_1.0" class="section level2">
 <h2>nordcan_9.0_1.0</h2>
-<p><strong>Released:</strong> November 27th, 2020.</p>
+<p><strong>Released:</strong> November 27th, 2020</p>
 <p>First version to serve NORDCAN 2.0. Several updates on both entities
 and methods.</p>
 </div>
 <div id="nordcan_9.1_1.1" class="section level2">
 <h2>nordcan_9.1_1.1</h2>
-<p><strong>Released:</strong> May 28th, 2021.</p>
+<p><strong>Released:</strong> May 28th, 2021</p>
 <p><strong>Changes from previous version:</strong></p>
 <ul>
 <li>Changes to the layout of the script</li>
@@ -1527,7 +1295,7 @@ previous version.</li>
 </div>
 <div id="nordcan_9.2_1.2" class="section level2">
 <h2>nordcan_9.2_1.2</h2>
-<p><strong>Released:</strong> April 8th, 2022.</p>
+<p><strong>Released:</strong> April 8th, 2022</p>
 <p><strong>Changes from previous version:</strong></p>
 <ul>
 <li>General updates to packages and script to keep it up-to-date</li>
@@ -1546,9 +1314,12 @@ format and valid columns for this file</li>
 </div>
 <div id="nordcan_9.3_1.3" class="section level2">
 <h2>nordcan_9.3_1.3</h2>
-<p><strong>Released:</strong> in progress…</p>
+<p><strong>Released:</strong> May 3rd, 2023</p>
 <ul>
+<li>General updates to packages and script to keep it up-to-date</li>
 <li>Removed C94.6 from entity 400 (Leukaemias)</li>
+<li>Added age specific survival</li>
+<li>Added quality tables for incidence/mortality/prevalence</li>
 </ul>
 </div>
 </div>
