@@ -12,7 +12,7 @@ and the results of the comparison to NORDCAN 9.2 statistics.
 
 ### Recommended R-version
 We recommend using R 4.0.3 for running nordcan.R version 9.3_1.3. 
-There might be issues if trying to rund on R 4.2.0 or higher version. 
+There might be issues if trying to run on R 4.2.0 or higher version. 
 
 ### Contact info
 
