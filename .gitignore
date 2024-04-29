@@ -3,7 +3,6 @@
 .RData
 .Ruserdata
 *.Rproj
-wiki
 ssh_folder.txt
 packages_gitlab.csv
 codedoc
