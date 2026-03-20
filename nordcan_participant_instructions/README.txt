@@ -1,31 +1,26 @@
 
 ## Instructions
 
-### Official release 2025-04-04
+### Official release 2026-04-15
 
 Each participant should define their own datasets according to the manual
 (nordcan_call_for_data_manual.html) and then compile the statistics by running
 through the script nordcan.R.
 
 It is absolutely paramount that participants look at the results they get
-and the results of the comparison to NORDCAN 9.4 statistics.
+and the results of the comparison to NORDCAN 9.5 statistics.
 
 ### Recommended R-version
-We recommend using R 4.0.3 for running nordcan.R version 9.5_1.5. 
+We recommend using R 4.0.3 for running nordcan.R version 9.6_1.6. 
 There might be issues if trying to run on R 4.2.0 or higher version. 
 
 ### Contact info
 
-We are available on the NORDCAN slack if you encounter a problem with our
-R packages or if you have questions about the call for data or other
-NORDCAN matters. We ask the participants _not_ to send e-mail concerning these
-matters because we want all the information in one place.
+We have established a Teams-environment for the NORDCAN-group. In the Teams-environment
+there is a separate channel for nordcan.R where questions and issues can be 
+posted.
 
-Link to NORDCAN Slack: https://cancerregistr-hhd6843.slack.com.
-Please discuss issues with the official release under the channel #release 
-(https://app.slack.com/client/TUKT10AHW/C01GD3P45TJ/thread/CU8D8K18B-1677669524.828009).
-If you need to be invited to Slack (you cannot join our Slack despite logging
-into your account), contact sla@kreftregisteret.no.
+Questions can also be sent to siri.laronningen@fhi.no.
 
 ## Files and folders
 
