@@ -1,7 +1,7 @@
 
 ## Instructions
 
-### Official release 2026-04-15
+### Official release 2026-04-28
 
 Each participant should define their own datasets according to the manual
 (nordcan_call_for_data_manual.html) and then compile the statistics by running
